@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /*
+    1.1 for 循环-基本使用
+    目标:掌握for循环重复执行某些代码
+    1. for循环语法
+    作用:重复执行代码
+    好处:把声明起始值、循环条件、变化值写到一起，让人一目了然，它是最常使用的循环形式
+
+    1.1 for 循环-基本使用
+    目标:掌握for循环重复执行某些代码
+    2.退出循环
+    continue 退出本次循环，一般用于排除或者跳过某一个选项的时候，可以使用continue
+    break 退出整个for循环，一般用于结果已经得到，后续的循环不需要的时候可以使用
+    了解:
+    l. while(true)来构造“无限”循环，需要使用break退出循环。
+    2. for(;;)也可以来构造“无限”循环，同样需要使用break退出循环。
+    1. for循环和while循环有什么区别呢:
+    当如果明确了循环的次数的时候推荐使用for循环
+    当不明确循环的次数的时候推荐使用while循环
+
+
+
+    */
+
+    // 利用for循环输出三句话 月薪过万
+    // let i = 1 声明变量并初始化 只执行1次
+    // 进行条件判断 再执行循环体 再变量变化
+    for (let i = 1; i <= 3; i++) {
+      document.write('月薪过万<br>')
+    }
+    // 课堂练习： 输出10句月薪过万，并说出for循环的执行过程
+  </script>
+</body>
+
+</html>

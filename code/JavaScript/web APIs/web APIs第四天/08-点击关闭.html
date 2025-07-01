@@ -1,0 +1,109 @@
+李伟兴 09:31:13
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: relative;
+      width: 1000px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px auto;
+      text-align: center;
+      font-size: 50px;
+      line-height: 200px;
+      font-weight: 700;
+    }
+
+    .box1 {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: skyblue;
+      text-align: center;
+      line-height: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    我是广告
+    <div class="box1">X</div>
+  </div>
+  <div class="box">
+    我是广告
+    <div class="box1">X</div>
+  </div>
+  <div class="box">
+    我是广告
+    <div class="box1">X</div>
+  </div>
+  <script>
+    /*
+    2.2查找节点
+    目标:能够具备根据节点关系查找目标节点的能力
+    关闭二维码案例:
+    点击关闭按钮，关闭的是二维码的盒子，还要获取erweima盒子
+    思考:
+    关闭按钮和erweima 是什么关系呢?
+    父子关系
+    所以，我们完全可以这样做:
+    点击关闭按钮，直接关闭它的爸爸，就无需获取erweima元素了
+    节点关系:针对的找亲戚返回的都是对象
+    父节点
+    子节点
+    兄弟节点
+
+    <div class="erweima">
+    <img src="./images/code.png" alt>
+    <i class="close_btn">x</i
+    </div>
+
+    2.2查找节点
+    父节点查找:
+    parentNode 属性
+    返回最近一级的父节点找不到返回为null
+    子元素.parentNode
+
+
+
+    */
+
+    // // 1. 获取事件源
+    // const box1 = document.querySelector('.box1')
+    // // 2. 事件侦听
+    // box1.addEventListener('click', function () {
+    //   this.parentNode.style.display = 'none'
+    // })
+
+    /*// 1. 获取三个关闭按钮
+    const closeBtn = document.querySelectorAll('.box1') // 得到一个带索引的伪数组
+    for (let i = 0; i < closeBtn.length; i++) {
+      closeBtn[i].addEventListener('click', function () {
+        // 关闭我的爸爸 所以只关闭当前的父元素
+        this.parentNode.style.display = 'none'
+      })
+    }*/
+
+    const closeBtn = document.querySelectorAll('.box1')
+    for (let i = 0; i < closeBtn.length; i++) {
+      closeBtn[i].addEventListener('click', function () {
+        this.parentNode.style.display = 'none'
+      })
+    }
+
+
+  </script>
+</body>
+
+</html>

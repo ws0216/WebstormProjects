@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    /*
+    4.2 操作元素样式属性
+    还可以通过JS设置/修改标签元素的样式属性。
+    比如通过轮播图小圆点自动更换颜色样式
+    点击按钮可以滚动图片，这是移动的图片的位置left等等
+    学习路径:
+    1. 通过 style 属性操作CSS
+    2. 操作 类名(className) 操作CSS
+    3. 通过 classList 操作类控制CSS
+
+    1. 通过 style 属性操作CSS
+    生成的是行内样式表,权重比较高,只有一个!important的权重才比它高
+
+    4.2 操作元素样式属性
+    1.通过 style 属性操作CSS
+    语法:
+    对象.style.样式属性 = 值
+    举例说明
+    const box = document.querySelector('.box')
+    // 修改元素样式
+    box.style.width = '200px'
+    box.style.marginTop = '15px'
+    box.style.backgroundColor = 'pink'
+    注意:
+    1.修改样式通过style属性引出
+    2.如果属性有-连接符，需要转换为小驼峰命名法
+      多组单词的采取 小驼峰命名法  margin-top -> marginTop
+    3.赋值的时候，需要的时候不要忘记加css单位
+
+    总结
+    1.设置/修改元素样式属性通过style
+    属性引出来?
+    2.如果需要修改一个div盒子的样式，比如padding-left,如何写?
+    element.style.paddingLeft='300px'
+    小驼峰命名法
+    3.因为我们是样式属性，一定别忘记，大部分数字后面都需要加单位
+    const box = document.querySelector('.box')
+    // 修改元素样式
+    box.style.width = '200px'
+    box.style.marginTop = '15px'
+    box.style.backgroundColor = 'pink'
+
+    */
+
+    // 1. 获取元素
+    const box = document.querySelector('.box')
+    //2. 修改样式属性 对象.style.样式属性 = '值'  别忘了跟单位
+    box.style.width = '300px'
+    // 多组单词的采取 小驼峰命名法
+    box.style.backgroundColor = 'hotpink'
+    box.style.border = '2px solid blue'
+    box.style.borderTop = '2px solid red'
+  </script>
+</body>
+
+</html>

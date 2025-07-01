@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.5 作用域
+    通常来说，一段程序代码中所用到的名字并不总是有效和可用的，而限定这个名字的可用性的代码范围就是这个名
+    字的作用域。
+    作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。
+
+    全局作用域
+    全局有效
+    作用于所有代码执行的环境(整个script标签内部)
+    或者一个独立的js文件
+
+    局部作用域
+    局部有效
+    作用于函数内的代码环境，就是局部作用域。
+    因为跟函数有关系，所以也称为函数作用域。
+
+    在JavaScript中，根据作用域的不同，变量可以分为:
+    全局变量
+    函数外部let的变量
+    全局变量在任何区域都可以访问和修改
+
+    局部变量
+    函数内部let的变量
+    局部变量只能在当前函数内部访问和修改
+    在函数里面的就是属于局部变量, 关于块作用域也属于局部的
+
+    变量有一个坑，特殊情况:
+    如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐
+    但是有一种情况，函数内部的形参可以看做是局部变量。
+
+    1.JS 中作用域分为哪2种?
+    全局作用域。函数外部或者整个script 有效
+    局部作用域。也称为函数作用域，函数内部有效
+    2.根据作用域不同，变量分为哪2种?
+    全局变量
+    局部变量
+    3.有一种特殊情况是全局变量是那种?我们提倡吗?
+    局部变量或者块级变量没有let声明直接赋值的当全局变量看
+    我们强烈不提倡
+    还有一种特殊情况，函数内部的形参可以当做局部变量看
+
+    函数不调用自己是不执行的
+    fn()
+
+    1.在不同作用域下，可能存在变量命名冲突的情况，到底改执行谁呢?
+    let num = 10 // 全局作用域下
+    function fn() {
+    let num = 20 // 局部作用域下
+    console.log(num)
+    }
+    fn() // 局部变量 num = 20 先找自己当前作用域(局部)
+
+    // for循环里面的 let i 也属于局部变量 只能在for循环里面使用
+    for (let i = 0; i < 3; i++) {
+      document.write('怎么回事呢?')
+    }
+    console.log(i)
+
+    变量的访问原则
+    只要是代码，就至少有一个作用域
+    写在函数内部的局部作用域
+    如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域
+    访问原则:在能够访问到的情况下先局部，局部没有在找全局
+
+    1.变量访问原则是什么?
+      采取就近原则的方式来查找变量最终的值
+
+    案例 1:结果是几?
+    function f1() {
+      let num = 123
+      function f2() {
+        console.log( num )
+      }
+      f2()
+    }
+    let num =456
+    f1()
+
+    function f1() {
+      let num =123
+      function f2() {
+        let num = 0
+        console.log(num)
+      }
+      f2()
+    }
+    let num = 456
+    f1()
+    作用域链:采取就近原则的方式来查找变量最终的值
+
+    let a = 1
+    function fn1() {
+      let a = 2
+      let b = '22'
+      fn2()
+      function fn2() {
+        let a = 3
+        fn3()
+        function fn3() {
+          let a = 4
+          console.log(a) //a的值?
+          console.log (b) //b的值?
+        }
+      }
+    }
+    fn1()
+
+
+
+
+    */
+    let num = 10  // 1. 全局变量
+    console.log(num) //10
+    function fn() {
+      console.log(num) //10
+    }
+    fn()
+
+    // 2. 局部变量
+    function fun() {
+      // function里面的{}是 局部作用域
+      // str 是局部变量 只能在局部使用
+      let str = 'pink'
+    }
+    console.log(str)  // 错误
+  </script>
+</body>
+
+</html>

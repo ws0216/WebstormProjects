@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="yeye">
+    <div class="dad">
+      <div class="baby">x</div>
+    </div>
+  </div>
+  <script>
+    /*
+    02 节点操作
+    // 对标签的增删改查
+    1.1 DOM节点
+    目标:能说出DOM节点的类型
+    DOM节点
+      DOM树里每一个内容都称之为节点
+    节点类型
+      元素节点
+        所有的标签 比如 body、div
+        html是根节点
+      属性节点
+        所有的属性 比如 href
+      文本节点
+        所有的文本
+      其他
+
+    总结
+    1.什么是DOM 节点?
+    DOM树里每一个内容都称之为节点
+    2.DOM节点的分类?
+    元素节点比如 div标签
+    属性节点比如 class属性
+    文本节点比如标签里面的文字
+    3.我们重点记住哪个节点?
+    元素节点
+    可以更好的让我们理清标签元素之间的关系
+
+
+    2.2查找节点  站在关系的角度来查找
+    目标:能够具备根据节点关系查找目标节点的能力
+    关闭二维码案例:
+    点击关闭按钮，关闭的是二维码的盒子，还要获取erweima盒子
+    思考:
+    关闭按钮和 erweima 是什么关系呢?
+    父子关系
+    所以，我们完全可以这样做:
+    点击关闭按钮，直接关闭它的爸爸，就无需获取erweima元素了
+    节点关系: 针对的找亲戚返回的都是dom对象
+    父节点
+    子节点
+    兄弟节点
+
+    <div class="erweima">
+    <img src="./images/code.png" alt>
+    <i class="close_btn">x</i
+    </div>
+
+    2.2查找节点  节点关系: 针对的找亲戚返回的都是dom对象
+    父节点查找:
+    parentNode 属性
+    返回最近一级的父节点找不到返回为null  //返回空对象
+    子元素.parentNode  // 返回dom对象
+
+    子节点查找:
+    childNodes 属性
+    √获得所有子节点、包括文本节点(空格、换行)、注释节点等
+    children 属性(重点)
+    √仅获得所有元素节点
+    √返回的还是一个伪数组
+    父元素.children
+
+    兄弟关系查找:
+    1.下一个兄弟节点
+    nextElementSibling属性  // 下一个元素兄弟
+    next:下一个
+    Element:元素
+    Sibling:兄弟/姐妹 同科同属
+    // 加了Element 就只选元素节点
+    2.上一个兄弟节点
+    previousElementSibling属性  // 上一个元素兄弟
+
+    总结
+    1.查找父节点用哪个属性?
+    parentNode
+    2.查找所有子节点用哪个属性?
+    children
+    3.查找兄弟节点用哪个属性?
+    nextElementSibling
+    previousElementSibling
+
+
+
+
+    */
+    const baby = document.querySelector('.baby')
+    console.log(baby)  // 返回dom对象
+    console.log(baby.parentNode)  // 返回dom对象
+    console.log(baby.parentNode.parentNode)  // 返回dom对象
+
+    console.log(baby.parentNode)
+    console.log(baby.parentElement)
+    console.log(baby.parentNode.parentNode)
+  </script>
+</body>
+
+</html>

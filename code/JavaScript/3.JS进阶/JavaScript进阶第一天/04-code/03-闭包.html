@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.5 闭包
+    目标:能说出什么是闭包，闭包的作用以及注意事项
+    概念:一个函数对周围状态的引用捆绑在一起，内层函数中访问到其外层函数的作用域
+    简单理解:闭包 = 内层函数 + 外层函数的变量
+    先看个简单的代码:
+    function outer() {
+      const a = 1
+      function f() {
+        console.log(a)
+      }
+      f()
+    }
+    outer()
+
+    函数内有函数 外函数函数和内函数是不会有闭包的
+    内层函数用到了外层函数的变量 才会产生闭包
+    外层函数把变量和内层函数全部包含到一起 是包,为什么是闭合的? 该作用域内变量外面人用不了
+
+    右键检查 Sources 打断点
+    Scope: 作用域
+      Local: 局部作用域
+      Closure: 闭包
+      Global: 全局作用域
+
+
+
+    闭包作用:封闭数据，提供操作，外部也可以访问函数内部的变量
+    闭包的基本格式:
+    function outer( ) {
+      let i = 1
+      function fn() {
+        console.log(i)
+      }
+      return fn // 返回fn(fn是一个局部的函数)
+    }
+    const fun = outer()
+    // outer() === fn === function fn() { }
+    // fun() = outer()() = fn()
+    fun( ) // 1
+    //外层函数使用内部函数的变量
+
+    fun是外面的一个函数  fun一调用就打印1(i=1) 就是使用了另外一个函数的内部的一个变量
+    实现了外部函数访问了另外一个函数内部的变量
+    有点类似于把函数内部的变量给予了一个内部函数，这样调用内部函数就等于获取了外层函数中的变量
+
+    //return就是返回，这里返回fn这个函数，fn执行结果为1，所以返回1
+
+    // outer()   ===  fn   ===  function fn() {}
+    // const fun = function fn() { }
+
+    // 简约写法
+    function outer() {
+      let i=1
+      return function () {
+        console.log(i)
+      }
+    const fun = outer()
+    fun() // 调用fun 1
+    //外层函数使用内部函数的变量
+
+    闭包应用:实现数据的私有
+    比如，我们要做个统计函数调用次数，函数调用一次，就++
+    let count =1
+    function fn() {
+      count++
+      console.log(`函数被调用${count}次`)
+    }
+    fn() // 2
+    fn() // 3
+    但是，这个count是个全局变量，很容易被修改
+
+    function fn() {
+      let count =1
+      function fun() {
+        count++
+        console.log(`函数被调用${count}次`)
+      }
+      return fun
+    }
+    const result = fn()
+    result() // 2
+    result() // 3
+    这样实现了数据私有，无法直接修改count
+
+    总结
+    1.怎么理解闭包?
+    闭包 = 内层函数 + 外层函数的变量
+    2.闭包的作用?
+    封闭数据，实现数据私有，外部也可以访问函数内部的变量
+    闭包很有用，因为它允许将函数与其所操作的某些数据(环境)关联起来
+    3.闭包可能引起的问题?
+    内存泄漏
+    有的内存应该被回收 但没有被回收
+
+
+
+
+
+
+
+
+    */
+
+    // 简单的写法
+    // function outer() {
+    //   let a = 10
+    //   function fn() {
+    //     console.log(a)
+    //   }
+    //   fn()
+    // }
+    // outer()
+
+
+    // 常见的闭包的形式   外部可以访问使用 函数内部的变量
+    // function outer() {
+    //   let a = 100
+    //   function fn() {
+    //     console.log(a)
+    //   }
+    //   return fn
+    // }
+
+
+    // outer()   ===  fn   ===  function fn() {}
+    // const fun = function fn() { }
+
+    // // 常见的写法2
+    // function outer() {
+    //   let a = 100
+    //   return function () {
+    //     console.log(a)
+    //   }
+    // }
+    // const fun = outer()
+    // fun() // 调用函数
+
+
+    // 外面要使用这个 10
+
+    // 闭包的应用 
+    // 普通形式 统计函数调用的次数
+    // let i = 0
+    // function fn() {
+    //   i++
+    //   console.log(`函数被调用了${i}次`)
+    // }
+    //  因为 i 是全局变量，容易被修改
+    // 闭包形式 统计函数调用的次数
+    function count() {
+      let i = 0
+      function fn() {
+        i++
+        console.log(`函数fn被调用了${i}次`)
+      }
+      return fn
+    }
+    const fun = count() //这句话是全局 不会被回收 只有在关闭时才会被回收
+    // fun使用了count count里面有且使用了fn函数 fun指向了fn函数 fn函数里面继续用到i++ i有被继续被用到
+    // 从根部Global -> fun -> fn -> i  能找到i 所以i不会被回收
+    fun()
+
+    // 正常来说 执行完一遍之后i应该清除回收 但是因为闭包没有被回收 内存泄露
+
+    function count2() {
+      let i2 = 0
+      function fn2() {
+        i2++
+        console.log(`函数fn2被调用了${i2}次`)
+      }
+      return fn2 //相当于count2() === fn
+    }
+    const fun2 = count2()
+    fun2()
+
+
+
+  </script>
+</body>
+
+</html>

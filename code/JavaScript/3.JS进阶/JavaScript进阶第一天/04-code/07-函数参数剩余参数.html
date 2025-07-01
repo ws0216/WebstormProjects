@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.2 函数参数
+    2.剩余参数
+    1. ...是语法符号，置于最末函数形参之前，用于获取多余的实参
+    2. 借助...获取的剩余实参，是个真数组
+    function config(baseURL,...other) {
+    console.log(baseURL) // 得到'http://baidu.com'
+    console.log(other) // other得到['get','json']
+    //调用函数
+    config('http://baidu.com', 'get', 'json');
+    开发中，还是提倡多使用剩余参数。
+
+    总结
+    1.剩余参数主要的使用场景是?
+    用于获取多余的实参   使用的时候不需要写 ...
+    2.剩余参数和动态参数区别是什么?开发中提倡使用哪一个?
+    动态参数是伪数组
+    剩余参数是真数组
+    开发中使用剩余参数想必也是极好的
+
+    */
+    function getSum(a, b, ...arr) {
+      console.log(arr)  // 使用的时候不需要写 ...
+      // 剩余参数arr是真数组 所以可以调用map,filter等方法
+      // arr.filter()
+    }
+    getSum(2, 3)
+    getSum(1, 2, 3, 4, 5)
+
+
+    function getSum2(a,b,...arr) {
+      console.log(arr)
+    }
+    getSum2(20, 30)
+    getSum2(10, 20, 30, 40, 50)
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动元素不同，只会压住它下面标准流的盒子</title>
+    <style>
+        .box1 {
+            height: 50px;
+            background-color: red;
+        }
+        .box2 {
+            float: left;
+        }
+        .box3 {
+            height: 50px;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>23_布局技巧2</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            /*
+             调整元素里面的文本水平居中,用text-align: center;
+             其实行内元素和行内块元素,在调整位置的时候,都可以像文本一样调整它们,
+             比如文本对齐text-align,文本缩进text-indent,line-height等,都可以操作行内元素和行内块元素
+             */
+            /* 所以也可以把span当成文字去处理 */
+            text-align: center;
+            line-height: 400px;
+        }
+        .inner {
+            background-color: orange;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <span class="inner">出来玩啊？</span>
+    </div>
+</body>
+</html>

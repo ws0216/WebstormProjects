@@ -1,0 +1,228 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+
+/* 修改container的最大宽度为 1280px 根据设计稿来走的,且1280px,1170px,970px,它们的布局是没有变化的,所以无需再给他们制定不同的布局 */
+/* 剩下的其他屏幕大小下的container宽度由bootstrap划分, */
+/* 大于1280px都设置为1280px */
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+
+/* header */
+/* <!-- header是个列,它也有左右15px的padding值,所以这里面的盒子就顶不到最左边,所以需要把这个列在左侧的padding去掉,右侧先不用改 --> */
+/*  权重问题:header在col-md-2的类里面有一个padding-left值,权重为10,
+    而我们写的header标签的权重是1,所以去不掉padding-left值,
+    所以用 !important 提高权重 来把这个列在左侧的padding去掉
+*/
+header {
+    padding-left: 0!important;
+}
+
+.logo {
+    background-color: #429ad9;
+}
+
+.logo img {
+    display: block;
+    /* width: 100%; */
+    /* logo图片不需要缩放 */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+/* 1.我们如果进入了超小屏幕下  logo里面的图片就隐藏起来 */
+
+
+/* 2. 我们事先准备好一个盒子 在logo里面，它平时是隐藏起来的，只有在超小屏幕下显示 */
+
+.logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.nav a::before {
+    /* 图片(字体图标)和文字垂直居中 */
+    vertical-align: middle;
+    /* 给图片(字体图标)右padding把文字往右边挤一挤 */
+    /* 为什么用padding? */
+    padding-right: 5px;
+}
+
+
+/* 当我们进入 小屏幕(小于992px) 还有 超小屏幕的时候 我们 nav 里面的li 浮动起来在一行显示 并且宽度为 20% 小于992px */
+
+@media screen and (max-width: 991px) {
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+    article {
+        margin-top: 10px;
+    }
+}
+
+
+/* 当我们进入 超小屏幕的时候 我们 nav 文字会变成14px  */
+
+@media screen and (max-width: 767px) {
+    .nav li a {
+        font-size: 14px;
+        /* 内边距改小一点 不然里面的字显示不全了 */
+        padding-left: 3px;
+    }
+    /* 当我们处于超小屏幕 news 第一个li 宽度为 100%  剩下的小li  各 50% */
+    .news li:nth-child(1) {
+        /* 注意提高权重 要比下面的权重高 */
+        width: 100%!important;
+    }
+    .news li {
+        width: 50%!important;
+    }
+    .publish h3 {
+        font-size: 14px;
+    }
+}
+
+.news li a {
+    /* 子绝父相 a的孩子p用了绝对定位absolute */
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.news li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    /* 给li右内边距 则里面的内容 a宽度是100%的话就距li的右侧有内边距 则空白缝隙就出来了 因为a属于li里面的内容 */
+    /* 因为所有的li的宽度已经沾满了父亲的宽度,所以不能再给li设置margin值了,
+    不然盒子会掉下来,只能设置padding值  */
+    padding-right: 10px;
+    /* 下边距 */
+    margin-bottom: 10px;
+}
+
+/* 下面的权重会更高一些,会把上面层叠掉 */
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+.news li:nth-child(1) p {
+    /* 第一个li里面的p里面的一行文字要垂直居中 */
+    line-height: 41px;
+    font-size: 20px;
+    /* padding值 上下0px 左右10px 使p里面的文字向右移动10px */
+    padding: 0 10px;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.news li a p {
+    /* 阿里百秀 利用绝对定位定到img的最底端 透明背景 */
+    /* 子绝父相 */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* 宽度和父亲一样宽 */
+    width: 100%;
+    height: 41px;
+    /* 给li里面的a里面的所有的p给上下5px 左右10px */
+    padding: 5px 10px;
+    /* 在bootstrap里面的p默认有一个下外边距,把它去掉就行了 */
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    font-size: 12px;
+    color: #fff;
+}
+
+/* 因为上面的news盒子里面的孩子是浮动的,而news盒子有没有给高度,所以border-top线会跑到上面去,会有问题
+   所以要给上面的news盒子清除浮动,在我们bootstrap里面已经写好了清除浮动的类(clearfix),所以谁要清除浮动就给谁加类名就行了
+*/
+.publish {
+    border-top: 1px solid #ccc;
+}
+
+.publish .row {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.hot p {
+    font-size: 12px;
+}

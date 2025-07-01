@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    /*
+    5.2 显式转换
+    编写程序时过度依靠系统内部的隐式转换是不严禁的，因为隐式转换规律并不清晰，大多是靠经验总结的规律。
+    为了避免因隐式转换带来的问题，通常根逻辑需要对数据进行显示转换。
+    概念:
+    自己写代码告诉系统该转成什么类型
+    转换为数字型
+    > Number(数据)
+    √ 转成数字类型
+    √ 如果字符串内容里有非数字，转换失败时结果为NaN(Not a Number)即不是一个数字
+    √ NaN也是number类型的数据，代表非数字
+    parseInt(数据),parseFloat(数据) 只取前面开头的数字部分
+    parseInt(数据)
+     只保留整数 只保留数字
+    parseFloat(数据)
+     可以保留小数 只保留数字
+
+    转换为字符型:
+    String(数据)
+    变量.toString(进制)
+
+    1.类型转换的概念
+    一种数据类型转成别的类型，JavaScript是弱数据类型，很多情况计算
+    的时候，需要转换数据类型
+    2.隐式转换
+    系统自动做转换
+    3.显式转换
+    自己写代码告诉系统转成什么类型
+    Number
+    字符串内容里有非数字得到NaN
+    String
+
+
+    */
+
+    let str1 = 666
+    console.log(str1) // 数字型 666 蓝色
+    console.log(str1.toString()) // 字符串型666 黑色
+    console.log(typeof str1.toString()) // string
+
+    let str = '123'
+    console.log(Number(str)) //123
+    console.log(Number('pink')) //NaN
+    // let num = Number(prompt('输入年薪'))
+    // let num = +prompt('输入年薪')
+    // console.log(Number(num))
+    // console.log(num)
+    console.log(parseInt('12px'))
+    console.log(parseInt('12.34px'))
+    console.log(parseInt('12.94px'))
+    // parseInt(数据),parseFloat(数据) 只取前面开头的数字部分,如果数字在中间就没法取了
+    console.log(parseInt('abc12.94px')) // NaN 错误的数学操作
+
+    // -------------------
+    console.log(parseFloat('12px')) // 12
+    console.log(parseFloat('12.34px')) // 12.34
+    console.log(parseFloat('12.94px')) // 12.94
+    console.log(parseFloat('abc12.94px')) // NaN 错误的数学操作
+  </script>
+</body>
+
+</html>

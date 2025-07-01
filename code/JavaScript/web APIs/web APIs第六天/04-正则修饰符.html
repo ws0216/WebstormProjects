@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.4修饰符
+    修饰符约束正则执行的某些细节行为，如是否区分大小写、是否支持多行匹配等
+    语法:
+    /表达式/修饰符
+     i 是单词ignore的缩写，正则匹配时字母不区分大小写
+     g 是单词 global的缩写，匹配所有全部满足正则表达式的结果
+    console.log(/a/i.test('a')) // true
+    console.log(/a/i.test('A')) // true
+
+    替换 replace 替换
+    语法:
+    字符串.replace(/正则表达式/, '替换的文本')
+
+
+
+
+
+    */
+    console.log(/^java$/.test('java')) //true
+    console.log(/^java$/.test('Java')) //false
+    console.log(/^java$/i.test('JAVA')) //true
+    console.log(/^java$/i.test('Java')) //true
+    const str = 'java是一门编程语言， 学完JAVA工资很高'
+    // const re = str.replace(/java|JAVA/g, '前端')
+    // str得到的还是原先的字符串 此时考虑str替换完之后有一个返回值 用re接收这个返回值再打印re就行了
+    // 但是这种查找和替换只能取查找一个 现在要的是全局替换 所以再加个g(global)全局
+    // /java/ig: 不区分大小写 全局查找
+    const re = str.replace(/java/ig, '前端')
+    // js中的或是|| 而正则里面的或是|
+    const result = str.replace(/java|JAVA/g, '前端')
+    console.log(re)  // 前端是一门编程语言， 学完前端工资很高
+  </script>
+</body>
+
+</html>

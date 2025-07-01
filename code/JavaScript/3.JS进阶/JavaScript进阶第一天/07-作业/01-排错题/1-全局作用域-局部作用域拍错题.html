@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 拍错题： 下面第16行 与 第19行会报错吗，如果会，怎么改？
+    // const num = 10;
+    //
+    // function getSum() {
+    //   const count = 10;
+    //   console.log(num); // 不会报错 因为num是全局变量
+    // }
+    //
+    // console.log(count); // 会报错 因为count是局部变量
+
+    //改:构成闭包
+    const num = 10;
+
+    function getSum() {
+      console.log(num);
+      const count = 10;
+      function fn() {
+        console.log(count)
+      }
+      return fn
+    }
+
+    // getSum() === fn
+    const fun = getSum()
+    // fun() === fn()
+    fun() //10
+
+
+  </script>
+</body>
+</html>

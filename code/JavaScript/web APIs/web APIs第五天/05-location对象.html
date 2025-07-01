@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <!-- input表单必须要有name属性和值 不然提交不了数据 -->
+    <input type="text" name="username">
+    <input type="password" name="pwd">
+    <button>提交</button>
+    <!-- 点击提交按钮之后 地址栏会显示 05-location对象.html?username=pink&pwd=123456 -->
+  </form>
+
+  <a href="#/my">我的</a>
+  <a href="#/friend">关注</a>
+  <a href="#/download">下载</a>
+  <button class="reload">刷新</button>
+
+  <script>
+    /*
+    src和href的作用都是用于请求资源。
+    区别：
+    1.请求资源类型不同href，超文本引用，用于建立文档与资源的联系，常用的有：link、a。
+    src，将其所指向的资源下载并应用到当前页面，常见的有script、img。
+    2.作用结果不同href，用于文档与资源之间确立联系。
+    src，请求到的资源替换当前内容。
+    3.浏览器的解析不同href，将资源解析成css文件，并行加载请求资源，不会阻塞对当前文档的处理。
+    src，会暂停其他资源的处理，直到该资源加载、解析和执行完毕，将其所指向资源应用到当前内容。
+    这也是为什么把js文件放在底部而不是头部发热原因。
+
+    一，URL的概念
+    Internet上的每一个网页都具有一个唯一的名称标识，通常称之为URL（Uniform Resource Locator, 统一资源定位器）。
+    它是www的统一资源定位标志，简单地说URL就是web地址，俗称“网址”。
+    二，URL的组成
+    URL由三部分组成：
+    资源类型、存放资源的主机域名、资源文件名
+    也可认为由4部分组成：
+    协议、主机、端口、路径。（很多时候端口都是隐藏的）
+    还可以认为由7部分组成：
+    协议，域名，端口，虚拟目录，文件名，锚，参数
+    URL的一般语法格式：
+    (带方括号[]的为可选项)
+    protocol :// hostname[:port] / path / [;parameters][?query]#fragment
+
+
+    1.4 location对象
+    location 的数据类型是对象，它拆分并保存了URL地址的各个组成部分
+    常用属性和方法:
+    href 属性获取完整的URL地址，对其赋值时用于地址的跳转
+    search 属性获取地址中携带的参数，符号?后面部分
+    hash 属性获取地址中的啥希值，符号#后面部分
+    reload 方法用来刷新当前页面，传入参数true时表示强制刷新
+
+    href 属性获取完整的URL地址，对其赋值时用于地址的跳转
+    // 可以得到当前文件URL地址
+    console.log(location.href)
+    // 可以通过js方式跳转到目标地址
+    location.href = 'http://www.itcast.cn'
+
+    search 属性获取地址中携带的参数，符号?后面部分
+    console.log(location.search)
+    // username=pink&pwd=123456
+
+    hash 属性获取地址中的哈希值，符号#后面部分
+    console.log(location.hash)
+    后期vue路由的铺垫，经常用于不刷新页面，显示不同页面，比如网易云音乐 页面不需要跳转就可以切换内容 是通过网址栏里面#后面的值来发生变化的
+
+    reload 方法用来刷新当前页面，传入参数true时表示强制刷新
+    <button>点击刷新</button>
+    <script>
+    let btn = document.querySelector('button' )
+    btn.addEventListener('click'，function () {
+        location.reload(true)
+        // 强制刷新 类似 ctrl + f5
+    }
+
+    总结
+    location.href 属性获取完整的 URL 地址，对其赋值时用于地址的跳转
+    search 属性获取地址中携带的参数，符号? 后面部分
+    hash 属性获取地址中的啥希值，符号# 后面部分
+    reload 方法用来刷新当前页面，传入参数 true 时表示强制刷新
+
+
+
+
+    */
+    // console.log(window.location)
+    // console.log(location)
+    // console.log(location.href)
+    // 1. href 经常用href 利用js的方法去跳转页面
+    // location.href = 'http://www.baidu.com'
+    const reload = document.querySelector('.reload')
+    reload.addEventListener('click', function () {
+      // f5 刷新页面
+      // location.reload()
+      // 强制刷新  ctrl+f5
+      location.reload(true)
+    })
+  </script>
+</body>
+
+</html>

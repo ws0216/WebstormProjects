@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>03_浮动的小练习</title>
+    <style>
+        /*
+        因为给父亲.outer加了边框,所以父亲.outer就不会抢他第一个孩子的margin-top和最后一个孩子的margin-bottom
+         外边距合并问题:盒子1的margin-bottom和盒子2的margin-top合并了,直接变成10px */
+        .outer {
+            width: 500px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+        }
+        /*
+        盒子1太高了,就把盒子3卡住了
+        */
+        .box1 {
+            height: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>10_vertical-align</title>
+    <style>
+        div {
+            font-size: 100px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        span {
+            font-size: 40px;
+            background-color: orange;
+            /* vertical-align:用于控制元素在其所在那一行的垂直方向上的对齐方式
+            middle: 使元素的中部与其父元素x-height的一半即中心点对齐*/
+            vertical-align: middle;
+        }
+        img {
+            /* 图片img,给它宽或高,则其相对应的高和宽就会自适应
+             img也是默认与基线对齐
+             当图片比字体小的时候:使img的中部与其父元素x-height的一半即中心点对齐
+             当图片比字体大的时候:与基线对齐
+             当给img设置vertical-align: top/bottom;时,图片没动,文字在动
+             这一行的高度由这一行里面最高的那个人决定,而这一行里面最高的是这个图片img是150px,而字的高度是100px,所以这个高度是由图片决定的
+             但是当调整vertical-align的时候,整个这一行是定死了的,在调整图片的对齐方式的时候,既然图片不能动了,那文字就动呗.当然如果图片比文字小的时候就是图片在动,就没有这个问题
+
+             vertical-align:注意点
+             1.不能直接控制该元素里的文字位置,能控制的应该是该元素里面的子元素
+             2.不能控制块级元素
+             3.但是可以用在单元格<td class="san"></td>上
+
+             */
+            height: 30px;
+            vertical-align: top;
+        }
+        .san {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        atguigu尚硅谷x<span>x前端</span>
+    </div>
+    <hr>
+    <div>
+        atguigu尚硅谷x<img src="../images/我的自拍.jpg">
+    </div>
+    <hr>
+    <table border="1" cellspacing="0">
+        <caption>人员信息</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr height="200">
+                <!--
+                valign是一个html属性
+                <td valign="bottom">张三</td>
+
+                vertical-align是一个css属性,可以用在单元格<td class="san"></td>上
+                .san {
+                vertical-align: bottom;
+                }
+                 -->
+                <td class="san">张三</td>
+                <td>18</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>20</td>
+                <td>女</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

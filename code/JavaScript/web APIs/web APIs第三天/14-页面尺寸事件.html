@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      display: inline-block;
+      /* width: 200px; */
+      height: 200px;
+      background-color: pink;
+      padding: 10px;
+      border: 20px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>123123123123123123123123123123123123123</div>
+  <script>
+    /*
+    03 其他事件
+    页面尺寸事件
+    目标:掌握新的事件，做更强交互
+
+    3.3 页面尺寸事件
+    会在窗口尺寸改变的时候触发事件:
+    resize
+    window.addEventListener('resize',function () {
+      // 执行的代码
+    })
+    resize: 重新改尺寸的意思
+    在基础班里面学过文本域 文本域鼠标放到右下角可以拖拽 如果把resize改弄none 就不让你去拖拽了
+    检测屏幕宽度:
+    window.addEventListener('resize',function () {
+      // clientWidth 不包括border和margin
+      let w = document.documentElement.clientWidth
+      console.log(w)
+    })
+
+    3.3 页面尺寸事件-获取元素宽高
+    获取宽高:
+    获取元素的可见部分宽高(不包含边框，margin，滚动条等)
+    clientWidth和clientHeight
+
+
+
+
+    */
+    const div = document.querySelector('div')
+    console.log(div.clientWidth)
+    // resize 浏览器窗口大小发生变化的时候触发的事件
+    window.addEventListener('resize', function () {
+      console.log(1)
+    })
+  </script>
+</body>
+
+</html>

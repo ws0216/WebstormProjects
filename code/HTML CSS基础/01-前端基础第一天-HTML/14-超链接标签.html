@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接标签</title>
+</head>
+<body>
+      <h4>1.外部链接</h4>必须添加<strong>http://</strong>
+        <a herf="跳转目标" target="目标窗口的弹出方式">文本或图像</a>
+<br />  href:链接目标地址
+<br />  target：链接页面打开方式
+<br />  默认的值是 _self 当前窗口打开页面  _blank新窗口打开页面
+<br />  <a href="http://www.qq.com" target="_self">腾讯</a>
+<br />  <a href="http://www.qq.com" target="_blank">腾讯</a>
+<br />  <a href="http://www.itcast.cn" target="_blank">传智播客</a>
+      <h4>2.内部链接：网站内部页面之间的相互链接</h4>
+      <!--是目录文件夹中的两个页面的相互跳转(在同一级,直接写名字即可),所以叫做内部链接-->
+        <a href="gongsijianjie.html" target="_blank">公司简介</a>
+      <h4>3.空链接：#</h4>当时没有确定链接目标时
+<br />   <a href="#">公司地址</a>
+      <h4>4.下载链接：地址链接的是 文件 .exe 或者是 zio 等压缩包形式</h4>
+             会下载这个文件
+<br />   <a href="img.zip">下载文件</a>
+      <h4>5.网页元素的链接：在网页中的各种网页元素，如文本、图像、表格、音频、视频等都可以添加超链接</h4>
+        <a href="http://www.baidu.com"><img src="img.jpg"/></a>
+      <h4>6.锚点链接：点我们点击链接，可以快速定位到页面中的某个位置.</h4>    在href属性中，设置属性值为#名字的形式，如在<a href="#two">第2集</a> <br />  找到目标位置标签，里面添加一个id属性=刚才的名字，如<h3 id="two">第2集介绍</h3>
+<br />在链接文本中的href属性=中要写 #
+<br />在目标位置标签的id属性=不要写 #
+</body>
+</html>

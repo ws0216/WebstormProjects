@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.4函数返回值
+    提问:什么是函数?
+    函数是被设计为执行特定任务的代码块
+    提问:执行完特定任务之后，然后呢?
+    把任务的结果给我们
+    缺点:把计算后的结果处理方式写死了，内部处理了
+    解决:把处理结果返回给调用者
+    有返回值函数的概念:
+     当调用某个函数，这个函数会返回一个结果出来
+     这就是有返回值的函数
+
+     其实我们前面已经接触了很多的函数具备返回值:
+    let result = prompt('请输入你的年龄?')
+    let result2 = parseInt('111')
+    只是这些函数是JS底层内置的.我们直接就可以使用
+    当然有些函数，则没有返回值
+    alert('我是弹框，不需要返回值')
+    所以要根据需求，来设定需不需要返回值
+
+    当函数需要返回数据出去时，用return关键字
+    语法
+    return 数据
+    return 20
+    怎么使用呢?
+    function getSum(x,y) {
+    return x+y
+    }
+    let num = getSum(10,30)
+    document.write(num)
+
+    三.有返回值的函数
+    细节:
+    在函数体中使用return 关键字能将内部的执行结果交给函数外部使用
+    return 后面代码不会再被执行，会立即结束当前函数，所以return 后面的数据不要换行写
+    return函数可以没有return，这种情况函数默认返回值为undefined
+
+    1.为什么要让函数有返回值
+    函数执行后得到结果，结果是调用者想要拿到的(一句话，函数内部不
+    需要输出结果，而是返回结果)
+    对执行结果的扩展性更高,可以让其他的程序使用这个结果
+    2.函数有返回值用那个关键字?有什么注意事项呢?
+      语法:return 数据
+      return后面不接数据或者函数内不写return，函数的返回值是undefined
+    return能立即结束当前函数,所以return 后面的数据不要换行写
+    断点调试:进入函数内部看执行过程F11
+    F11 进入函数体 就是↓下面加一个圆点
+    F10 不进入函数体 旋转的箭头
+
+    思考: 如何返回多个数据?
+    返回的是一个数组 把所有符合条件的筛选出来 返回一个数组
+    return [max, min]
+    // return max,min 或者 return (max,min)  返回的结果都是min // return min
+    // 因为 , 逗号运算符的运算规则是: 取逗号右边的结果
+
+    1.4 函数细节补充
+    两个相同的函数后面的会覆盖前面的函数
+    在Javascript中实参的个数和形参的个数可以不一致
+    如果形参过多会自动填上undefined(了解即可)
+    // (2). 实参少于形参   剩余的实参不参与运算
+    fn(1)   // 1 + undefined  = NaN
+    如果实参过多那么多余的实参会被忽略(函数内部有一个arguments,里面装着所有的实参)
+    函数一旦碰到return就不会在往下执行了函数的结束用return
+    思考:break的结束和return结束有什么区别?
+    return 结束函数
+    break 结束循环或者是switch
+
+
+
+
+    */
+    // // 函数的返回值
+    // function fn() {
+    //   return 20
+    // }
+    // // fn() 调用者 相当于执行了    fn()   = 20
+    // // return 的值返回给调用者
+    // // console.log(fn())
+    // // let num = prompt('请输入数字')
+    // let re = fn()
+    // console.log(re)
+
+    // 求和函数的写法
+    function getTotalPrice(x, y) {
+      // return 后面返回的值 就在return后面同一行写 不要换行
+      // return  为空的 没有东西 sum没有接收到任何值 sum就为undefined
+      return x + y
+      // return 后面的代码不会被执行
+    }
+    // console.log(getTotalPrice(1, 2))
+    // console.log(getTotalPrice(1, 2))
+    let sum = getTotalPrice(1, 2)
+    console.log(sum)
+    console.log(sum)
+
+    function fn() {
+
+    }
+    let re = fn()
+    console.log(re)  // undefined
+  </script>
+</body>
+
+</html>

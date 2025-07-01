@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    为什么有json格式？因为不同的编程语言字符串基本都是双引号。有的编程语言字符串支持单引号，但是有的不行
+
+    所以为了统一，就出现了json格式数据，可以在不同编程语言中传输数据。
+
+    */
+
+    // 1. 这是后台传递过来的数据
+    // 都是双引号 是Jason对象
+    const msg = {
+      "code": 200,
+      "msg": "获取新闻列表成功",
+      "data": [
+        {
+          "id": 1,
+          "title": "5G商用自己，三大运用商收入下降",
+          "count": 58
+        },
+        {
+          "id": 2,
+          "title": "国际媒体头条速览",
+          "count": 56
+        },
+        {
+          "id": 3,
+          "title": "乌克兰和俄罗斯持续冲突",
+          "count": 1669
+        },
+
+      ]
+    }
+
+    // 需求1： 请将以上msg对象  采用对象解构的方式 只选出  data 方面后面使用渲染页面
+    // 只写一个data变量 只和msg对象里面的data匹配 多余的无视
+    // const { data } = msg
+    // console.log(data)
+
+    // 需求2： 上面msg是后台传递过来的数据，我们需要把data选出当做参数传递给 函数
+    // const { data } = msg
+    // msg 虽然很多属性，但是我们利用解构只要 data值
+    //
+    // 在传参(实参传给形参)的时候 进行了对msg对象的解构赋值
+    function render({ data }) {
+      // const { data } = arr
+      // 我们只要 data 数据
+      // 内部处理
+      console.log(data)
+
+    }
+    render(msg)
+
+    // 需求3， 为了防止msg里面的data名字混淆，要求渲染函数里面的数据名改为 myData
+    function render({ data: myData }) {
+      // 要求将 获取过来的 data数据 更名为 myData
+      // 内部处理
+      console.log(myData)
+
+    }
+    render(msg)
+
+
+    const msg2 = {
+      "code": 200,
+      "msg": "获取新闻列表成功",
+      "data": [
+        {
+          "id": 1,
+          "title": "5G商用自己，三大运用商收入下降",
+          "count": 58
+        },
+        {
+          "id": 2,
+          "title": "国际媒体头条速览",
+          "count": 56
+        },
+        {
+          "id": 3,
+          "title": "乌克兰和俄罗斯持续冲突",
+          "count": 1669
+        },
+
+      ]
+    }
+    function render2({data}) {
+      console.log(data);
+    }
+    render2(msg2)
+
+    function render2({data:myData}) {
+      console.log(myData);
+    }
+    render2(msg2)
+
+
+
+  </script>
+</body>
+
+</html>

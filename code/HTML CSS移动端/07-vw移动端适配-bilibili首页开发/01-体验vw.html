@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+    目标:实现在不同宽度的设备中，网页元素尺寸等比缩放效果
+    vw单位尺寸
+    1.确定设计稿对应的vw尺寸(1/100视口宽度)
+    查看设计稿宽度→ 确定参考设备宽度(视口宽度)→ 确定vw尺寸(1/100 视口宽度)
+    2.vw单位的尺寸=px单位数值/(1/100视口宽度)
+
+    vh单位尺寸
+    1. 确定设计稿对应的vh尺寸(1/100视口高度)
+    查看设计稿宽度 → 确定参考设备高度(视口高度)→ 确定vh尺寸(1/100 视口高度)
+    2.vh单位的尺寸=px单位数值/(1/100 视口高度)
+    思考:开发中，会不会vw和vh混用呢?
+    不会。
+    vh是1/100视口高度，全面屏视口高度尺寸大，如果混用可能会导致盒子变形。
+
+    1vw和1%的区别: 见截图第六天md 在哪?
+
+
+
+    */
+    .box {
+      /* width: 100px;
+      height: 100px; */
+      width: 26.6666vw;
+      height: 26.6666vw;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

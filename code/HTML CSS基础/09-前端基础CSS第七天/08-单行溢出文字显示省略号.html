@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单行文本溢出显示省略号</title>
+    <style>
+        div {
+            width: 150px;
+            height: 80px;
+            background-color: pink;
+            margin: 100px auto;
+            /* 这个单词的意思是如果文字显示不开自动换行 */
+            /* white-space: normal; */
+            /* 1.这个单词的意思是如果文字显示不开也必须强制一行内显示 */
+            white-space: nowrap;
+            /* 2.溢出的部分隐藏起来 */
+            overflow: hidden;
+            /* 3. 文字溢出的时候用省略号来显示 */
+            /* clip 剪掉 夹住 */
+            /* ellipsis 省略 */
+            text-overflow: ellipsis;
+        }
+        .box {
+            height: 100px;
+        }
+        /*.box1 {
+            background-color: red;
+        }
+        .box2 {
+            background-color: blue;
+        }
+        .box3 {
+            background-color: red;
+        }
+        .box4 {
+            background-color: blue;
+        }
+        .box3,.box4 {
+            display: inline-block;
+            float: left;
+        }*/
+    </style>
+</head>
+<body>
+    <div>
+        啥也不说，此处省略一万字
+    </div>
+    <div class="box box1">
+        <!--<img src="images/abcd.jpg" alt="">
+        <img src="images/abcd.jpg" alt="">-->
+    </div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+</body>
+</html>

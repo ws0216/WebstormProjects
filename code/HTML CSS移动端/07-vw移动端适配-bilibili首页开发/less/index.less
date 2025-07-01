@@ -1,0 +1,255 @@
+// 导入base.less
+@import url(base.less);
+// 声明基准值变量 vmin是单位
+@baseSize: 3.75vmin;
+
+/* vmin单位:宽度和高度,选其中更小的来进行适配 */
+/* 在vscode里面 Ctrl+h:替换 把vw替换成了vmin 这样的话 原来手机竖屏显示时宽度更小就是用宽度来进行适配 现在如果手机横屏显示时高顿更小就是用高度来进行适配  */
+
+// 顶部盒子 里面不需要写内容 再分上下两个盒子就可以了
+.suspension {
+  // 固定定位 固定在头部
+  position: fixed;
+  top: 0;
+  left: 0;
+  // 宽度和父亲一样宽 固定定位的盒子必须有宽 不给高度 让里面内容撑开高度
+  width: 100%;
+  /* 提高 */
+  // 因为都有定位 在拖动主体部分时头部又要压住下面 所以要提高头部
+  z-index: 999;
+  /* 白色背景色 */
+  background-color: #fff;
+  /* 有阴影 */
+  box-shadow: 0 0.53333vmin 2.66667vmin rgb(0 0 0 / 20%);
+
+  .m-navbar {
+    padding: 0 (12 / @baseSize) 0 (18 / @baseSize);
+    // 给一个高度 再让它垂直居中
+    height: (44 / @baseSize);
+    // 开启flex布局
+    display: flex;
+    // 主轴对齐方式:两边对齐
+    justify-content: space-between;
+    // 侧轴对齐方式:(垂直)居中
+    align-items: center;
+
+    .logo {
+      i {
+        // 字体图标默认有 16px 的文字大小 所以要给 i 改字体大小 才能层叠掉 不能给a改 因为继承的权重为 0
+        font-size: (28 / @baseSize);
+        color: #fb7299;
+      }
+    }
+
+    // right一定要写display: flex; 写完才能给里面的a和btn设置大小,才能在同一行上
+    // 右侧盒子是不用给宽的,所以给中间盒子face一个margin值挤开就可以了
+    .right {
+      display: flex;
+
+      // 放大镜
+      .search {
+        // 放大镜颜色
+        color: #ccc;
+
+        i {
+          // 修改文字大小
+          font-size: (22 / @baseSize);
+        }
+      }
+
+      // 一定要给盒子指定大小 不要给图img指定大小
+      // 要给后面这两个盒子指定大小,不要给图指定大小
+      // 图就各自100%宽和高(但是不用自己写,因为base.css初始化里面已经写好了)
+      .face {
+        // 多余的切掉
+        overflow: hidden;
+        width: (24 / @baseSize);
+        height: (24 / @baseSize);
+        // 加一个小圆角
+        border-radius: 50%;
+        margin: 0 (20 / @baseSize);
+      }
+
+      .app-btn {
+        width: (72 / @baseSize);
+        height: (24 / @baseSize);
+
+      }
+    }
+  }
+
+  // 频道
+  .channel-menu {
+    // 子(line)绝父相 子盒子以父盒子channel-menu为准 老师这里的线是不压着channel-menu的下边框的 在下边框的上面 到底压不压?
+    position: relative;
+    // 开启flex布局
+    display: flex;
+    // 沿主轴左右两侧对齐 左边对齐左侧 右边对齐右侧
+    justify-content: space-between;
+    // 侧轴对齐方式:(垂直)居中
+    align-items: center;
+    height: (40 / @baseSize);
+    border-bottom: 1px solid #e7e7e7;
+
+    // tabs 里面内容很多很长 可以左右拉动
+    // 是导航栏 但是在移动端的导航栏里面不需要写li,直接放a就行,越简单越好
+    .tabs {
+      // 溢出隐藏
+      overflow: hidden;
+      // 除去after的宽度,剩下的宽度全部给左侧的tabs
+      flex: 1;
+
+      // tabs-list(tabs的小项目) 不需要给宽,你有多少孩子就就撑多宽就行了,直到拉不动为止
+      // 此处的tabs-list是不给宽度的,所以不给justify-content: space-around;
+      // 要给padding值
+      .tabs-list {
+        // 因为a是行内元素,不能指定padding值,所以要给a的父亲开启flex布局,这样a就可以给大小了,也能在一行上显示了
+        // flex特点:不换行在一行上显示,如果里面的小盒子内容越多就会把里面的小盒子挤得超级小,小盒子里面的文字横着装不开就只能竖着显示了
+        display: flex;
+
+        a {
+          // 为什么用padding值,不用margin值?
+          // 因为padding值包含在a的范围里面,可以让a的点击范围更大,使移动端体验感更好
+          padding: 0 (16 / @baseSize);
+          // 我们不需要文字换行 让小盒子内的文字不换行
+          white-space: nowrap;
+          font-size: (14 / @baseSize);
+          // 给 a 高度 其实是使a的范围变大
+          height: (40 / @baseSize);
+          // 让 a 垂直居中
+          line-height: (40 / @baseSize);
+        }
+
+        // 粉红色的线是个div盒子 用transform的translateX()属性 一点击这个左右摇动
+        // 这个线总是跟着a来走的 每个a都有自己的坐标 当我点完之后只需要把当前的坐标给这个div 这个div就会慢慢地跑过来
+        // 这条线的移动位置受当前a的影响
+        // 所以下边框线的位置取决于点击的a的位置
+        .line {
+          // 绝对定位
+          position: absolute;
+          left: (16 / @baseSize);
+          // 离底部距离为0
+          bottom: 0;
+          width: (28 / @baseSize);
+          height: (2 / @baseSize);
+          background-color: #fb7299;
+        }
+      }
+    }
+
+    // after 小三角
+    .after {
+      // 剩下的宽度全部给左侧
+      width: (40 / @baseSize);
+      // 因为它是垂直居中的,没有给高度,所以还是要给一个高度
+      // 高度少给1px,就不会因为它的白色挡住channel-menu的border-bottom下边框的灰色的线了
+      height: (39 / @baseSize);
+      // 水平居中
+      text-align: center;
+      // 垂直居中
+      line-height: (39 / @baseSize);
+      background-color: #fff;
+      color: #ccc;
+
+      // 字体图标用i来做
+      i {
+        // 给i改字体大小
+        font-size: (20 / @baseSize);
+      }
+    }
+  }
+
+}
+
+// 主体部分
+.m-home {
+  padding: (85 / @baseSize) (5 / @baseSize) 0;
+
+  // 主体里面包含很多个video-list模块
+  // video-list里面的a有宽也有高 在同一行上 通过flex布局来做
+  // 但是开启flex布局的父盒子里面的所有子盒子都会沿着全部一行排列,不换行
+  // 我们需要让a换行
+  .video-list {
+    display: flex;
+    // 让弹性盒子换行
+    flex-wrap: wrap;
+
+    // video-item是a的类名
+    .video-item {
+      // 宽度用50%的话就不能用margin值了,否则宽度不够就会挤开掉下来
+      width: 50%;
+      // 不用给高度 让其内容自动撑开
+      // 不要给margin
+      padding: (8 / @baseSize) (5 / @baseSize);
+
+      // 没给宽度 宽度和父亲父亲一样宽
+      .card {
+        // 子绝父相
+        position: relative;
+        height: (97 / @baseSize);
+
+        // 播放量
+        .count {
+          // 绝对定位 的盒子的大小取决于内容的大小 没有内容就看不见 要给个宽度
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          // 宽度和父亲一样宽
+          width: 100%;
+          height: (27 / @baseSize);
+          padding: 0 (5 / @baseSize);
+          display: flex;
+          // 使count里面的span
+          // 沿着主轴左右两侧对齐
+          justify-content: space-between;
+          // 沿着侧轴居中 垂直居中
+          align-items: center;
+          font-size: (12 / @baseSize);
+          color: #fff;
+          // 背景渐变 默认从上到下 上面是透明 如果记不得就rgba(0,0,0,0.5)
+          background-image: linear-gradient(transparent, red);
+        }
+      }
+
+      .title {
+        margin-top: (5 / @baseSize);
+        font-size: (12 / @baseSize);
+        // base.css文件里面写好了.ellipsis-2  使得title里面文字超过2行就用省略号显示
+        /* .ellipsis-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  } */
+
+      }
+    }
+  }
+}
+
+// 底部模块
+.app {
+  // 固定定位的盒子不需要父亲
+  position: fixed;
+  left: 0;
+  bottom: (30 / @baseSize);
+  width: 100%;
+  height: (38 / @baseSize);
+
+  .btn-app {
+    // 不给宽 默认和父亲一样宽 给margin值
+    margin: 0 (20 / @baseSize);
+    height: (38 / @baseSize);
+    background-color: purple;
+    // 圆角是高度的一半
+    border-radius: (19 / @baseSize);
+    // 水平居中
+    text-align: center;
+    // 垂直居中
+    line-height: (38 / @baseSize);
+    background-color: #fb7299;
+    color: #fff;
+    box-shadow: 0 0.53333vmin 2.66667vmin rgb(0 0 0 / 20%);
+  }
+}

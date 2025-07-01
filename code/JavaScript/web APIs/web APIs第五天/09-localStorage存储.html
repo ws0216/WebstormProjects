@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    本地存储 重点
+    本地存储介绍
+    本地存储分类
+    存储复杂数据类型
+
+    2.1 本地存储介绍
+    以前我们页面写的数据一刷新页面就没有了，是不是?
+    随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，
+    会经常性在本地存储大量的数据，HTML5规范提出了相关解决方案。
+    1、数据存储在用户浏览器中
+    2、设置、读取方便、甚至页面刷新不丢失数据
+    3、容量较大，sessionStorage和localStorage约5M左右
+    常见的使用场景:
+    https://todomvc.com/examples/vanilla-es6/
+    页面刷新数据不丢失
+
+    以前的变量 也是小仓库 放在内存当中 特点是一刷新就没了
+    本地存储: 浏览器里面的小仓库 只要浏览器在它就在 数据不会丢失
+      放到浏览器里面 不放到内存里面 也就是放到硬盘当中
+
+    2.2 本地存储分类-localStorage
+    目标:能够使用localStorage 把数据存储的浏览器中
+    作用:可以将数据永久存储在本地(用户的电脑)，除非手动删除，否则关闭页面也会存在
+    特性:
+    可以多窗口(页面)共享(同一浏览器可以共享)
+    以键值对的形式存储使用
+
+    语法:
+    存储数据:
+    localStorage.setItem('key',value)
+    获取数据:
+    localStorage.getItem('key')
+    删除数据:
+    localStorage.removeItem('key')
+
+    浏览器查看本地数据:
+    右键检查 Application -> Storage -> Local storage: http://localhost:63342
+      key   value
+      age   18 (字符串类型)
+      uname pink老师 (字符串类型)
+
+    2.2 本地存储分类-sessionStorage
+    session: 一段时间  学年 会议 开庭;伴奏的
+    Storage: 存储
+    sessionStorage: 会话存储
+    特性:
+    生命周期为关闭浏览器窗口
+    在同一个窗口(页面)下数据可以共享
+    以键值对的形式存储使用
+    用法跟localStorage 基本相同
+
+    总结
+    1. localStorage 作用是什么?
+    可以将数据永久存储在本地(用户的电脑),除非手动删除，否则关闭页面也会存在
+    2. localStorage 存储，获取，删除的语法是什么?
+    存储:localStorage.setItem('key', value)
+    获取:localStorage.getItem('key')
+    删除:localstorage.removeItem('key')
+
+    localStorage.setItem('uname', 'pink老师')
+    前面这个键 key 永远都要带引号 ''
+
+    所有的键都要加引号 不加引号会就成变量名来看了
+
+    // 4. 改  如果原来有这个键，则是改，如果没有这个键是增
+
+    // 2. 本地存储只能存储字符串数据类型
+    // 这里面几乎都要加引号
+
+    本地存储中 无论存的是什么类型的数据 存储的都是字符串型
+
+
+    */
+
+    // 1. 要存储一个名字  'uname'， 'pink老师'
+    // localStorage.setItem('键'，'值')
+    localStorage.setItem('uname', 'pink老师')
+    // 2. 获取方式  所有的键都要加引号 不加引号会就成变量名来看了
+    console.log(localStorage.getItem('uname'))
+    // 3. 删除本地存储  只删除名字
+    // localStorage.removeItem('uname')
+    // 4. 改  如果原来有这个键，则是改，如果没有这个键是增
+    localStorage.setItem('uname', 'red老师')
+
+    // 我要存一个年龄
+    // 2. 本地存储只能存储字符串数据类型
+    // 这里面几乎都要加引号
+    localStorage.setItem('age', 18)
+    console.log(localStorage.getItem('age'))
+  </script>
+</body>
+
+</html>

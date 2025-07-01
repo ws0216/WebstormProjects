@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    数组中join方法
+    作用:
+    join()方法用于把数组中的所有元素转换成一个字符串
+    语法:
+    const arr = ['pink老师','red老师','blue老师']
+    console.log(arr.join('')) // pink老师red老师blue老师
+    参数:
+    数组元素是通过参数里面指定的分隔符进行分隔的
+
+    小括号里面写什么符号 它就用什么符号来对数组元素做一个分割
+
+    const newArr = ['red颜色','blue颜色','green颜色']
+    // 把数组元素转换为字符串
+    console.log(arr.join('*')) // red*blue*green
+    // 小括号里为空 则默认按逗号分割
+    console.log(newArr.join()) // red颜色,blue颜色,pink颜色
+    // 小括号里为空字符串'' 则元素之间没有分隔符
+    console.log(newArr.join('')) // red颜色blue颜色pink颜色
+    // 小括号里为'|' 则默认按逗号分割
+    console.log(newArr.join('|')) // red颜色|blue颜色|pink颜色
+
+    字符串分割：字符串.split(用什么字符串分割)。作用与数组.join()相反
+
+
+
+    */
+    const arr = ['red', 'blue', 'green']
+    const newArr = ['red颜色','blue颜色','green颜色']
+    // 把数组元素转换为字符串
+    console.log(arr.join('*')) // red*blue*green
+    // 小括号里为空 则默认按逗号分割
+    console.log(newArr.join()) // red颜色,blue颜色,pink颜色
+    // 小括号里为空字符串'' 则元素之间没有分隔符
+    console.log(newArr.join('')) // red颜色blue颜色pink颜色
+    // 小括号里为'|' 则默认按逗号分割
+    console.log(newArr.join('|')) // red颜色|blue颜色|pink颜色
+
+  </script>
+</body>
+
+</html>

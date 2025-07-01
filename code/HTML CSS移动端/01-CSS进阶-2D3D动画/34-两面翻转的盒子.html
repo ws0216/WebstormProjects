@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 400px;
+        }
+
+        /* 两个盒子 后面的盒子先Y轴转180deg z-index设置层级先隐藏 后续反转父盒子再修改层级*/
+        /*
+         box父盒子里面包含前后两个子盒子
+         box 是翻转的盒子 这2个面不要翻转,这两个面是一个整体 front是前面盒子 back是后面盒子
+        */
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            transition: all .4s;
+
+            /* backface-visibility: hidden;完美实现了两面翻转，谢谢前面的兄弟*/
+            /* 让背面的紫色盒子保留立体空间 给父级添加的 */
+            transform-style: preserve-3d;
+        }
+        
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            line-height: 300px;
+        }
+        
+        .front {
+            background-color: pink;
+            /* 提高层级*/
+            z-index: 1;
+        }
+        
+        .back {
+            background-color: purple;
+            /* 像手机一样 背靠背 旋转 */
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front">黑马程序员</div>
+        <div class="back">pink老师这里等你</div>
+    </div>
+</body>
+
+</html>

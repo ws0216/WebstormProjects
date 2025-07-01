@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 250px;
+            height: 30px;
+            vertical-align: middle;
+            line-height: 30px;
+            padding-left: 15px;
+        }
+
+        .error {
+            color: red;
+            background: url(./images/error1.png) no-repeat left center;
+        }
+
+        .right {
+            color: green;
+            background: url(./images/right.png) no-repeat left center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        /*
+        用户名验证案例
+        需求:用户名要求用户英文字母,数字,下划线或者短横线组成，并且用户名长度为 6~16位
+        分析:
+        ①:首先准备好这种正则表达式模式/^[a-zA-Z0-9-_]{6,16}$/
+        ②:当表单失去焦点就开始验证.
+        ③:如果符合正则规范，则让后面的span标签添加 right 类.
+        ④:如果不符合正则规范，则让后面的span标签添加 wrong 类.
+
+        昵称案例
+        需求:要求用户只能输入中文
+        分析:
+        ①:首先准备好这种正则表达式模式
+        :/^[\u4e0O-\u9fa5]{2,8}$/
+        ②:当表单失去焦点就开始验证.
+        ③:如果符合正则规范，则让后面的span标签添加right类.
+        ④:如果不符合正则规范，则让后面的span标签添加wrong类.
+
+
+
+        */
+
+
+        // 1. 准备正则
+        // 正则表达式 定义规则
+        const reg = /^[a-zA-Z0-9-_]{6,16}$/
+        // 表单失去焦点开始验证
+        // 获取表单
+        const input = document.querySelector('input')
+        // span不用获取 因为span是input的下一个兄弟元素 太长了还是获取一下吧
+        const span = input.nextElementSibling
+        // 失去焦点事件
+        input.addEventListener('blur', function () {
+            // console.log(reg.test(this.value))
+            // if验证 检测用户输入内容符不符合前面reg的规范 结果是true或false
+            if (reg.test(this.value)) {
+                span.innerHTML = '输入正确'
+                // span.classList.add('right')
+                // 因为classList可以修改多个类,不会影响原有的类 这里span只能是:正确只有right 错误只有error类 所以用className:只有一个类名,会覆盖原先的类名
+                span.className = 'right'
+            } else {
+                span.innerHTML = '请输入6~16位的英文数字下划线'
+                span.className = 'error'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    拓展-术语解释
+    目标:知道一些术语，让自己更专业
+
+    术语
+    解释
+    举例
+
+    关键字
+    在JavaScript中有特殊意义的词汇
+    let、var、function、if、else、switch、case、break、
+
+    保留字
+    在目前的javaScript中没意义，但未来可能会具有特殊意义的词汇
+    int、short、long、char
+
+    标识(标识符)
+    变量名、函数名的另一种叫法
+    无
+
+    表达式
+    能产生值的代码，一般配合运算符出现
+    10 + 3、age >= 18
+
+    语句
+    一段可执行的代码
+    if () for()
+
+    拓展- 基本数据类型和引用数据类型
+    目标:了解基本数据类型和引用数据类型的存储方式
+    简单类型又叫做基本数据类型或者值类型，复杂类型又叫做引用类型。
+      值类型:简单数据类型/基本数据类型，在存储时变量中存储的是值本身，因此叫做值类型
+    string , number, boolean,undefined, null
+      引用类型:复杂数据类型，在存储时变量中存储的仅仅是地址(引用)，因此叫做引用数据类型
+    通过new关键字创建的对象(系统对象、自定义对象)，如Object、Array、Date等
+
+    堆栈空间分配区别:
+    1、栈(操作系统):由操作系统自动分配释放存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的
+    栈;
+    简单数据类型存放到栈里面
+    2、堆(操作系统):存储复杂类型(对象)，一般由程序员分配释放，若程序员不释放，由垃圾回收机制回收。
+    引用数据类型存放到堆里面
+
+    内存里面包括栈和堆
+
+    1.简单类型的内存分配
+    值类型(简单数据类型):string, number,boolean, undefined, null
+    值类型变量的数据直接存放在变量(栈空间)中
+
+                                  栈     堆
+    let usrAge=12;        0x11    12
+    let usrName ='小白';  0x20    小白
+    let usrSex= 'true';   0x32    true
+
+    2.复杂类型的内存分配
+    引用类型(复杂数据类型):通过new关键字创建的对象(系统对象、自定义对象)，如Object、Array、Date等
+    引用类型变量(栈空间)里存放的是地址(地址是自动分配的)，真正的对象实例存放在堆空间中
+    通过栈里面存放的地址 -> 可以找到堆里面的对象实例
+
+    let usrObj = {}
+           ↓    栈        堆
+                              Object对象实例
+          0x01  0x22  →  0x22
+
+    思考
+    let num = 10
+    let num2 = num
+    num = 20
+    console.log(num2) // ? 20
+
+    // 栈里面 开辟一个空间存放 obj1 的 地址 假设为0x112233
+    let obj1 = {
+      age:18
+    }
+    // 栈里面 又开辟一个空间存放 obj2 的 地址
+    // 因为 obj2 = obj1 地址赋值操作 obj1里面装的是地址(0x112233) 所以给的是地址 所以在栈里面 obj2 地址为 0x112233
+    // 所以 obj1和obj2 是同一个地址 指向的是堆里面的同一个对象
+    let obj2 = obj1
+    obj1.age = 20
+    console.log(obj2) // ?
+
+    JavaScript理论上没有栈和堆
+
+
+
+
+
+    */
+
+    let num1 = 10
+    let num2 = num1
+    num2 = 20
+    console.log(num1) // 结果是？10
+
+
+    let obj1 = {
+      age: 18
+    }
+    let obj2 = obj1
+    // 修改属性
+    obj2.age = 20
+    console.log(obj1.age) // 20
+  </script>
+</body>
+
+</html>

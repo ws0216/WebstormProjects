@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    // 为什么要加分号? 什么时候加分号?
+    注意:js前面必须加分号情况
+    1. 立即执行函数
+    (function t() { })();
+    // 或者
+    ;(function t() { })()
+
+    2. 数组解构
+    以[]数组开头的，特别是前面有语句的一定注意加分号  防止和前面连在一起
+    ;[b，a] = [a, b]
+
+    let a =1
+    let b =3;
+    [b,a] = [a, b]
+    console.log(a) // 3
+    console.log(b) // 1
+
+
+    */
+
+
+    // 1. 立即执行函数前面要加
+    //;(function t() { })()
+    // (function () { })();
+    // (function () { })();
+    // 2. 使用数组的时候
+    // const arr = [1, 2, 3]
+    const str = 'pink';
+    // 用map遍历一下
+    [1, 2, 3].map(function (item) {
+      console.log(item)
+    })
+
+    let a = 1
+    let b = 2
+      ;[b, a] = [a, b]
+
+    console.log(a, b)
+
+
+    ;(function () {
+      console.log(1111)
+    })()
+
+    // const arr2 = [10, 20, 30]
+    const str2 = 'pink';
+    // 用map遍历一下
+    [10, 20, 30].map(function (item) {
+      console.log(item);
+    })
+
+    let a2 = 11
+    let b2 = 22
+    ;[b2,a2] = [a2,b2]
+    console.log(a2,b2)
+
+
+  </script>
+</body>
+
+</html>

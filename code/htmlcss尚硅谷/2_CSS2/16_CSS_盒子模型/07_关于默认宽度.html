@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>07_关于默认宽度</title>
+    <style>
+        div {
+            height: 200px;
+            /* margin对盒子的宽度是否有影响要看盒子是否设置了width
+            如果设置了width,则margin对其宽度没有影响
+            如果没设置width,为more宽度,则margin对其宽度有影响:
+            总宽度 = 父的content - 自身的左右margin
+            内容区的宽度 = 父的content - 自身的左右margin - 自身的左右border - 自身的左右padding
+             */
+            /* 如果说盒子没有设置宽度width,则margin就能影响整体盒子的宽度
+            而接下来是否写border和padding对盒子整体来说是没有影响的,因为盒子的整体宽就包含了content,border,padding
+            但如果说给了border和padding,就会把内容区content继续往小挤
+            盒子的宽大小 = content + 左右padding + 左右border
+
+            */
+            margin: 50px;
+            border: 5px solid black;
+            padding: 5px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div>你好啊</div>
+</body>
+</html>

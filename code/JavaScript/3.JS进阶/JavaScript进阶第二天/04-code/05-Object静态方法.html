@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.1 Object
+    Object 是内置的构造函数，用于创建普通对象。
+    // 通过构造函数创建普通对象
+    const user = new object({name:‘小明"，age:15})
+    推荐使用字面量方式声明对象，而不是Object 构造函数
+
+    学习三个常用静态方法(静态方法就是只有构造函数Object可以调用的)
+    // 想要获得对象里面的属性和值怎么做的?
+    const o = {
+    name:'佩奇', age: 6 }
+    // for in 的形式
+    for (let k in o) {
+    console.log(k) // 属性名 name age
+    console.log(o[k]) // 属性值 佩奇 6
+
+    现在有新的方法了~~~~
+    // 重点是前两个方法
+    作用:Object.keys 静态方法获取对象中所有属性(键)
+    参数是你要操作的对象
+    语法:
+    const o = { name:'佩奇',age:6 }
+    // 获得对象的所有键，并且返回是一个数组
+    const arr = Object.keys(o)
+    console.log(arr) // ['name', 'age']
+    OR(9LL)
+    注意:返回的是一个数组
+
+    作用:Object.values 静态方法获取对象中所有属性值
+    参数是你要操作的对象
+    语法:
+    const o ={ name:'佩奇'，age:6}
+    // 获得对象的所有值，并且返回是一个数组
+    const arr = Object.values(o)
+    console.log(arr) // ['佩奇'，6]
+    注意:返回的是一个数组
+
+    作用:Object.assign静态方法常用于对象拷贝
+    两个参数 把后面的拷贝给前面 相当于赋值
+    语法:
+    // 拷贝对象 把 o 拷贝给 obj
+    const o ={ name:'佩奇'，age: 6 }
+    const obj = {}
+    Object.assign(obj,o)
+    console.log(obj) // {name:'佩奇'，age: 6}
+
+    使用:经常使用的场景给对象添加属性
+    // 给 o 新增属性
+    const o = { name:'佩奇'，age: 6 }
+    Object.assign(o,{ gender:'女'})
+    console.log(o) //{name:'佩奇'，age: 6,gender:'女}
+
+    总结
+    1.什么是静态方法?
+    只能给构造函数使用的方法比如Object.keys()
+    2.Object.keys()方法的作用是什么?
+    获取对象中所有属性(键)
+    3. Object.values()方法的作用是什么?
+    获取对象中所有属性值(值)
+
+
+
+
+    */
+
+    const o = { uname: 'pink', age: 18 }
+    for ( let k in o) {
+      console.log(k); //打印属性名
+      console.log(o[k]); //打印属性值
+    }
+    // 1.获得所有的属性名
+    console.log(Object.keys(o))  //返回数组['uname', 'age']
+    // 2. 获得所有的属性值
+    console.log(Object.values(o))  //  ['pink', 18]
+    // 3. 对象的拷贝
+    // const oo = {}
+    // Object.assign(oo, o)
+    // console.log(oo)
+    Object.assign(o, { gender: '女' })
+    console.log(o)
+
+
+    console.log('my--------')
+    const teacher = {uname:'red老师',age:20}
+    for (let teacherKey in teacher) {
+      console.log(teacherKey);//打印属性名
+      console.log(teacher[teacherKey]);//打印属性值
+    }
+    //打印所有属性名
+    console.log(Object.keys(teacher));
+    //打印所=有属性值
+    console.log(Object.values(teacher));
+    //拷贝 常用于给对象添加属性
+    Object.assign(teacher,{gender: '女'})
+    console.log(teacher);
+
+  </script>
+</body>
+
+</html>

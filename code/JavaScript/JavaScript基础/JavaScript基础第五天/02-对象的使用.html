@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    学习目标
+    1. 知道对象数据类型的特征，具备对象数组数据渲染页面的能力。
+
+    // 这3个180是啥意思? 你猜~~
+    let arr = [180,180,180]
+    1. 保存网站用户信息，比如姓名，年龄，电话号码...用以前学的数据类型方便吗?
+    不方便，很难区分
+    2.我们是不是需要学习一种新的数据类型，可以详细的描述某个事物?
+     姓名
+    年龄
+    电话
+    ...
+
+    1.对象是什么
+    // 对象是一引用数据类型
+    对象(object):JavaScript里的一种数据类型
+    可以理解为是一种无序的数据集合，注意数组是有序的数据集合
+    用来描述某个事物，例如描述一个人
+      人有姓名、年龄、性别等信息、还有吃饭睡觉打代码等功能
+      如果用多个变量保存则比较散，用对象比较统一
+    比如描述班主任信息:
+      静态特征(姓名，年龄,身高,性别,爱好)=>可以使用数字，字符串,数组,布尔类型等表示
+      动态行为(点名，唱，跳,rap) => 使用函数表示
+
+    let obj = {
+      uname: 'pink老师',
+      age: 18,
+      gender: '女'
+    }
+
+    1.对象是什么?
+    对象是一种数据类型
+    无序的数据的集合
+    2.对象有什么特点?
+    无序的数据的集合
+    可以详细的描述描述某个事物
+
+    1.2 对象使用
+    目标:掌握对象语法，用它保存多个数据
+    1.对象声明语法
+    let 对象名 = {}
+    let 对象名 = new Object()
+
+    例如:
+    // 声明了一个person的对象
+    let person = {}
+    实际开发中，我们多用花括号。{} 是对象字面量
+
+    1.2对象使用
+    2.对象有属性和方法组成
+      属性:信息或叫特征(名词)。比如手机尺寸、颜色、重量等...
+      方法:功能或叫行为(动词)。比如手机打电话、发短信、玩游戏...
+      你还能举例吗?
+    let 对象名 = {
+      属性名:属性值,
+      方法名:函数
+    }
+
+    1.2 对象使用
+    3.属性
+    数据描述性的信息称为属性，如人的姓名、身高、年龄、性别等，一般是名词性的。
+    let obj = {
+    // 尽量不要用name,因为name是保留字 用会有问题
+      uname: 'pink老师',
+      age: 18,
+      gender: '女'
+    }
+    console.log(pink) // 打印对象 {uname: 'pink老师',age: 18,: '女'}
+    console.log(typeof pink) // object
+
+    属性都是成对出现的，包括属性名和值，它们之间使用英文:分隔
+    多个属性之间使用英文，分隔
+    属性就是依附在对象上的变量(外面是变量，对象内是属性)
+    属性名可以使用 "" 或 '' ，一般情况下省略，除非名称遇到特殊符号如空格、中横线等
+
+    1.对象属性有顺序吗?
+    没有
+    2.属性和值用什么符号隔开?多个属性用什么隔开?
+    属性和值用 : 隔开
+    多个属性用 , 逗号隔开
+
+    1.2对象使用
+    对象本质是无序的数据集合，操作数据无非就是增删改查语法:
+
+    查
+    查询对象
+    对象.属性
+
+    改
+    重新赋值
+    对象.属性=值
+
+    增
+    对象添加新的数据
+    对象名.新属性名 = 新值
+
+    删
+    删除对象中属性
+    delete 对象名.属性名
+
+    1.2对象使用
+    目标:能够使用对象中的数据
+
+    3.属性-查
+    声明对象，并添加了若干属性后，可以使用，获得对象中属性对应的值，我称之为属性访问。
+    语法:对象名.属性
+    简单理解就是获得对象里面的属性值。
+
+    let person = {
+    uname:'pink老师',
+    age: 18,
+    gender:'女'
+    }
+    console.log(person.uname) // pink老师 字符串 是黑色
+    console.log(person.age) // 18 数字型 是蓝色
+    console.log(person.gender) // 女 字符型 是黑色
+
+    3.属性-改
+    语法:对象名.属性 = 新值
+    let person = {
+    uname:'pink老师',
+    age:18,
+    gender:'女'
+    }
+    person.gender ='男'
+    console.log(person.gender) // 修改了为男
+    console.log(person)
+
+    3.属性-增
+    语法:对象名.新属性 = 新值
+    let person = {
+    uname: 'pink老师',
+    age:18,
+    gender:'女'
+    }
+    person.address = '武汉黑马'
+    console.log(person)
+
+    3.属性-删(了解)
+    语法:delete 对象名.属性
+    let person = {
+    uname: 'pink老师',
+    age:18,
+    gender:'女'
+    }
+    delete person.gender // 删除 gender属性
+    console.log(person)
+
+    总结
+    1. 对象查语法如何写?
+      对象名.属性
+    2.对象改语法如何写:
+      对象名.属性 = 新值
+    3.对象增语法如何写:
+      对象名.新属性名 = 新值
+    改和增语法一样，判断标准就是对象有没有这个属性，没有就是新增，有就是改
+
+    1.2对象使用
+    目标:掌握查找属性的另外写法
+    3.属性-查的另外一种写法
+    对于多词属性或则 - 等属性，点操作就不能用了。
+    我们可以采取: 对象['属性']方式，单引号和双引号都阔以
+
+    3.属性-查的另外一种写法
+    对象['属性']方式，单引号和双引号都阔以
+    也可以用于其他正常属性，比如:
+    []语法里面的值如果不添加引号默认会当成变量解析
+    总结:
+    没有必要的时候直接使用 点语法，在需要解析变量的时候使用 [] 语法
+
+    总结
+    1. 对象访问属性有哪两种方式?
+    点形式 对象名.属性名 obj.age
+    []形式 对象名['属性名'] obj['age']/obj['goods-name']
+    2.两种方式有什么区别?
+    点后面的属性名一定不要加引号
+    []里面的属性名一定加引号
+    后期不同使用场景会用到不同的写法
+
+
+
+
+    */
+
+    // 1.声明对象
+    // let pink = {
+    //   uname: 'pink老师',
+    //   age: 18,
+    //   gender: '女'
+    // }
+    // // console.log(pink)
+    // // console.log(typeof pink)
+    // // 改 把性别的女改为男
+    // pink.gender = '男'
+    // console.log(pink)
+    // // 增
+    // pink.hobby = '足球'
+    // console.log(pink)
+    // // 删 (了解)
+    // delete pink.age
+    // console.log(pink)
+    // // let num = 10
+    // num = 20
+    // console.log(num)
+    // 1. 声明
+    // console.log(window.name)
+
+    /*
+    练习:请声明一个产品对象，里面包如下信息:
+    原先:
+    商品对象名字:goods
+    商品名称命名为:name
+    商品编号:num
+    商品毛重:weight
+    商品产地:address
+
+    请对产品对象，做如下操作:
+    要求:
+    1. 请将商品名称里面的值修改为:小米10 PLUS
+    2. 新增一个属性颜色color 为‘粉色’
+    3. 请依次页面打印输出所有的属性值
+
+    */
+    let person = {
+      uname:'pink老师',
+      age: 18,
+      gender:'女'
+    }
+    console.log(person.uname) // pink老师 字符串 是黑色
+    console.log(person.age) // 18 数字型 是蓝色
+    console.log(person.gender) // 女 字符型 是黑色
+
+
+
+    let obj = {
+      'goods-name': '小米10青春版',
+      num: '100012816024',
+      weight: '0.55kg',
+      address: '中国大陆'
+    }
+    obj.name = '小米10 PLUS'
+    obj.color = '粉色'
+    // console.log(obj.name)
+    console.log(obj.num)
+    console.log(obj.weight)
+    console.log(obj.address)
+    console.log(obj.color)
+    // console.log(obj.goods - name)
+    // 查的另外一种属性：
+    // 对象名['属性名']
+    console.log(obj['goods-name'])
+
+
+    // 查总结：
+    // (1) 对象名.属性名  obj.age
+    console.log(obj.num)
+    // (2) 对象名['属性名']  obj['age']
+    console.log(obj['num'])
+
+
+
+
+
+    // // console.log(address)
+    // // 2. 使用属性 查  对象名.属性名
+    // console.log(obj.address)
+    // console.log(obj.name)
+
+
+  </script>
+</body>
+
+</html>

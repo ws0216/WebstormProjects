@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    遍历数组 forEach 方法(重点)
+    和 map方法很像 但作用不同
+
+    forEach方法: 只遍历 无return 不返回值
+    map方法: 遍历 有return 返回一个数组
+
+    forEach()方法用于调用数组的每个元素，并将元素传递给回调函数
+    // 只能遍历数组 对象不能遍历
+    主要使用场景:遍历数组的每个元素 有几条数据就循环几次
+    语法:
+    被遍历的数组.forEach(function(当前数组元素,当前元素索引号){
+      // 函数体
+    })
+    例如:
+    const arr = ['pink', 'red', 'green']
+    arr.forEach(function (item,index) {
+      console.log(`当前数组元素是:${item}`) // 依次打印数组每一个元素
+      console.log(`当前数组元素的索引是:${index}`) //依次打印数组每一个元素的索引
+    })
+
+    注意:
+    1. forEach 主要是遍历数组
+    2. 参数当前数组元素是必须要写的，索引号可选。
+
+
+
+    */
+
+    // forEach 就是遍历  加强版的for循环  适合于遍历数组对象 里面的每个item就是对应的对象 forEach无返回值
+    const arr = ['red', 'green', 'pink']
+    const result = arr.forEach(function (item, index) {
+      console.log(item)  // 数组元素 red  green pink
+      console.log(index) // 索引号
+    })
+    console.log(result) // 变量result只声明未赋值 所以是undefined
+
+    console.log('my------------')
+    const arr2 = ['red', 'green', 'pink']
+    const result2 = arr2.forEach(function (item,index) {
+      console.log(item);
+      console.log(index);
+    })
+    console.log(result2);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    /*
+    练习
+    显示赠品练习
+    请将下面字符串渲染到准备好的p标签内部，结构必须如左下图所示，展示效果如右图所示:
+    const gift ='50g茶叶,清洗球'
+
+    思路:
+    ①:把字符串拆分为数组，这样两个赠品就拆分开了用那个方法?  split(',')
+    ②:利用map遍历数组，同时把数组元素生成到span里面，并且返回
+    ③:因为返回的是数组，所以需要转换为字符串,用那个方法?  join(")
+    ④:p的innerHTML存放刚才的返回值
+
+
+
+
+    */
+
+
+    const gift = '50g的茶叶,清洗球'
+    // 1. 把字符串拆分为数组
+    // console.log(gift.split(',')) [,]
+    // 2. 用ma遍历 根据数组元素的个数，生成 对应 span标签
+    // const str = gift.split(',').map(function (item) {
+    //   return `<span>【赠品】 ${item}</span> <br>`
+    // }).join('')
+
+    // // console.log(str)
+    // document.querySelector('div').innerHTML = str
+    document.querySelector('div').innerHTML = gift.split(',').map(item => `<span>【赠品】 ${item}</span> <br>`).join('')
+
+
+    console.log('my-------------')
+    const gift2 = '500g的茶叶,清洗球球'
+    // 把字符串拆分为数组
+    console.log(gift2.split(','));
+    // 用map遍历 有几个数组元素就生成几个span
+    // 声明一个新数组str接收map出来的返回的新数组
+    const str = gift2.split(',').map(function (item) {
+      return `<span>【赠品】 ${item}</span> <br>`
+    })
+    console.log(str)
+    // 新数组str里面装的是两个span 但是数组格式不能直接往div里面追加 要转换成字符串形式
+    console.log(str.join(''));
+    document.querySelector('div').innerHTML = str.join('')
+    // document.querySelector('div').innerHTML = gift2.split(',').map(item => `<span>【赠品】 ${item}</span> <br>`).join('')
+
+
+  </script>
+</body>
+
+</html>

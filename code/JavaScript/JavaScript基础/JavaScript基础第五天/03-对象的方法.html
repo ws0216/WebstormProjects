@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    5.对象中的方法
+    数据行为性的信息称为方法，如跑步、唱歌等，一般是动词性的，其本质是函数。
+    let person = {
+      name: 'andy',
+      sayHi: function() {
+      document.write('hi~~')
+      }
+    }
+    1.方法是由方法名和函数两部分构成，它们之间使用 : 分隔
+    2.多个属性之间使用英文 , 分隔
+    3.方法是依附在对象中的函数
+    4.方法名可以使用""或"，一般情况下省略，除非名称遇到特殊符号如空格、中横线等
+
+    6.对象中的方法
+    声明对象，并添加了若干方法后，可以使用.调用对象中函数，我称之为方法调用。
+    也可以添加形参和实参
+    let person = {
+      name: 'andy',
+      // function (形参)
+      // 匿名函数赋给sayHi sayHi就是函数名
+      sayHi: function () {
+        document.write('hi~~')
+      }
+    // 方法调用 对象名.方法名()
+    // sayHi(实参)
+    person.sayHi()
+
+    1. 对象访问方法是如何实现的?
+    对象.方法()
+    person.sayHi()
+    2.对象方法可以传递参数吗?
+    可以，跟函数使用方法基本一致
+
+    // obj.song函数里面没有return 返回undefined
+    // console.log(obj.song(1, 2)) //undefined
+
+
+
+
+
+    */
+    let obj = {
+      uname: '刘德华',
+      // 方法
+      song: function (x, y) {
+        // console.log('冰雨')
+        console.log(x + y)
+      },
+      dance: function () { }
+    }
+    // 方法调用 对象名.方法名()
+    // obj.song函数里面没有return 返回undefined
+    // console.log(obj.song(1, 2)) //undefined
+    obj.song(1, 2)
+
+    // document.write('123')
+  </script>
+</body>
+
+</html>

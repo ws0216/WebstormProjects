@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表单_基本结构</title>
+</head>
+<body>
+    <!--对于表单的2个重要属性:action和name 要和后端人员沟通-->
+    <!--地址后面加 /s,且 name属性写 "wd" 是百度后端工程师定的,对于百度网址必须这样写-->
+    <form action="https://www.baidu.com/s">
+        <input type="text" name="wd">
+        <button>去百度搜索</button>
+    </form>
+    <hr>
+    <!--地址后面加 /search,且 name属性写 "keyword" 是京东后端工程师定的,对于京东网址必须这样写-->
+    <form action="https://search.jd.com/search" target="_self" method="get">
+        <input type="text" name="keyword">
+        <button>去京东搜索</button>
+    </form>
+    <hr>
+    <a href="https://search.jd.com/search?keyword=手机">搜索手机</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    猜数字游戏
+    需求:程序随机生成1~10之间的一个数字，用户输入一个数字
+    ①:如果大于该数字，就提示，数字猜大了，继续猜
+    ②:如果小于该数字，就提示，数字猜小了，继续猜
+    ③:如果猜对了，就提示猜对了，程序结束
+
+    猜数字游戏
+    需求：程序随机生成 1~10 之间的一个数字，用户输入一个数字
+    分析：
+    ①：利用随机数生成一个数字
+    ②：需要一直猜，所以需要不断的循环
+    ③：因为条件是结果猜对了，就是判断条件退出，用while循环合适
+    ④：内部判断可以用多分支语句
+
+
+
+
+    */
+    // 1. 随机生成一个数字 1~10
+    // 取到 N ~ M 的随机整数
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+    let random = getRandom(1, 10)
+    console.log(random)
+    // 需要不断的循环
+    while (true) {
+      // 2. 用户输入一个值
+      let num = +prompt('请输入你猜的数字:')
+      // 3. 判断输出
+      if (num > random) {
+        alert('您猜大了')
+      } else if (num < random) {
+        alert('您猜小了')
+      } else {
+        alert('猜对啦，真厉害')
+        break  // 退出循环
+      }
+    }
+  </script>
+</body>
+
+</html>

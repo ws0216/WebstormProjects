@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding-top: 100px;
+      /* 这里因为 height 设置的很大,所以右侧会出现滚动条 */
+      height: 3000px;
+    }
+
+    div {
+      display: none;
+      margin: 100px;
+      /* 溢出显示滚动条 */
+      overflow: scroll;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+    我里面有很多很多的文字
+
+  </div>
+  <script>
+    /*
+    3.2 页面滚动事件
+    滚动条在滚动的时候持续触发的事件
+    为什么要学?
+    很多网页需要检测用户把页面滚动到某个区域后做一些处理，比如固定导航栏，比如返回顶部
+
+    只要有滚动条 都可以添加滚动事件
+
+    事件名:scroll
+    监听整个页面滚动:
+      // 页面滚动事件
+      // 滚动 1px 就会被触发 上下滚动都会触发 只要滚动就会触发
+      window.addEventListener('scroll', function () {
+      // 执行的操作
+      给 window 或 document 添加 scroll 事件
+    监听某个元素的内部滚动直接给某个元素加即可
+
+    使用场景:
+    我们想要页面滚动一段距离，比如100px，就让某些元素
+    显示隐藏，那我们怎么知道，页面滚动了100像素呢?
+    就可以使用scroll来检测滚动的距离~~~
+
+    3.2 页面滚动事件-获取位置
+    scrollLeft和scrollTop(这2个都是属性) 是元素的属性 并且值是数字型 不带单位
+      获取被卷去的大小
+      获取元素内容往左、往上滚出去看不到的距离
+      这两个值是可读写的
+    尽量在scroll事件里面获取被卷去的距离
+    div.addEventListener('scroll',function () {
+      console.log(this.scrollTop)
+    })
+
+    scrollTop: 被卷去的头部
+    被卷去的大小:当拉动滚动条往下拖时,内容会往上走并且看不见了,往上走的看不见了的那部分就是scrollTop
+
+    开发中，我们经常检测页面滚动的距离，比如页面滚动100像素，就可以显示一个元素，或者固定一个元素
+    //页面滚动事件
+    window.addEventListener('scroll',function () {
+      // document.documentElement 是html元素获取方式
+      const n = document.documentElement.scrollTop
+      console.log(n)
+    })
+    注意事项
+    document.documentElementHTML文档返回对象为HTML元素
+
+    document.body: 获取body元素
+    document.documentElement: 获取html元素
+
+    总结
+    1.被卷去的头部或者左侧用那个属性?是否可以读取和修改?
+    scrollTop / scrollLeft
+    可以读取，也可以修改(赋值)
+    都是元素的属性 并且值是数字型 不带单位
+    2.检测页面滚动的头部距离(被卷去的头部)用那个属性?
+    document.documentElement.scrollTop
+    // 页面滚动事件
+    window.addEventListener('scroll', function () {
+      // document.documentElement 是htmL元素获取方式
+      const n = document.documentElement.scrollTop
+      console.log(n)
+    })
+
+    const n = document.documentElement.scrollTop
+      // 得到是什么数据  数字型 不带单位
+
+    3.2 页面滚动事件-滚动到指定的坐标
+    scrollTo()方法可把内容滚动到指定的坐标
+    语法:
+    元素.scrollTo(x,y)
+    例如:
+    // 让页面滚动到y轴1000像素的位置
+    window.scrollTo(0,1000)
+
+
+
+
+
+    */
+    /*
+    这里因为 height 设置的很大,所以右侧会出现滚动条
+    */
+    const div = document.querySelector('div')
+    // 页面滚动事件
+    window.addEventListener('scroll', function () {
+      // console.log('我滚了')
+      // 我想知道页面到底滚动了多少像素， 被卷去了多少  scrollTop
+      // 获取html元素写法  
+      // document.documentElement  
+      // console.log(document.documentElement.scrollTop)
+      const n = document.documentElement.scrollTop
+      if (n >= 100) {
+        div.style.display = 'block'
+      } else {
+        div.style.display = 'none'
+      }
+    })
+    // const div = document.querySelector('div')
+    // div.addEventListener('scroll', function () {
+    //   // console.log(111)
+    //   // scrollTop 被卷去的头部
+    //   console.log(div.scrollTop)
+    // })
+  </script>
+</body>
+
+</html>

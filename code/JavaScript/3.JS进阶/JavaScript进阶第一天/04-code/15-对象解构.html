@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    3.2对象解构
+    对象解构是将 对象属性和方法 快速批量赋值给一系列变量的简洁语法
+    1.基本语法:
+    1.赋值运算符 = 左侧的{}用于批量声明变量，右侧对象的属性值将被赋值给左侧的变量
+    2.对象属性的值将被赋值给与属性名相同的变量
+    3.注意解构的变量名不要和外面的变量名冲突否则报错
+    4.对象中找不到与变量名一致的属性时变量值为 undefined
+
+    对象是无序的 所以在解构的时候 避免错乱 要求变量名与对象中的属性名相同 属性值赋给了变量
+
+    //普通对象
+    const user = {
+      name:'小明",
+      age: 18
+    };
+    批量声明变量 name age
+    // 同时将数组单元值小明18依次赋值给变量name age
+    const {name, age} = user
+    console.log(name) //小明
+    console.log(age) // 18
+
+    2.给新的变量名赋值:
+    可以从一个对象中提取变量并同时修改新的变量名
+    // 普通对象
+    const user = {
+      name:'小明',
+      age:18
+    };
+    //把 原来的name 变量重新命名为 uname
+    //把name的值赋给uname
+    //旧变量名: 新变量名
+    const { name:uname, age } = user
+    console.log(uname) //小明
+    console.log(age) // 18
+    冒号表示“什么值:赋值给谁”
+
+    2.数组对象解构
+    const pig = [
+      {
+        name:'佩奇',
+        age:6
+      }
+    ]
+
+    const [{ name, age }] = pig
+    console.log(name,age)
+
+    3.2 对象解构
+    对象解构是将对象属性和方法快速批量赋值给一系列变量的简洁语法
+    3.多级对象解构:
+    const pig = {
+      name:'佩奇',
+      // family也是个对象 所以是多级对象
+      family:{
+        mother:'猪妈妈',
+        father:'猪爸爸',
+        sister:'乔治'
+      },
+      age:6
+    }
+
+    //依次打印家庭成员
+    const pig = {
+      name:'佩奇',
+      family: {
+        mother:‘猪妈妈",
+        father:“猪爸爸’,
+        sister:'乔治'
+      },
+      age: 6
+    }
+
+    当遇到多级对象解构的时候 前面要说明是哪个对象 并且加上对应对象的名字family:
+    const { name,family: { mother, father, sister }} = pig
+    console.log(name) // 佩奇
+    console.log(mother) // 猪妈妈
+    console.log(father) // 猪爸爸
+    console.log(sister) // 乔治
+
+    const people = [
+      {
+        name:'佩奇',
+        family: {
+          mother:'猪妈妈',
+          father:'猪爸爸",
+          sister:'乔治'
+      },
+      age:6
+      }
+    ]
+
+    const { name,family: { mother, father, sister }} = people
+    console.log(name) // 佩奇
+    console.log(mother) // 猪妈妈
+    console.log(father) // 猪爸爸
+    console.log(sister) // 乔治
+
+
+
+
+
+
+    */
+
+
+    // 对象解构
+    // const obj = {
+    //   uname: 'pink老师',
+    //   age: 18
+    // }
+    // obj.uname
+    // obj.age 
+    // const uname = 'red老师'
+    // 解构的语法
+    // const { uname, age } = {age: 18, uname: 'pink老师' }
+    // // 等价于 const uname =  obj.uname
+    // // 要求属性名和变量名必须一直才可以
+    // console.log(uname)
+    // console.log(age)
+    // 1. 对象解构的变量名 可以重新改名  旧变量名: 新变量名
+    // const { uname: username, age } = { uname: 'pink老师', age: 18 }
+
+    // console.log(username)
+    // console.log(age)
+    // 2. 解构数组对象
+    const pig = [
+      {
+        uname: '佩奇',
+        age: 6
+      }
+    ]
+    const [{ uname, age }] = pig
+    console.log(uname)
+    console.log(age)
+
+
+    const pig2 = [
+      {
+        uname2: '佩奇',
+        age2: 6
+      }
+    ]
+    const [{uname2,age2}] = pig2
+    console.log(uname2);
+    console.log(age2);
+
+  </script>
+</body>
+
+</html>

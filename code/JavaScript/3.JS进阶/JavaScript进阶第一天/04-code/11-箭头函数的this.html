@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    3.箭头函数 this
+    在箭头函数出现之前，每一个新函数根据它是被如何调用的来定义这个函数的this值，非常令人讨厌。
+    箭头函数不会创建自己的this,它只会从自己的作用域链的上一层沿用this。
+    // 注：可以理解为箭头函数的this指向调用者的调用者
+
+    // 以前this的指向：  谁调用的这个函数，this 就指向谁
+    // 2. 箭头函数的this  是上一层作用域的this 指向
+    // 箭头函数没有this 它的this是外面一层/上一层一层作用域的this
+
+
+    console.log(this) // 此处为window
+    const sayHi = function () {
+      console.log(this) // 普通函数指向调用者此处为window
+    }
+    btn.addEventListener('click', function (){
+      console.log(this) // 当前this 指向 btn
+    })
+
+    箭头函数不会创建自己的this,它只会从自己的作用域链的上一层沿用this。
+
+    console.log(this) // 此处为window
+    // 箭头函数
+    const sayHi = () => {
+      console.log(this) // 箭头函数此处为window
+    btn.addEventListener('click', () =>{
+      console.log(this) // 当前this 指向 window
+
+    const user ={
+      name:'小明'，
+      // 该箭头函数中的 this为函数声明环境中this 一致
+      walk: () => {
+      console.log(this) // 指向window 不是user
+      }
+    user.walk()
+
+    const user ={
+      name:'小明"，
+      sleep: function () {
+        console.log(this) // 指向 user
+        const fn = () => {
+          console.log(this) // 指向user 该箭头函数中的 this 与 sleep 中的 this 一致
+        }
+        //调用箭头函数
+        fn()
+      }
+    }
+    user.sleep()
+
+    在开发中【使用箭头函数前需要考虑函数中this的值】，事件回调函数使用箭头函数时，this为全局的window，因此
+    DOM事件回调函数为了简便，还是不太推荐使用箭头函数
+    <script>
+    // DOM 节点
+    const btn = document.querySelector('.btn')
+    // 箭头函数 此时 this指向了window
+    btn.addEventListener('click', () =>{
+    // 本层是addEventListener函数 相当于addEventListener是小括号里面的后面匿名函数的函数名 相当于把后面的匿名函数赋值给函数名addEventListener
+      console.log(this) // this是上一层的this 上一层是btn  btn的this是window
+    }
+    // 普通函数 此时 this 指向了DOM对象
+    btn.addEventListener('click',function (){
+      console.log(this) // 本层是addEventListener函数 this指向本层函数的调用者btn
+    })
+    箭头函数更多this问题，我们第四天再进行讲解
+
+    总结
+    1. 箭头函数里面有this吗?
+    箭头函数不会创建自己的this,它只会从自己的作用域链的上一层沿用this
+    2.DOM事件回调函数推荐使用箭头函数吗?
+    不太推荐，特别是需要用到this的时候
+    事件回调函数使用箭头函数时，this 为全局的window
+
+
+
+
+    */
+
+
+    // 以前this的指向：  谁调用的这个函数，this 就指向谁
+    // console.log(this)  // window
+    // // 普通函数
+    // function fn() {
+    //   console.log(this)  // window this指向函数的调用者
+    // }
+    // window.fn()
+    // // 对象方法里面的this
+    // const obj = {
+    //   name: 'andy',
+    // 方法的本质是函数
+    //   sayHi: function () {
+    //     console.log(this)  // obj
+    //   }
+    // }
+    // this指向函数的调用者
+    // obj.sayHi() // obj {name: 'andy', f}
+
+    // 2. 箭头函数的this  是上一层作用域的this 指向
+    // const fn = () => {
+    // 不是因为window.fn()调用了fn this才指向window
+    // { } 大括号局部作用域里面没有this指向 就往上一层去找 上一层是script script的this指向window
+    //   console.log(this)  // window
+    // }
+    // fn()
+    // 对象方法箭头函数 this
+    // const obj = {
+    //   uname: 'pink老师',
+    //   sayHi: () => {
+    // 这个大括号{}局部作用域里面没有this 往上一层作用域链里面找 上一层是obj obj的this指向window
+    //     console.log(this)  // this 指向谁？ window
+    //   }
+    // }
+    // obj.sayHi()
+
+    const obj = {
+      uname: 'pink老师',
+      sayHi: function () {
+        console.log(this)  // Object
+        let i = 10
+        const count = () => {
+          console.log(this)  // Object
+        }
+        count()
+      }
+    }
+    obj.sayHi()
+
+
+    const obj2 = {
+      uname2: 'red老师',
+      sayHi2:function () {
+        console.log(this) // Object
+        const count = () => {
+          console.log(this) // Object
+        }
+        count()
+      }
+    }
+    obj2.sayHi2()
+
+
+  </script>
+</body>
+
+</html>

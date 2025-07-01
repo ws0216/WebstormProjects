@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    数组中map方法 迭代数组
+    作用: map 迭代数组
+    语法:
+    const arr = ['pink', 'red', 'blue']
+    arr.map(function(item,index) {
+      console.log(item) // item 得到数组元素 'pink' 'red' 'blue'
+      console.log(index) // index 得到索引号  0     1     2
+    })
+
+    使用场景:
+    map 可以处理数据，并且返回新的数组! 最重要的
+
+    const arr = ['pink', 'red', 'blue']
+    const newArr = arr.map(function(item,index) {
+      console.log(item) // item 得到数组元素 'pink' 'red' 'blue'
+      console.log(index) // index 得到索引号 012
+      return item +'老师'
+    })
+    console.log(newArr) // ['pink老师','red老师",'blue老师']
+
+    const arr = ['red', 'blue', 'green']
+    const newArr = arr.map(function (ele,index) {
+    console.log(ele) //数组元素
+    console.log(index) //数组索引号
+    return ele +'颜色'
+    })
+    console.log(newArr) // ['red颜色','blue颜色','green颜色']
+
+    ['red', 'blue', 'green'] -> ['red颜色', 'blue颜色', 'green颜色']
+
+    map 也称为映射。映射是个术语，指两个元素的集之间元素相互“对应”的关系。
+    map重点在于有返回值，forEach没有返回值
+
+    arr.map(function (ele,index) {})
+    function: 回调函数
+    ele: 第一个参数  //数组中的每一个元素
+    index: 第二个参数  //数组中每一个元素的索引号
+
+    不要用数组map方法遍历数组 因为map方法的主要设计原则是: 处理数组里面的数据并返回一个新数组
+
+
+    */
+
+    const arr = ['red', 'blue', 'green']
+    // map 方法也是遍历  处理数据  可以返回一个数组
+    const newArr = arr.map(function (item, i) {
+      // console.log(item)  // 数组元素  'red'
+      // console.log(i)  // 下标
+      return item + '老师'
+    })
+    // 整个数组map方法执行完之后 会生成一个新的数组
+    console.log(newArr)
+
+
+    ['red老师', 'blue老师', 'green老师']
+
+
+    const arr1 = [10, 20, 30]
+    const newArr1 = arr1.map(function (item) {
+      return item + 10
+    })
+    console.log(newArr1)
+
+
+
+
+  </script>
+</body>
+
+</html>

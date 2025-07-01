@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+
+    模板字符串
+    使用场景
+    拼接字符串和变量
+    在没有它之前，要拼接变量比较麻烦
+    document.write('大家好，我叫'+ name + '，今年'+ age +'岁)
+
+    语法
+    ``(反引号)
+    在英文输入模式下按键盘的tab键上方那个键(1左边那个键)
+    内容拼接变量时，用${}包住变量
+
+    1. JavaScript中什么样数据我们知道是字符串类型?
+    只要用 单引号、双引号、反引号包含起来的就是字符串类型
+    2.字符串拼接比较麻烦，我们可以使用什么来解决这个问题?
+    模板字符串，可以让我们拼接字符串更简便
+    3.模板字符串使用注意事项:
+    用什么符号包含数据?
+    √ 反引号  ``
+    用什么来使用变量?
+    √ ${变量名}
+    (`我今年${age}岁了`)
+
+    */
+
+    // let age = 20
+    // // 模板字符串 外面用`` 里面 ${变量名}
+    // document.write(`我今年${age}岁了`)
+    let uname = prompt('请输入您的姓名:')
+    let age = prompt('请输入您的年龄:')
+    // 输出
+    document.write(`大家好，我叫${uname}， 我今年贵庚${age}岁了`)
+  </script>
+</body>
+
+</html>

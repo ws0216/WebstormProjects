@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.4遍历对象
+    目标:能够遍历输出对象里面的元素
+    遍历对象
+    for 遍历对象的问题:
+    对象没有像数组一样的length属性,所以无法确定长度
+    对象里面是无序的键值对，没有规律。不像数组里面有规律的下标
+
+    遍历对象
+    let obj ={
+      uname: 'andy',
+      age:18,
+      sex:'男'
+    }
+    for (let k in obj) {
+      console.log(k) //打印属性名
+      console.log(obj[k]) // 打印属性值
+    一般不用这种方式遍历数组、主要是用来遍历对象
+    for in 语法中的 k 是一个变量，在循环的过程中依次代表对象的属性名
+    由于 k 是变量,所以必须使用 [] 语法解析
+    一定记住: k 是获得对象的属性名，对象名[k] 是获得属性值
+
+    1.遍历对象用那个语句?
+    for in
+    2.遍历对象中，for k in obj,获得对象属性是那个，获得值是那个?
+    获得对象属性是 k
+    获得对象值是 obj[k]
+
+
+
+
+    */
+    // for in 我们不推荐遍历数组
+    // let arr = ['pink', 'red', 'blue']
+    // for (let k in arr) {
+    //   console.log(k)  // 数组的下标 索引号  但是是字符串 '0' 在操作时很容易出问题
+    //   console.log(arr[k])  // arr[k]
+    // }
+    // 1. 遍历对象 for in 推荐
+    let obj = {
+      uname: 'pink老师',
+      age: 18,
+      gender: '男'
+    }
+    // 2. 遍历对象
+    // 这里的 k 可以随便写, /key 键
+    // 键值对:键对应键值  属性名对应属性值
+    for (let k in obj) {
+      console.log(k) // k相当于属性名 k =  'uname'  'age'   k 是属性名 是字符串
+      // 本质上会隐式将uname转换为字符串到[]中
+      // 所以obj.k其实是obj['k']查找的是属性名为'k'的值 而k本来就是属性名 例如'uname'是字符串 结果自然就是undefined
+      // console.log(obj.uname) //正确
+      // console.log(obj.k) 相当于 console.log(obj.'uname') 而obj.属性名 属性名不能加引号''
+      // console.log(obj.'uname')
+      // console.log(obj['uname'])   'uname'  === k
+      console.log(obj[k])  // 输出属性值  obj[k]
+    }
+  </script>
+</body>
+
+</html>

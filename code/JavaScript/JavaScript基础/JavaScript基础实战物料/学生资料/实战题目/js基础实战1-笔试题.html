@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>js基础-笔试题</title>
+</head>
+
+<body>
+  <script>
+      /*
+      //   1. 声明age变量并赋值为18
+      let age = 18
+
+      //   2. 声明uname, age, gender 多个变量
+      let uname,age,gender
+
+      //   3. 定义数组，保存 小黑、小红、小花 三个人的名字
+      let arr = ['小黑','小红','小花']
+
+      //   4. 写出for循环遍历数组的基本语法
+      for(let i = 0; i < arr.length; i++) {
+      }
+
+      //   5. 写出数字自增的做法有哪些
+      i++  后置自增 先使用/运算,再加1
+      ++i  前置自增 先加1,再使用/运算
+
+      //   6. 写出if单分支、双分支、多分支语句
+      if () {}
+
+      if () {
+      } else {}
+
+      if () {
+      } else if () {
+      } else if ...
+
+      //   7. 请写出三元运算符的语法
+      a > b ? a : b
+
+      //   8. 请写出for循环的语法
+      for(let i = 0; i < arr.length; i++) {
+      }
+
+      //   9. 写出出数组的常用方法和对应的作用
+      arr.length 获取数组长度
+      arr.push 数组尾部追加一个元素     返回新数组长度
+      arr.unshift 数组头部追加一个元素  返回数组新长度
+      arr.pop 数字尾部删除一个元素      返回该元素的值
+      arr.shift 数组头部删除一个元素    返回该元素的值
+      arr.splice(start,deleteCount) 数组中删除任意位置任意个元素
+      arr.splice(起始位置，删除几个元素)
+      start 从哪个索引下标开始删; deleteCount 数字 要删几个元素
+
+      //   10. 写出函数的语法
+      //         带有形参和返回值
+        x,y 是 形参 设置默认值为 0
+      function 函数名(x = 0, y = 0 ) {
+      函数体
+      return x + y
+      }
+      函数名(1,2)
+        1,2是实参
+
+      匿名函数 function() {}
+      函数表达式   (function() {})()
+      立即执行函数 (function() {}())
+
+      //   11. 写出作用域有哪些
+      全局作用域 全局有效 整个script标签或...有效
+      局部作用域 局部有效 函数内部
+
+      //   12. 写出对象语法
+      let obj1 = {
+        // 多个属性之间用 , 隔开
+        uname: 'pink老师',
+        age: 18,
+        gender: '女'
+      }
+
+      let obj2 = {
+        // 属性名包含特殊符号时要用引号包含起来
+        'goods-name': 'pink老师',
+        age: 18,
+        gender: '女'
+      }
+
+      //   13. 写出遍历对象的语法
+      for (let k in obj) {
+        console.log(k) // 打印属性名
+        console.log(obj.k) // 打印属性名的属性值
+        console.log(obj[k]) // 打印属性名的属性值
+      }
+
+      //   14. 写出基本数据类型有哪5种
+      number    数字型
+      string    字符串型
+      boolean   布尔型
+      undefined 未定义型
+      null      空类型   其实是object类型
+
+      JavaScript中的null仅仅是一个代表“无”、“空”或“值未知”的特殊值
+      nul1 和 undefined 区别:
+      undefined表示没有赋值
+      null 表示赋值了，但是内容为空
+
+      NaN 代表一个计算错误 不是一个数字 错误的数学运算得到的
+
+      引用数据类型
+      obj
+      如果一个变量里面确定存放的是对象，如果还没准备好对象，可以放个null
+
+      //   15. 写出 转换为数值型常见方法
+      Number(数据) 括号里面只能是数字 如果包含不是数字的则返回NaN
+
+      parseInt(数据),parseFloat(数据) 只取前面开头的数字部分
+      括号里面可以是数字也可以是字符串 但是只返回数字部分
+
+      parseInt(数据)
+      只保留整数 只保留数字
+      parseFloat(数据)
+      可以保留小数 只保留数字
+
+      数据 转换为字符串的方法
+      '字符串' + 数据
+
+      String(数据)
+      变量.toString(进制)
+
+
+      //   16. 写出模板字符串使用方式
+      let username = 'pink老师'
+      let age = 18
+      `我是${username},我今年${age}岁了`
+
+      //   17. 写出布尔类型的值为false 的值哪些
+      0, '', undefined, null, NaN, false
+
+      //   18. 写出  +加号的功能有哪些
+      + 的2个作用:
+      一是在字符串做 + 加法操作时 字符串拼接
+      二是数学运算 + 加法
+
+      5.2 隐式转换
+      某些运算符被执行时，系统内部自动将数据类型进行转换，这种转换称为隐式转换。
+      规则:
+      + 号两边只要有一个是字符串，都会把另外一个转成字符串  字符串是黑色
+      除了+以外的算术运算符比如 - * / 等都会把数据转成数字类型  数字类型是蓝色
+
+      //   19. 逻辑中断
+      && 左假则假,右边不执行
+      左右都为真才为真,左右都执行,且执行结果返回的是最右边的表达式结果
+
+      || 一真则真,左边为真则右边不执行
+      左右都为真,只执行左边,返回左边,右边不执行
+
+      */
+  </script>
+</body>
+
+</html>

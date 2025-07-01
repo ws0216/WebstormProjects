@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    筛选数组 filter 方法(重点)
+    filter()方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素
+    主要使用场景:筛选数组符合条件的元素，并返回筛选之后元素的新数组
+    语法:
+    被遍历的数组.filter(function(currentValue,index) {
+    return 筛选条件
+    例:
+    // 筛选数组中大于30的元素
+    const score = [10，50，3，40，33]
+    const re = score.filter(function (item) {
+    return item > 30
+    })
+    console.log(re) // [50,40,33]
+
+    filter()筛选数组
+    返回值:返回数组，包含了符合条件的所有元素。如果没有符合条件的元素则返回空数组
+    参数:currentValue必须写，index可选
+    因为返回新数组，所以不会影响原数组
+
+    
+
+
+
+    */
+    const arr = [10, 20, 30]
+    // const newArr = arr.filter(function (item, index) {
+    //   // console.log(item)
+    //   // console.log(index)
+    // 像map方法 map方法可以return 加法操作  return item+20
+    // 但不能写比较运算符 因为返回的是true或false
+    // 但是filter方法不可以返回加法操作 只能写比较运算符
+    //   return item >= 20
+    // })
+    // 返回的符合条件的新数组
+
+    const newArr = arr.filter(item => item >= 20)
+    console.log(newArr)
+
+
+    const arr2 = [100, 200, 300]
+    const newArr2 = arr2.filter(item => item >= 200)
+    console.log(newArr2);
+
+  </script>
+</body>
+
+</html>

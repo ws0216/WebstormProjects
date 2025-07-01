@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+  /*
+    释义:
+    找到跟小括号里数据全等的case值，并执行里面对应的代码
+    若没有全等===的则执行default里的代码
+     例:数据若跟值2全等，则执行代码2
+    注意事项
+    1. switch case语句一般用于等值判断,不适合于区间判断
+    2. switch case一般需要配合break关键字使用没有break会造成case穿透
+    3. if 多分支语句开发要比switch更重要，使用也更多
+
+
+    */
+  -->
+  <script>
+    switch (2) {
+      case 1:
+        console.log('您选择的是1')
+        break  // 退出switch
+      case 2:
+        console.log('您选择的是2')
+        break  // 退出switch
+      case 3:
+        console.log('您选择的是3')
+        break  // 退出switch
+      default:
+        console.log('没有符合条件的')
+    }
+  </script>
+</body>
+
+</html>

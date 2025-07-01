@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    学习目标
+    1.掌握DOM属性操作，完成元素内容设置
+    2.元素属性设置，控制元素样式
+
+    Web API 基本认知
+
+    变量声明
+    变量声明有三个  var let 和 const
+    我们应该用那个呢?
+    首先var 先排除，老派写法，问题很多，可以淘汰掉…
+    let or const ?
+    建议: const 优先，尽量使用const，原因是:
+      const 语义化更好
+      很多变量我们声明的时候就知道他不会被更改了，那为什么不用const呢?
+      实际开发中也是，比如react框架，基本const
+    如果你还在纠结，那么我建议:
+      有了变量先给const，如果发现它后面是要被修改的，再改为let
+
+    请问以下的可不可以把 let 改为 const?
+    document.write('我叫'+'刘德华') // 我叫刘德华
+    let uname = '刘德华'
+    let song = '忘情水'
+    document.write(uname + song) // 刘德华忘情水
+    let num1 = +prompt('请输入第一个数值:')
+    let num2 = +prompt('请输入第二个数值:')
+    alert(`两者相加的结果是:${num1 + num2}`)
+    // uname,song,num1,num2 可以，因为他们值没有变过
+
+    请问以下的可不可以把 let 改为 const?
+    let num = 1
+    num = num + 1
+    console.log(num) //结果是2
+    for (let i = 0; i < nums.length; i++) {
+    document.write(nums[i])
+    // num,i 不可以，因为变量进行了重新赋值
+
+    请问以下的可不可以把let 改为const?
+    let arr = ['red', 'green']
+    arr.push( 'pink' )
+    console.log(arr) // ['red', 'green', 'pink']
+    let person = {
+    uname: 'pink老师'，
+    age: 18,
+    gender:'女'
+    person.address ='武汉黑马'
+    console.log(person)
+    // arr,person 可以 嘻嘻?
+
+    为什么?
+    const 声明的值不能更改，而且const声明变量的时候需要里面进行初始化
+    基本数据类型的可以
+    因为在声明基本数据类型存的时候,里面存的是值
+    但是对于 引用数据类型，const声明的变量，里面存的不是值，不是值，不是值，是地址。
+    const arr = [1,2,3]
+    const arr -> 栈里面开辟空间存放地址0x112233 -> 通过地址找到堆里面存放的数组[1,2]
+    栈里面的地址没变,数组还是那个数组,数组没变
+    堆里面的内容变了
+
+    考考你:可以改为const吗? 可以
+    只是在原来的对象基础上追加了一个 这个对象没变
+    let person ={
+    uname: 'pink老师'，
+    age:18,
+    gender:'女'
+    }
+    person.gender ='男'
+    console.log(person.gender) // 修改了为男
+    console.log(person)
+
+    考考你:下面写法可以吗? 不可以
+    const names = []  //一个[] 这是个空数组 是一个新的地址
+    names = [1, 2，3]  //又是一个[] 又是新的数组 它们地址不一样
+
+    const obj = {}   //一个{} 这是个空对象 是一个新的地址
+    obj = {
+      uname:'pink老师'
+    }   //又是一个{} 又是新的对象 它们地址不一样
+
+    错误，他们地址不一样
+
+    const names =[]
+    names[0]= 1
+    names[1] =2
+    names[2] =3
+
+    const obj = {}
+    obj.uname = 'pink老师'
+    这样改可以了
+
+    简单来说,我们可以考虑给数组或者对象去追加属性,删除属性是没问题的 可以用const声明
+
+    1. 以后声明变量我们优先使用哪个?
+    const
+    有了变量先给const，如果发现它后面是要被修改的，再改为let
+    2.为什么const声明的对象可以修改里面的属性?
+    因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错
+    建议数组和对象使用const 来声明
+    3.什么时候使用let声明变量?
+    如果基本数据类型的值或者引用类型的地址发生变化的时候，需要用let
+    比如 一个变量进行加减运算，比如for循环中的i++
+
+
+
+
+
+    */
+
+    const arr = ['red', 'pink']
+    // arr.push('blue')
+    // console.log(arr)
+    // arr = [1, 2, 4]
+    // console.log(arr)  // 错误 因为arr在栈里面对应的地址变了
+  </script>
+</body>
+
+</html>

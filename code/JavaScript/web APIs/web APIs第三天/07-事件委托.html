@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>第1个孩子</li>
+    <li>第2个孩子</li>
+    <li>第3个孩子</li>
+    <li>第4个孩子</li>
+    <li>第5个孩子</li>
+    <p>我不需要变色</p>
+  </ul>
+  <script>
+    /*
+    目标:能够说出事件委托的好处
+    委托:很多子级
+
+    思考
+    1.如果同时给多个元素注册事件，我们怎么做的?
+      for循环注册事件
+    2.有没有一种技巧注册一次事件就能完成以上效果呢?
+    <ul>
+    <li>第1个孩子</li>
+    <li>第2个孩子</li>
+    <li>第3个孩子</li>
+    <li>第4个孩子</li>
+    <li>第5个孩子</li>
+    </ul>
+    const lis = document.querySelectorAll('ul li')
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].addEventListener('click', function () {
+        alert('我被点击了')
+      })
+    }
+
+    事件委托是利用事件流的特征解决一些开发需求的知识技巧 利用事件冒泡
+    优点:减少注册次数，可以提高程序性能
+    原理:事件委托其实是利用事件冒泡的特点。
+      给父元素注册事件，当我们触发子元素的时候，会冒泡到父元素身上，从而触发父元素的事件
+    实现:事件对象.target.tagName 可以获得真正触发事件的元素
+
+    ul.addEventListener('click', function(){})执行父级点击事件
+    事件写到了父级ul身上,子级li不添加事件 就不需要循环了,但是我点击的时候还是li
+    点击的是li,但是li身上没有监听事件,没有不要紧,因为事件本身有个事件流,会冒泡 从子往父 冒到ul身上 ul有点击事件 会执行里面的代码 现在就执行父级点击事件 所以5个li 我随便点一个都会冒到ul上 这样就只需要注册了一次点击事件
+    看下面代码
+
+    addEventListener第三个参数传入 true 代表是捕获阶段触发(很少使用)
+    若传入 false 代表冒泡阶段触发，默认就是false
+
+    总结
+    1.事件委托的好处是什么?
+    减少注册次数，提高了程序性能
+    2.事件委托是委托给了谁?父元素还是子元素?
+    父元素
+    3.如何找到真正触发的元素?
+    事件对象.target.tagName
+    const ul = document.querySelector('ul')
+    ul.addEventListener('click', function (e) {
+      // console.dir(e.target)
+      if (e.target.tagName === 'LI') {
+        this.style.color = 'pink'
+      }
+    })
+
+
+
+    */
+
+    // 点击每个小li 当前li 文字变为红色
+    // 按照事件委托的方式  委托给父级，事件写到父级身上
+    // 1. 获得父元素
+    const ul = document.querySelector('ul')
+    // addEventListener第三个参数默认就是false 代表冒泡阶段触发
+    // 我点的是li,但是li没有绑定监听事件,但是它会冒泡 冒到ul身上 ul有点击事件 那ul就会执行
+    ul.addEventListener('click', function (e) {
+      // alert(11)
+      // this.style.color = 'red'
+      // target 事件对象e中的target
+      console.dir(e.target) // 就是我们点击的那个对象
+      // e.target.style.color = 'red'
+      // 我的需求，我们只要点击li才会有效果
+      // tagName:标签名 字符串 大写
+      // 可以通过tagName来判断点击的是不是li 如果是li就执行相应的代码
+      if (e.target.tagName === 'LI') {
+        e.target.style.color = 'red'
+      }
+    })
+  </script>
+</body>
+
+</html>

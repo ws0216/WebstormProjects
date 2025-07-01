@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>24_布局技巧3</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            text-align: center;
+            line-height: 400px;
+            /* 为了消除父元素里面的文字对里面子元素的影响,设置font-size: 0px;
+            然后所有的儿子都设置vertical-align: middle; */
+            font-size: 0px;
+            text-indent: 20px;
+        }
+        /*
+        当.outer里面设置了text-align: center;和line-height: 400px;属性时,
+        则文字和图片是基线是对齐的,把文字换成x看的更清楚一点
+        所以给img加上vertical-align: middle;则图片的中心点就和文字x的中心点在一条水平线上,
+        且图片img是跟着文字走的,但是由于字体设计的原因,这个x在垂直方向上不是真正的居中,x会靠下一些,所以图片也会跟随着x靠下一些
+        当我们想做一个绝对的居中,让父元素的文字不再影响img,应该找到父元素,直接令font-size为0px,则img就真正地垂直居中了
+        而文字用span包起来,并给它设置vertical-align: middle;  此时文字x和图片img都是绝对的垂直居中,水平居中一个text-align: center;就搞定了       */
+
+        /*
+        15.布局小技巧
+        1.行内元素、行内块元素，可以被父元素当做文本处理。
+        即:可以像处理文本对齐一样，去处理:行内、行内块在父元素中的对齐。
+        例如:text-align、line-height、text-indent等。
+        2.如何让子元素，在父亲中水平居中:
+        。 若子元素为块元素，给父元素加上:margin:0 auto;.
+        。 若子元素为行内元素、行内块元素，给父元素加上:text-align:center.
+        3.如何让子元素，在父亲中垂直居中:
+        。 若子元素为块元素，给子元素加上:margin-top，值为:(父元素content-子元素盒子总高)/2。
+        注意父元素可能会偷走它第一个儿子的margin-top,给父元素加上overflow:hidden;就行了
+        。 若子元素为行内元素、行内块元素:
+        让父元素的 height= line-height，每个子元素都加上:vertical-align:middle;.
+        补充:若想绝对垂直居中，父元素font-size设置为0.
+        此时如果子元素也有文字字体,那就单独再给它设置一个font-size值
+        */
+        img {
+            vertical-align: middle;
+        }
+        span {
+            font-size: 40px;
+            vertical-align: middle;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <span>出来玩啊？</span>
+        <img src="../images/悟空.jpg" alt="">
+    </div>
+</body>
+</html>

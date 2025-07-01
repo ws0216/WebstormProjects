@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>16_margin塌陷问题</title>
+    <style>
+        .outer {
+            width: 400px;
+            /* 不给父亲高度就是父亲的内容撑开了父亲整个的高度 */
+            /* height: 400px; */
+            background-color: gray;
+            /* border: 10px solid transparent; */
+            /* padding: 10px; */
+            overflow: hidden;
+        }
+        .inner1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* margin塌陷问题:
+             在一个父元素里面,给第一个子元素设置margin-top值,给最后一个子元素设置margin-bottom值,那这两个值都会作用在它的父元素身上
+             为什么呢? 因为这是一个历史遗留问题,早期W3C在设置这个标准的时候就认为父元素里面给第一个子元素设置的margin-top直接交给父亲比较好,同理... 但是现在来看就是不好有问题的
+             如何解决呢?
+             1.找到父元素,给父元素加上一个border属性值,但不能写0px
+             2.给父元素一个padding值,但不能写0px
+             只要加了border和padding,那么就势必会影响整个父盒子的大小
+             为什么1,2能解决呢? 理解为:如果给父元素加了border,padding,就感觉父元素是在和浏览器表达说我就是一个非常符合规范的盒子,你不要乱把其他的东西加给我,我就是我
+             3.给父元素添加overflow: hidden;  溢出之后的显示模式:隐藏
+
+             */
+            /* 下面这行代码是有问题的 */
+            margin-top: 50px;
+            /* 被它爹抢走了 */
+        }
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* 也被它爹抢走了 */
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner1">inner1</div>
+        <div class="inner2">inner2</div>
+    </div>
+    <div>我是一段测试的文字</div>
+</body>
+</html>

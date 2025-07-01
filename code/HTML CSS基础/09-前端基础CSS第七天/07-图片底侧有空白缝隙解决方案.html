@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片底侧空白缝隙解决方案</title>
+    <style>
+        .box1 {
+            border: 2px solid red;
+        }
+        .box1 img {
+            /*保证图片不要和文字的基线对齐*/
+            /*vertical-align: bottom;*/
+            /* vertical-align: middle; */
+            /*可以将 img 转换为 块级元素: 没有vertical-align属性,不会有这种基线对齐的方式,但是不推荐*/
+            display: block;
+        }
+        .box2 {
+            /*因为图片默认和这个文字的基线对齐,不是底线*/
+            border: 2px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <img src="images/ldh.jpg" alt="">
+    </div>
+    <div class="box2">
+        <img src="images/ldh.jpg" alt="">pink老师
+    </div>
+</body>
+</html>

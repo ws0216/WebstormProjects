@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            /* transform-origin: left bottom; */
+        }
+
+        /* 缩放，顾名思义，可以放大和缩小。 只要给元素添加上了这个属性就能控制它放大还是缩小。
+        transform:scale(x,y); 注意其中的x和y用逗号分隔
+        */
+
+        /*
+        2D 转换综合写法
+        1. 同时使用多个转换，其格式为：transform: translate() rotate() scale() ...等，
+        2. 其顺序会影转换的效果。（先旋转会改变坐标轴方向）
+        3. 当我们同时有位移和其他属性的时候，记得要将位移放到最前
+
+        */
+
+        div:hover {
+            /* 1. 里面写的数字不跟单位 就是倍数的意思 1 就是1倍  2就是 2倍 */
+            /* transform: scale(x, y); */
+            /* transform: scale(2, 2); */
+            /* 2. 修改了宽度为原来的2倍  高度 不变 */
+            /* transform: scale(2, 1); */
+            /* 3. 等比例缩放 同时修改宽度和高度，我们有简单的写法  以下是 宽度修改了2倍，高度默认和第一个参数一样*/
+            /* transform: scale(2); */
+            /* 4. 我们可以进行缩小  小于1 就是缩放 */
+            /* transform: scale(0.5, 0.5); 缩小 */
+            /* transform: scale(0.5); */
+            /* 5. scale 的优势之处： 不会影响其他的盒子 而且可以设置缩放的中心点*/
+            /* width: 300px;
+            height: 300px; */
+            transform: scale(2);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    123123
+</body>
+
+</html>

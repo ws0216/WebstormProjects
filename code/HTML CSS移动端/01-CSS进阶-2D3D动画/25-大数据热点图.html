@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+        
+        .map {
+            position: relative;
+            width: 747px;
+            height: 616px;
+            background: url(media/map.png) no-repeat;
+            margin: 0 auto;
+        }
+        
+        .city {
+            position: absolute;
+            top: 227px;
+            right: 193px;
+            color: #fff;
+        }
+        
+        .tb {
+            /* 不能写bottom,因为有top和bottom时会优先执行top值,所以只能改top和right的值*/
+            top: 500px;
+            right: 80px;
+        }
+        
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+
+        /* scale 可以把元素来放大,它在放大的时候能把box-shadow的阴影也一块放大了,放大完之后的效果并不好看
+        因为原来单纯地只是把盒子的款核稿改大的时候,它的阴影是不变化的*/
+        /* 如果用scale的话，这个标签的所有样式都会变大相应的倍数，阴影变得很深，位移也会改变，发散中心就不在city上了，就不是中心发散了
+        */
+        /* div[class^="pulse"] 属性选择器*/
+        /* 以某个值开头的 属性值 */
+        .city div[class^="pulse"] {
+            /* 保证我们小波纹在父盒子里面水平垂直居中 放大之后就会中心向四周发散 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 垂直水平居中是pluse盒子的左上角在中心点，不是pluse盒子中心在中心点，所以还要translate-50%*/
+            /* 之前没学translate用的是margin-left-50%，现在学了就用这个是一个意思*/
+            /* 往左走自身宽度的一半 往上走自身高度的一半*/
+            transform: translate(-50%, -50%);
+
+            width: 8px;
+            height: 8px;
+            /* 水平垂直都不要给,只给一个阴影12px 和 颜色*/
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            animation: pulse 1.2s linear infinite;
+        }
+
+        /* 注意权重的问题,否则不起效果*/
+        .city div.pulse2 {
+            animation-delay: 0.4s;
+        }
+        
+        .city div.pulse3 {
+            animation-delay: 0.8s;
+        }
+        
+        @keyframes pulse {
+            0% {}
+            70% {
+                /* transform: scale(5);  我们不要用scale 因为他会让 阴影变大*/
+                width: 40px;
+                height: 40px;
+                /* 透明度opacity: 1; 不透明*/
+                opacity: 1;
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+                /* 透明度opacity: 0; 透明*/
+                opacity: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city tb">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

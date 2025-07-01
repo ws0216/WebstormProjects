@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>20_样式的继承</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        /* body {
+            
+        } */
+
+        /*
+        13.样式的继承
+        有些样式会继承，元素如果本身设置了某个样式，就使用本身设置的样式;
+        但如果本身没有设置某个样式，会从父元素开始一级一级继承(优先继承离得近的祖先元素)。
+        会继承的css属性:
+        字体属性、文本属性(除了vertical-align)、文字颜色等。
+        不会继承的css属性:
+        边框、背景、内边距、外边距、宽高、溢出方式等。
+        一个规律:能继承的属性，都是不影响布局的，简单说:都是和盒子模型没关系的。
+
+         */
+        #d1 {
+            height: 600px;
+            padding: 50px;
+            background-color: gray;
+        }
+        #d2 {
+            height: 400px;
+            padding: 50px;
+            background-color: orange;
+            font-size: 40px;
+            color: yellow;
+            font-weight: bold;
+        }
+        #d3 {
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="d2">
+            <div id="d3" style="font-family: 隶书;">你好啊</div>
+        </div>
+    </div>
+</body>
+</html>

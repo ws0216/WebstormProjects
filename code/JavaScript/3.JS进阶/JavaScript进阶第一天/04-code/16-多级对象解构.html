@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    3.多级对象解构:
+    const pig = {
+      name:'佩奇',
+      // family也是个对象 所以是多级对象
+      family:{
+        mother:'猪妈妈',
+        father:'猪爸爸',
+        sister:'乔治'
+      },
+      age:6
+    }
+
+    //依次打印家庭成员
+    const pig = {
+      name:'佩奇',
+      family: {
+        mother:‘猪妈妈",
+        father:“猪爸爸’,
+        sister:'乔治'
+      },
+      age: 6
+    }
+
+    当遇到多级对象解构的时候 前面要说明是哪个对象 并且加上对应对象的名字family:
+    const { name,family: { mother, father, sister }} = pig
+    console.log(name) // 佩奇
+    console.log(mother) // 猪妈妈
+    console.log(father) // 猪爸爸
+    console.log(sister) // 乔治
+
+    const people = [
+      {
+        name:'佩奇',
+        family: {
+          mother:'猪妈妈',
+          father:'猪爸爸",
+          sister:'乔治'
+      },
+      age:6
+      }
+    ]
+
+    const { name,family: { mother, father, sister }} = people
+    console.log(name) // 佩奇
+    console.log(mother) // 猪妈妈
+    console.log(father) // 猪爸爸
+    console.log(sister) // 乔治
+
+
+    */
+
+
+    // const pig = {
+    //   name: '佩奇',
+    //   family: {
+    //     mother: '猪妈妈',
+    //     father: '猪爸爸',
+    //     sister: '乔治'
+    //   },
+    //   age: 6
+    // }
+    // // 多级对象解构
+    // const { name, family: { mother, father, sister } } = pig
+    // console.log(name)
+    // console.log(mother)
+    // console.log(father)
+    // console.log(sister)
+
+    const person = [
+      {
+        name: '佩奇',
+        family: {
+          mother: '猪妈妈',
+          father: '猪爸爸',
+          sister: '乔治'
+        },
+        age: 6
+      }
+    ]
+    const [{ name, family: { mother, father, sister } }] = person
+    console.log(name)
+    console.log(mother)
+    console.log(father)
+    console.log(sister)
+
+
+    const person2 = [
+      {
+        name2: '佩奇',
+        family2: {
+          mother2: '猪妈妈',
+          father2: '猪爸爸',
+          sister2: '乔治'
+        },
+        age2: 6
+      }
+    ]
+    const [{name2,family2:{mother2,father2,sister2},age2}] = person2
+    console.log(name2);
+    console.log(mother2);
+    console.log(father2);
+    console.log(sister2);
+
+
+  </script>
+</body>
+
+</html>

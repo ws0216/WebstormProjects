@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dad {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+
+    .baby {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dad">
+    <div class="baby"></div>
+  </div>
+  <script>
+    /*
+    鼠标经过事件的区别
+    鼠标经过事件:
+    mouseover 和 mouseout 会有冒泡效果
+    mouseenter 和 mouseleave 没有冒泡效果(推荐)
+
+    两种注册事件的区别
+    传统on注册(L0)
+      同一个对象,后面注册的事件会覆盖前面注册(同一个事件)
+      直接使用null覆盖偶就可以实现事件的解绑
+      都是冒泡阶段执行的
+    事件监听注册(L2)
+      语法: addEventListener(事件类型,事件处理函数,是否使用捕获)
+      既能捕获也能冒泡,使用捕获 把第三个参数改成true 使用冒泡 不用写 默认就是false
+      后面注册的事件不会覆盖前面注册的事件(同一个事件)
+      可以通过第三个参数去确定是在冒泡或者捕获阶段执行
+      必须使用removeEventListener(事件类型,事件处理函数,获取捕获或者冒泡阶段) 实现事件解绑
+      匿名函数无法被解绑
+      必须把函数专门拿出来 声明有名函数
+
+
+    */
+    // 孩子baby没有定义监听事件,爸爸dad定义了监听事件
+    // baby没有定义监听，但鼠标进入baby这件事情确确实实发生了并通过冒泡传递给了dad，而dad有定义事件监听就执行了相应的代码
+    // 孩子属于爸爸的一部分,按道理不管在哪个孩子上滑都还是在爸爸里面,不要反复执行多次
+    // mouseover 和 mouseout 会有冒泡效果
+    // mouseenter 和 mouseleave 没有冒泡效果(推荐)
+    // 所以用mouseenter 和 mouseleave
+    const dad = document.querySelector('.dad')
+    const baby = document.querySelector('.baby')
+    dad.addEventListener('mouseenter', function () {
+      console.log('鼠标经过')
+    })
+    dad.addEventListener('mouseleave', function () {
+      console.log('鼠标离开')
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    学习目标
+    1. 掌握基于构造函数创建对象，理解实例化过程
+    2. 掌握对象数组字符数字等类型的常见属性和方法，便捷完成功能  做数据处理
+
+    01
+    深入对象
+    创建对象三种方式
+    构造函数
+    实例成员&静态成员
+
+    1.1创建对象三种方式
+    目标:了解创建对象有三种方式
+    1. 利用对象字面量创建对象 简洁写法 推荐!
+    const o = {
+      name:'佩奇'
+    }
+    2. 利用 new Object 创建对象
+    const o = new Object() // 空对象 可以采用追加的方式
+    const o = new Object({ name:'佩奇'})
+
+    new Object ( )   new Date( )也是实例化构造函数
+    const array = new Array() //空数组
+    const date = new Date()
+
+    console.log(o) // {name:'佩奇'}
+    3. 利用构造函数创建对象
+    创建自己的对象 自己发明一个函数 就是自定义构造函数来创建对象
+    构造函数语法:大写字母开头的函数
+    创建构造函数:
+    // 1.创建构造函数
+    function Pig(name){
+      this.name = name  //前面是对象的属性 = 后面的是形参
+      // 相当于 obj.name = name
+    }
+    this指向调用者 就是该对象
+
+    // 2. new关键字调用函数
+    // new Pig('佩奇')
+    // 接受创建的对象
+    const peppa = new Pig('佩奇')
+    console.log(peppa) // {name:'佩奇'}
+
+
+    */
+
+    // const obj = new Object()
+    // obj.uname = 'pink老师' //追加的方式
+    // console.log(obj)
+
+    const o = new Object()
+    o.unam = '小o'
+    console.log(o)
+
+    const obj = new Object({ uname: 'pink' })
+    console.log(obj)
+
+    const obj2 = {
+      name:'pink老师'
+    }
+    console.log(obj2)
+
+    const obj3 = new Object({name:'red老师'})
+    console.log(obj3);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.4 Number
+    Number 是内置的构造函数，用于创建数值
+    常用方法:
+    toFixed()设置保留小数位的长度
+    //数值类型
+    const price = 12.345
+    // 保留两位小数四舍五入
+    console.log(price.toFixed(2)) // 12.35
+
+
+
+    */
+    // toFixed 方法可以让数字指定保留的小数位数
+    const num0 = 10.123
+    // 什么都不写 是四舍五入 为10
+    console.log(num0.toFixed()) //10
+    const num = 10.923
+    // 什么都不写 是四舍五入 为11
+    console.log(num.toFixed()) //11
+    // 保留一位小数
+    console.log(num.toFixed(1)) //10.9
+    console.log(10.99.toFixed(1)) //11
+    const num1 = 10
+    console.log(num1.toFixed(2)) //10.00
+
+
+
+
+
+  </script>
+</body>
+
+</html>

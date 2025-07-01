@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪元素选择器使用场景2-仿土豆网显示隐藏遮罩案例</title>
+    <style>
+        .tudou {
+            position: relative;
+            width: 444px;
+            height: 320px;
+            background-color: pink;
+            margin: 30px auto;
+        }
+
+        .tudou img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tudou::before {
+            content: '';
+            /* 隐藏遮罩层 */
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4) url(images/arr.png) no-repeat center;
+        }
+
+        /*hover写在before后面就是当鼠标经过before时触发，但是此时before是隐藏元素，无法触发。另外before和after都无所谓，因为加了绝对定位。*/
+        /* 当我们鼠标经过了 土豆这个盒子，就让里面before遮罩层显示出来 */
+        .tudou:hover::before {
+            /* 而是显示元素 */
+            display: block;
+        }
+
+        /*. clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+           }*/
+        /*用visibility：hidden隐藏后位置保留，如果用display：none位置不保留，就没有达到清除浮动的效果了*/
+
+        /*.clearfix:before,.clearfix:after {
+           content:"";
+           display:table;
+          }
+          .clearfix:after {
+           clear:both;
+          }*/
+        /* table 表格
+        display:table;可以把before和after这两个盒子都放到一行上,就理解为相当于一个表格里面有两个单元格*/
+        /* 此方法 就不需要在盒子里面插入一个块级元素了,这样HTML结构会更简单*/
+
+    </style>
+</head>
+
+<body>
+    <div class="tudou">
+        <img src="images/tudou.jpg" alt="">
+    </div>
+    <div class="tudou">
+        <img src="images/tudou.jpg" alt="">
+    </div>
+    <div class="tudou">
+        <img src="images/tudou.jpg" alt="">
+    </div>
+    <div class="tudou">
+        <img src="images/tudou.jpg" alt="">
+    </div>
+</body>
+
+</html>

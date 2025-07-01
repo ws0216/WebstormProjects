@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.6 匿名函数
+    目标:了解匿名函数的使用方式
+    函数可以分为:
+
+    具名函数 有名字的函数
+    声明:function fn()
+    {}
+    调用:fn()
+
+    匿名函数 没有名字的函数
+    function() {}
+
+    匿名函数
+    没有名字的函数，无法直接使用。
+    使用方式:
+    函数表达式
+    立即执行函数
+
+    1.函数表达式
+    将匿名函数赋值给一个变量，并且通过变量名称进行调用我们将这个称为函数表达式
+    !函数表达式要求必须先声明,再调用
+    语法:
+    // 把函数赋值给fn,则变量名fn就作为函数名
+    let fn = function () {
+      //函数体
+    }
+    调用:
+    fn() // 函数名()
+    其中函数的形参和实参使用跟具名函数一致。
+    使用场景
+    目前没有，先认识
+    后期 web API会使用:
+
+    // 函数表达式和 具名函数的不同   function fn() {}
+    // 1. 具名函数的调用可以写到任何位置
+    // 2. 匿名函数 函数表达式，必须先声明函数表达式，后调用
+
+    2.立即执行函数
+    场景介绍:避免全局变量之间的污染
+    语法:
+    //方式1
+    (function () { console.log(11) })();
+    //方式2
+    //因为function () { console.log(11) }()是一个整体的 所以在它外面再用一个小括号包起来
+    (function () { console.log(11) }());
+    // 不需要调用，立即执行 只要一保存立即执行
+    注意:多个立即执行函数要用;隔开，要不然会报错
+
+    1.立即执行函数有什么作用?
+    防止变量污染 对别的变量没有影响
+    2.立即执行函数需要调用吗?有什么注意事项呢?
+    无需调用，立即执行，其实本质已经调用了
+    多个立即执行函数之间用分号 ; 隔开
+
+    (function(){})()
+    (function(){}()) //flexible.js用
+
+    // x y 形参
+    (function (x, y) {
+      console.log(x + y)
+      let num = 10
+      let arr = []
+    })(1, 2);
+    // 1 2 实参
+
+
+
+
+
+    */
+    // console.log(num)
+    // let num = 10
+
+    // 3 + 4
+    // num = 10
+    // 1. 函数表达式
+    fn(1, 2)  //错误
+    let fn = function (x, y) {
+      // console.log('我是函数表达式')
+      console.log(x + y)
+    }
+
+    // 函数表达式和 具名函数的不同   function fn() {}
+    // 1. 具名函数的调用可以写到任何位置
+    // 2. 函数表达式，必须先声明函数表达式，后调用
+    // function fun() {
+    //   console.log(1)
+    // }
+    // fun()
+  </script>
+</body>
+
+</html>

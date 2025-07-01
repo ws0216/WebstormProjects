@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    4.1 数据类型- 布尔类型(boolean)
+    表示肯定或否定时在计算机中对应的是布尔类型数据。
+    它有两个固定的值true和false，表示肯定的数据用true(真)，表示否定的数据用false(假)。
+
+    4.1 数据类型- 未定义类型(undefined) 未知
+    未定义是比较特殊的类型，只有一个值undefined.
+    什么情况出现未定义类型?
+    只声明变量，不赋值的情况下，变量的默认值为undefined，一般很少【直接]为某个变量赋值为undefined。
+    let age//声明变量但是未赋值
+    document.write(age) // 输出 undefined
+    工作中的使用场景:
+    我们开发中经常声明一个变量，等待传送过来的数据。
+    如果我们不知道这个数据是否传递过来，此时我们可以通过检测这个变量是不是undefined，就判断用户是否有数据传递过来
+
+    // undefined + 任何 = NaN
+
+    NaN: Not a Number 表未知结果
+    NaN 代表一个计算错误。它是一个不正确的或者一个未定义的数学操作所得到的结果
+
+    4.1数据类型- null(空类型) 其实是object类型
+    JavaScript中的null仅仅是一个代表“无”、“空”或“值未知”的特殊值
+    let obj = null
+    console.log(obj) // null
+    nul1 和 undefined 区别:
+    undefined表示没有赋值
+    null 表示赋值了，但是内容为空
+    nu11 开发中的使用场景:
+    官方解释:把null作为尚未创建的对象
+    大白话:将来有个变量里面存放的是一个对象，但是对象还没创建好，可以先给个null
+
+    1.布尔数据类型有几个值?
+    true 和 false
+    2.什么时候出现未定义数据类型?以后开发场景是?
+    定义变量未给值就是undefined
+    如果检测变量是undefined就说明没有值传递过来
+    3. null 是什么类型?开发场景是?
+    空类型  null其实是object类型
+     如果一个变量里面确定存放的是对象，如果还没准备好
+    对象，可以放个null
+
+    */
+
+    // 1. true  false 是布尔型字面量  
+    // console.log(3 > 4)
+    // let isCool = false
+    // console.log(isCool)
+    // 2. 未定义类型   弱数据类型   声明一个变量未赋值就是 undefined
+    // let num
+    // console.log(num)
+    // 3. null 空的
+    // let obj = null
+    // console.log(obj)
+
+    // 计算有区别 错误的数学操作
+    // NaN: Not a Number 表未知结果
+    // NaN 代表一个计算错误。它是一个不正确的或者一个未定义的数学操作所得到的结果
+    // 数字1 不知道加了个什么东西 是个错误的数学操作
+    console.log(undefined + 1)  // NaN
+    // 而null是空 就是没有 加1就等于1
+    console.log(null + 1) // 1
+  </script>
+</body>
+
+</html>

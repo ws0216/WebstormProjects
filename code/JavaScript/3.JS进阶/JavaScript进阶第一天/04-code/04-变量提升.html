@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.6 变量提升
+    目标:了解什么是变量提升
+    变量提升是JavaScript中比较“奇怪”的现象，它允许在变量声明之前即被访问(仅存在于var声明变量)
+    注意:
+    1.变量在未声明即被访问时会报语法错误
+    2.变量在var声明之前即被访问，变量的值为undefined
+    3.let/const声明的变量不存在变量提升
+    4.变量提升出现在相同作用域当中
+    5.实际开发中推荐先声明再访问变量
+
+    目标:了解什么是变量提升
+    说明:
+    JS初学者经常花很多时间才能习惯变量提升，还经常出现一些意想不到的bug，正因为如此，ES6引入了块级作用域，
+    用let 或者 const声明变量，让代码写法更加规范和人性化。
+
+    总结
+    1.用哪个关键字声明变量会有变量提升?
+    var
+    2.变量提升是什么流程?
+    先把 var 变量提升到当前作用域于最前面
+    只提升变量声明，不提升变量赋值
+    然后依次执行代码
+    我们不建议使用var声明变量
+
+    当代码在执行之前 首先在内部会把所有在当前作用域下所有var声明的变量提升到当前作用域的最前面 只提升声明， 不提升赋值
+
+
+    */
+
+    // console.log(num + '件')
+    // var num = 10
+
+    // 1. 把所有var声明的变量提升到 当前作用域的最前面
+    // 2. 只提升声明， 不提升赋值
+    // var num
+    // console.log(num + '件')
+    // num = 10
+    // console.log(num)
+
+    function fn() {
+      console.log(num)
+      var num = 10
+    }
+    fn()
+  </script>
+</body>
+
+</html>

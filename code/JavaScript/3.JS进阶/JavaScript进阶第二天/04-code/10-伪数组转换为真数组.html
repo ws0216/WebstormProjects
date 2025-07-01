@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    /*
+    2.数组常见方法-伪数组转换为真数组
+    静态方法Array.from()
+
+    Array.from(lis) 把伪数组转换为真数组
+
+    伪数组有些方法不能用 所以情况下需要把伪数组转换为真数组
+
+
+
+    */
+    // Array.from(lis) 把伪数组转换为真数组
+    // 获取过来的是伪数组 不能使用数组方法 伪数组使用方法会报错
+    const lis = document.querySelectorAll('ul li')
+    // console.log(lis)
+    // lis.pop() 报错
+    // 所以把伪数组转换成真数组
+    const liss = Array.from(lis)
+    liss.pop() // liss是真数组 不会报错
+    console.log(liss)
+  </script>
+</body>
+
+</html>

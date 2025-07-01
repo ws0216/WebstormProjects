@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- 一定不要忘记引入bootstrap 的样式文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .row>div {
+            height: 50px;
+            background-color: pink;
+            /* 不能给margin值,因为原来的3个盒子每个的宽度都已经是33.3%了,再加margin值的话一行就放不下了就会掉下来了 */
+            /* margin: 0 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 3.3 列嵌套
+    栅格系统内置的栅格系统将内容再次嵌套。简单理解就是一个列内再分成若干份小列。
+    我们可以通过添加一个新的 .row 元素和一系列 .col-sm-* 元素到已经存在的 .col-sm-* 元素内。
+
+
+    -->
+
+    <div class="container">
+        <!-- row分成12等份,里面的3个div每个占4份 -->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 我们列嵌套最好加1个行 row 这样可以取消父元素的padding值 而且高度自动和父级一样高 -->
+                <!-- 感觉弹幕都没说到点子上；个人认为：row设置了一个负值的padding导致该属性无效，自然该盒子的padding就去除了，并非抵消父盒子padding -->
+                <div class="row">
+                    <!-- row分成12等份,里面的2个div每个占6份 -->
+                    <div class="col-md-4">a</div>
+                    <div class="col-md-8">b</div>
+                </div>
+            </div>
+            <div class="col-md-4">2</div>
+            <div class="col-md-4">3</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    #### 中止循环
+
+`break`   中止整个循环，一般用于结果已经得到, 后续的循环不需要的时候可以使用（提高效率）
+
+`continue`  中止本次循环，一般用于排除或者跳过某一个选项的时候
+
+  2.3 循环退出
+    目标:能说出continue和break的区别
+    循环结束:
+    break: 退出循环
+    continue:结束本次循环，继续下次循环
+    区别:
+    continue 退出本次循环，一般用于排除或者跳过某一个选项的时候，可以使用continue
+    break 退出整个循环，一般用于结果已经得到，后续的循环不需要的时候可以使用
+
+  -->
+  <script>
+    // let i = 1
+    // while (i <= 5) {
+    //   console.log(i)
+    //   if (i === 3) {
+    //     break  // 退出循环
+    //   }
+    //   i++
+
+    // }
+
+
+    let i = 1
+    while (i <= 5) {
+      if (i === 3) {
+        i++
+        continue
+      }
+      console.log(i)
+      i++
+
+    }
+  </script>
+</body>
+
+</html>

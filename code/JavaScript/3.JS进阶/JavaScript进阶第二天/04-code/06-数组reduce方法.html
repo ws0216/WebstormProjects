@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.2 Array
+    Array 是内置的构造函数，用于创建数组
+    const arr = new Array(3,5)
+    console.log(arr) // [3,5]
+    创建数组建议使用字面量创建，不用Array构造函数创建
+
+    1.数组常见实例方法-核心方法
+    forEach
+    遍历数组
+    不返回，用于不改变值，经常用于查找打印输出值
+
+    filter
+    过滤数组
+    筛选数组元素，并生成新数组
+
+    map
+    迭代数组/映射数组
+    返回新数组，新数组里面的元素是处理之后的值，经常用于处理数据
+
+    reduce
+    累计器
+    返回函数累计处理的结果，经常用于求和等
+    作用:reduce 返回函数累计处理的结果，经常用于求和等
+    基本语法:
+    两个参数: 第一个参数是一个回调函数,第二个参数是起始值/初始值
+    arr.reduce(function(){},起始值)
+    // 第一个参数是回调函数
+    // 第二参数如果不写，默认是prev第一个值
+    reduce(callback,传递给函数的初始值)
+    参数:
+    起始值可以省略，如果写就作为第一次累计的起始值
+    // current是当前数组元素
+    arr.reduce(function(prev,current){},起始值)
+    arr.reduce(function(上一次值,当前值){},起始值)
+    // 数组求和 就是 上一次的值 + 当前的值  累加
+
+    语法: 累计值就是上一次值 prev
+    arr.reduce(function(累计值,当前元素[,索引号][,源数组]){}，起始值)
+    累计值参数:
+    1.如果有起始值，则以起始值为准开始累计，累计值 = 起始值
+      就把数组求和的结果 把起始值算进去
+    2.如果没有起始值，则累计值以数组的第一个数组元素作为起始值开始累计
+    只算数组的元素的求和就行了
+    3.后面每次遍历就会用后面的数组元素累计到累计值 里面(类似求和里面的sum )
+
+    1.如果没有起始值，则上一次值以数组的第一个数组元素的值
+    2.每一次循环，把返回值给做为下一次循环的上一次值
+    3.如果有起始值，则起始值做为上一次值
+
+    使用场景:求和运算:
+    const arr = [1,5,9]
+    const count = arr.reduce((prev, item) => prev + item)
+    console.log(count)
+
+
+
+    */
+
+    // arr.reduce(function(累计值, 当前元素){}, 起始值)
+    // arr.reduce(function (prev, item) {
+    //   // console.log(11)
+    //   // console.log(prev)
+    //   return prev + item
+    // }, 0)
+    // arr.reduce(function (prev, item) {
+    //   console.log(11)
+    //   // console.log(prev)
+    //   return prev + item
+    // })
+
+    const arr = [1, 2, 3]
+    const re = arr.reduce((prev, item) => prev + item)
+    console.log(re)
+
+
+    console.log('my----------------')
+    // const arr1 = [1,5,8]
+    // // 1.没有初始值
+    // const total1 = arr1.reduce(function (prev,current) {
+    //   return prev + current
+    // })
+    // console.log(total1) //14
+
+    // 1.如果没有起始值，则上一次值以数组的第一个数组元素的值
+    // 2.每一次循环，把返回值给做为下一次循环的上一次值
+    // 3.如果有起始值，则起始值做为上一次值
+
+    // 没有起始值，则累计值 prev 取数组的第一个数组元素 arr1[0] 作为起始值开始累计
+
+    // 数组的第一个元素已经取过来了 所以当前值是数组的第二个元素是5
+    // 上一次值  当前值  返回值 (第一次循环)
+    //    1        5       6=1+5
+    // 上一次值  当前值  返回值 (第二次循环)
+    //    6        8       14=6+8
+
+    // 没有起始值 数组有三个元素 遍历2次  遍历的次数比数组元素个数少一个
+
+
+    // 2.有初始值
+    const arr1 = [1,5,8]
+    const total1 = arr1.reduce((prev,current) => prev + current ,10)
+    console.log(total1) //24
+
+    // 有起始值，则上一次值/累计值: prev=10, 当前值从数组的第一个元素开始
+    // 上一次值  当前值  返回值 (第一次循环)
+    //   10        1       11=10+1
+    // 上一次值  当前值  返回值 (第二次循环)
+    //    11       5       16=11+5
+    // 上一次值  当前值  返回值 (第三次循环)
+    //    16       8       24=16+8
+
+
+
+  </script>
+</body>
+
+</html>

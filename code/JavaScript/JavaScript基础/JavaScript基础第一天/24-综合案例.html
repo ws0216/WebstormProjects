@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    table {
+      /* 合并相邻边框 */
+      border-collapse: collapse;
+      height: 80px;
+      margin: 0 auto;
+      /*让表格中所有的文字居中对齐*/
+      text-align: center;
+    }
+
+    th {
+      padding: 5px 30px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>订单确认</h2>
+
+
+  <script>
+    /*
+    常见错误
+    1.Uncaught SyntaxError: Missing initializer in const declaration
+    const 声明的时候必须要赋值，进行初始化
+    let 一定要先声明再使用
+    2.Uncaught ReferenceError: age is not defined at输入输出语句练习.html:107:17
+    提示 age变量没有定义过
+    很可能age变量没有声明和赋值
+    或者我们输出变量名和声明的变量不一致引起的(简单说写错变量名了)
+    3.Uncaught SyntaxError: Identifier 'age' has already been declared
+    提示“age”已经声明
+    很大概率是因为重复声明了一个变量。
+    注意let 或者const不允许多次声明同一个变量
+    4.Uncaught TypeError: Assignment to constant variable. at输入输出语句练习.html:106:9 常变量赋值
+    常量被重新赋值了
+    常量不能被重新赋值
+
+    */
+
+    // 1 用户输入
+    let price = +prompt('请输入商品价格：')
+    let num = +prompt('请输入商品数量：')
+    let address = prompt('请输入收获地址：')
+    // 2.计算总额
+    let total = price * num
+    // 3.页面打印渲染
+    document.write(`
+      <table>
+          <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>总价</th>
+            <th>收货地址</th>
+          </tr>
+          <tr>
+            <td>小米青春版PLUS</td>
+            <td>${price}元</td>
+            <td>${num}</td>
+            <td>${total}元</td>
+            <td>${address}</td>
+          </tr>
+        </table>
+    `)
+  </script>
+</body>
+
+</html>

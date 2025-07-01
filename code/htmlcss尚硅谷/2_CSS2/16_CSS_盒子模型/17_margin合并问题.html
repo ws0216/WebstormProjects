@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>17_margin合并问题</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+        /* 代码中的回车会导致有缝隙,要想没有缝隙,则应该让标签紧贴在一起 */
+        /*
+        margin合并问题只存在于上下兄弟之间
+         上下相邻的盒子box1和box2
+         当box1设置margin-bottom: 110px; box2设置margin-top: 110px; 两个设置相同的数值110px,则合并为110px,若不相同,则取那个较大的数值
+         */
+        .box1 {
+            background-color: deepskyblue;
+            margin-bottom: 110px;
+        }
+        .box2 {
+            background-color: orange;
+            margin-top: 110px;
+        }
+        .test {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        /* 左右兄弟元素之间就不存在margin合并问题 */
+        .testa {
+            background-color: purple;
+            margin-right: 50px;
+        }
+        .testb {
+            background-color: tomato;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <hr>
+    <div class="test testa">a</div><div class="test testb">b</div>
+</body>
+</html>

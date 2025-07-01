@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 内部js -->
+  <script>
+    /*
+    1.2 JavaScript 书写位置
+    目标:知道如何向页面添加JavaScript
+
+    CSS
+    位置行内样式表
+    内部样式表
+    外部样式表
+
+    JavaScript
+    行内 JavaScript
+    内部javaScript
+    外部javaScript
+
+    1.内部javaScript
+    直接写在html文件里，用script标签包住
+    规范:script标签写在</body>上面
+    拓展:alert(‘你好，js’)页面弹出警告对话框
+
+    注意事项
+    我们将〈script>放在HTML文件的底部附近的原因是浏览器会按照代码在文件中的顺序加载HTML。
+    如果先加载的JavaScript期望修改其下方的HTML，那么它可能由于HTML尚未被加载而失效。
+    因此，将JavaScript代码放在HTML页面的底部附近通常是最好的策略。
+
+    2.外部javaScript
+    代码写在以.js结尾的文件里
+    语法:通过script标签，引入到html页面中。
+
+    注意事项
+    1.script标签中间无需写代码，否则会被忽略!
+    2.外部javaScript会使代码更加有序，更易于复用，且没有了脚本的混合，HTML也会更加易读，因此这是个好的习惯。
+
+    3.内联 javaScript
+    代码写在标签内部
+    语法:
+    注意:此处作为了解即可，但是后面vue框架会用这种模式
+
+    总结
+    1. JavaScript三种书写位置?
+    内部
+    外部
+    行内
+    2.注意事项:
+    书写的位置尽量写到文档末尾</body>前面
+    外部js标签中间不要写代码，否则会被忽略
+
+    1.3 JavaScript 注释
+    目标:会使用两种JavaScript注释方法
+    单行注释
+      符号://
+      作用://右边这一行的代码会被忽略
+      快捷键:ctrl+/
+    块注释
+    符号:两个/*
+    作用:之间的所有内容都会被忽略
+    快捷键:shift+ alt +A
+
+
+
+
+    */
+
+    // 页面弹出警示框
+    alert('你好，js~')
+  </script>
+</body>
+
+</html>

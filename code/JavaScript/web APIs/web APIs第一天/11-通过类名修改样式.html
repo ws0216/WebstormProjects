@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    .nav {
+      color: red;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+      margin: 100px auto;
+      padding: 10px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">123</div>
+  <script>
+    /*
+    4.2 操作元素样式属性
+    2.操作类名(className)操作CSS
+    如果修改的样式比较多，直接通过style属性修改比较繁琐，我们可以通过借助于css类名的形式。
+    语法:
+    // active 是一个css类名
+    // 因为 class 已经是 . 了, 所以''里面不用写.
+    元素.className = 'active'
+    注意:
+    1.由于class是关键字，所以使用className去代替
+    所以class这个关键字不能再作为属性名使用了,要不然有冲突
+    2. className是使用新值换旧值，如果需要添加一个类,需要保留之前的类名
+    // 要把原来的类名加上
+    div.className = 'nav box'
+
+    总结
+    1.使用 className 有什么好处?
+    可以同时修改多个样式
+    2.使用 className 有什么注意事项?
+    直接使用className 赋值会覆盖以前的类名
+    所以当需要保留之前的类名时,要把原来的类名加上
+
+
+    */
+    // 1. 获取元素
+    const div = document.querySelector('div')
+    // 2.添加类名  class 是个关键字 我们用 className
+    div.className = 'nav box'
+  </script>
+</body>
+
+</html>

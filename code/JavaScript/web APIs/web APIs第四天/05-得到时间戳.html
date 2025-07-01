@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.3 时间戳
+    目标:能够获得当前时间戳
+    使用场景:如果计算倒计时效果，前面方法无法直接计算，需要借助于时间戳完成
+    什么是时间戳:
+    // 时间戳是个毫秒数
+     是指1970年01月01日00时00分00秒起至现在的毫秒数，它是一种特殊的计量时间的方式
+     // 每个时间都会有唯一的时间戳
+    算法:
+    将来的时间戳 - 现在的时间戳 = 剩余时间毫秒数
+    剩余时间毫秒数转换为剩余时间的年月日时分秒就是倒计时时间
+    比如 将来时间戳2000ms-现在时间戳1000ms=1000ms
+    1000ms 转换为就是0小时0分1秒
+
+    三种方式获取时间戳:
+    1. 使用 getTime()方法
+    必须先实例化 才能再获取时间戳  也就是先有日期对象 再用日期对象调用getTime()方法才能获取时间戳
+    const date = new Date()
+    console.log(date.getTime( )) // 毫秒数
+    2. 简写 +new Date()
+    无需实例化
+    console.log(+new Date())
+    // new Date() 其实就是实例化 返回一个日期对象 字符串的格式 前面加+ '1' -> +'1' 转换得到数字型的 1
+    // +new Date() 就转换得到当前的时间戳 得到一个毫秒数
+    3. 使用 Date.now()
+    无需实例化
+    但是只能得到当前的时间戳，而前面两种可以返回指定时间的时间戳
+    console.log(Date.now())
+
+    总结
+    1.实例化日期对象
+    new Date()
+    2.日期对象方法里面月份和星期有什么注意的?
+    月份是0~11 要+1 变成1~12,星期是0~6 外国星期0就是星期日
+    3.获取时间戳有哪三种方式?重点记住那个?
+    date.getTime()
+    +new Date() √
+    Date.now()
+    重点记住 +new Date()因为可以返回当前时间戳或者指定的时间戳 且无需实例化
+
+    如果要使用日期对象里面的方法 一定要先实例化 得到日期对象 才能日期对象.方法
+
+
+    */
+    // 1. getTime()
+    const date = new Date()
+    console.log(date.getTime())
+    // 2. +new Date()
+    console.log(+new Date())
+    // console.log(new Date()) 返回一个对象
+    // new Date() 实例化 返回一个对象 字符串的格式 '1' -> +'1' 转换得到数字型的 1
+    // +new Date() 就转换得到当前的时间戳
+    // 3. Date.now()
+    console.log(Date.now());
+
+
+
+    // 2. +new Date()
+    console.log(+new Date())
+    console.log('-----------------');
+    console.log(+new Date('2022-4-1 18:30:00'))
+
+    // 我要根据日期 Day()  0 ~ 6  返回的是 星期一
+    const arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+    // const date = new Date()
+    console.log(arr[new Date().getDay()])
+
+
+
+  </script>
+</body>
+
+</html>

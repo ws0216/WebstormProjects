@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    浏览器有2个引擎
+    第1个引擎:渲染引擎 可以渲染 html css
+    第2个引擎:js解析器 解析js的
+    谷歌:v8引擎
+
+    经典面试题
+    console.log(1111)
+    setTimeout(function () {
+      console.log(2222)
+    },1000)
+    console.log(3333)
+    // 问，输出的结果是什么?
+    // 1111 3333 2222
+
+    console.log(1111)
+    setTimeout(function (){
+      console.log(2222)
+    },0)
+    console.log(3333)
+    // 问，输出的结果是什么?
+    // 1111 3333 2222 为什么?
+
+    1.3 JS 执行机制
+    JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。
+    这是因为javascript这门脚本语言诞生的使命所致一JavaScript是为处理页面中用户的交互，以及操作DOM 而诞生的。
+    比如我们对某个 DOM 元素进行添加和删除操作，不能同时进行。应该先进行添加，之后再删除。
+    单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。这样所导致的问题是:
+    如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
+
+    为了解决这个问题，利用多核CPU 的计算能力，HTML5 提出 Web Worker标准，允许javaScript脚本创建多个线程。
+    于是，JS 中出现了同步和异步。
+
+    同步
+    前一个任务结束后再执行后一个任务，程序的执行顺序与任务的排列顺序是一致的、同步的。比如做饭的同
+    步做法:我们要烧水煮饭，等水开了(10分钟之后)，再去切菜，炒菜。
+    异步
+    你在做一件事情时，因为这件事情会花费很长时间，在做这件事的同时，你还可以去处理其他事
+    情。比如做饭的异步做法，我们在烧水的同时，利用这10分钟，去切菜，炒菜。
+    他们的本质区别:这条流水线上各个流程的执行顺序不同。
+
+    同步任务
+    同步任务都在主线程上执行，形成一个执行栈。
+    执行栈: 主车道
+    console.log (1)
+    setTimeout (fn,0)
+    console.log(2)
+
+    异步任务
+    耗时的任务 可能需要后来再去执行
+    JS 的异步是通过回调函数实现的。
+    一般而言，异步任务有以下三种类型:
+    1、普通事件，如click、resize 等
+    2、资源加载，如load、error 等
+    3、定时器，包括setInterval、setTimeout等
+    异步任务相关添加到任务队列中(任务队列也称为消息队列)。
+    任务队列: 应急车道
+    fn
+
+    js中没有堆和栈的概念 只是借助于栈的思想
+
+    1.先执行执行栈中的同步任务。
+    2.异步任务放入任务队列中。
+    3.一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
+
+    js只能处理单线程 JS(主线程)
+    浏览器可以处理多线程 web API(异步API) 宿主环境(寄生)
+    宿主环境: 有2个 浏览器和node
+
+    由于主线程(执行栈)不断的重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环( event loop)。
+
+    思考
+    console.log(1)
+    document.addEventListener('click', function () {
+      console.log(4)
+    })
+    console.log(2)
+    setTimeout(function () {
+      console.log(3)
+    },3000)
+    // 1 2 4 3 或者 1 2 3 4
+
+
+    */
+    console.log(1)
+    console.log(2)
+    setTimeout(function () {
+      console.log(3)
+    }, 0)
+    console.log(4);
+    // 1
+    // 2
+    // 4
+    // 3
+  </script>
+</body>
+
+</html>

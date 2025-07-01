@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>背景相关属性</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+        div {
+            width: 400px;
+            height: 400px;
+            border:5px black solid;
+            font-size: 20px;
+            /* 设置背景颜色，默认值是transparent */
+            background-color: skyblue;
+            /* 设置背景图片 */
+            background-image: url(../images/悟空.jpg);
+            /* 设置背景图片的重复方式 */
+            background-repeat: no-repeat;
+            /* 控制背景图片的位置——第一种写法：用关键词 */
+            background-position: center;
+            /* 水平方向和垂直方向上的居中都是用center
+               水平垂直居中: background-position: center center; 或者 background-position: center;
+               background-position: left; 只写一个方向上的值,则另一个方向上默认居中为 center
+               */
+            /* 控制背景图片的位置——第二种写法：用具体的像素值 第一个值是控制水平的,第二个是控制垂直的
+               background-position: 100px; 这个100px的距离是水平的x轴方向上,垂直的y轴方向上就是居中的位置
+            */
+            background-position: 100px 200px;
+            /* 复合属性 不挑位置不挑个数
+               且background-color: transparent; 背景色默不写认为透明色,
+            */
+            background: url(../images/悟空.jpg) no-repeat 100px 200px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>你好啊！</div>
+</body>
+</html>

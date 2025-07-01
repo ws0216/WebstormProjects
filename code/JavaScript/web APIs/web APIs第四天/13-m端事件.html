@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    /*
+    3.M端事件 M端:移动端 Mobile
+    目标:了解M端常见的事件
+    移动端也有自己独特的地方。比如触屏事件touch(也称触摸事件)，Android 和IOS 都有。
+    触屏事件touch(也称触摸事件)，Android 和 IOS 都有。
+    touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指(或触控笔)对屏幕或者触控板操作。
+
+    常见的触屏事件如下:
+    触屏touch事件
+    touchstart
+    touchmove
+    touchend
+
+    说明
+    手指触摸到一个 DOM 元素时触发
+    手指在一个 DOM 元素上滑动时触发
+    手指从一个DOM元素上移开时触发
+
+    4.插件
+    插件:就是别人写好的一些代码,我们只需要复制对应的代码,就可以直接实现对应的效果
+    学习插件的基本过程
+    熟悉官网,了解这个插件可以完成什么需求
+    https://www.swiper.com.cn/
+    看在线演示,找到符合自己需求的demo
+    https://www.swiper.com.cn/demo/index.html
+    查看基本使用流程
+    https://www.swiper.com.cn/usage/index.html
+    查看APi文档,去配置自己的插件
+    https://www.swiper.com.cn/api/index.html
+    注意:多个swiper同时使用的时候，类名需要注意区分
+
+    4.重绘和回流
+    1.浏览器是如何进行界面渲染的
+    解析(Parser)HTML，生成DOM树(DOM Tree)
+    同时解析(Parser)CSS，生成样式规则(Style Rules)
+    根据DOM树和样式规则，生成渲染树(Render Tree)
+    进行布局Layout(回流/重排):根据生成的渲染树，得到节点的几何信息(位置，大小)
+    进行绘制Painting(重绘):根据计算和获取的信息进行整个页面的绘制
+    Display:展示在页面上
+
+    回流(重排)
+    当Render Tree中部分或者全部元素的尺寸、结构、布局等发生改变时，浏览器就会重新渲染部分或全部文档的
+    过程称为回流。
+    重绘
+    由于节点(元素)的样式的改变并不影响它在文档流中的位置和文档布局时(比如:color、background-color、
+    outline等)，称为重绘。
+    重绘不一定引起回流，而回流一定会引起重绘。
+
+    会导致回流(重排)的操作:
+    页面的首次刷新
+    浏览器的窗口大小发生改变
+    元素的大小或位置发生改变
+    改变字体的大小
+    内容的变化(如:input框的输入，图片的大小)
+    激活css伪类(如::hover)
+    脚本操作DOM(添加或者删除可见的DOM元素)
+    简单理解影响到布局了，就会有回流
+
+    思考下述代码的重绘重排过程!
+    let s = document.body.style
+    s.padding = "2px" // 重排 + 重绘
+    s.border = "1px solid red" // 再一次重排 + 重绘
+    s.color = "blue" // 再一次重绘
+    s.backgroundColor = "#ccc" // 再一次 重绘
+    s.fontsize = "14px" // 再一次重排 + 重绘
+
+    今日作业
+    1.整理今天笔记
+    2.练习学成在线渲染案例、倒计时案例、微博发布案例
+    3.做测试题:
+    4.作业
+    5.一定要预习下次课的本地存储课程
+    
+
+    */
+    const div = document.querySelector('div')
+    // 1. 触摸
+    div.addEventListener('touchstart', function () {
+      console.log('开始摸我了')
+    })
+    // 2. 离开
+    div.addEventListener('touchend', function () {
+      console.log('离开了')
+    })
+    // 3. 移动
+    div.addEventListener('touchmove', function () {
+      console.log('一直摸，移动')
+    })
+  </script>
+</body>
+
+</html>

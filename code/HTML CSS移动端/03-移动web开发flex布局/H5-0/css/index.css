@@ -1,0 +1,43 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 搜索模块 */
+
+.search-index {
+    /* 固定定位跟父级没有关系 它以屏幕为准 */
+    position: fixed;
+    top: 0;
+    /* 要想居中对齐,应该设置left值来调整 */
+    /* 因为有定位了,所以margin无效,应该用left值来设置  */
+    /* margin: 0 auto; */
+    /* 向右走50% */
+    left: 50%;
+    /* 再向左走相对于自身的宽度的50% */
+    -webkit-transform: translateX(-50%);
+    transform:translateX(-50%);
+    /* 固定的盒子应该有宽度 */
+    /* 因为固定定位的盒子比较特殊与父亲没有关系,以浏览器屏幕为主 */
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: pink;
+}
+
+.search {
+    /* 左侧的div盒子占据全部剩余的部分 */
+    flex: 1;
+}
+.user {
+    width: 44px;
+    height: 44px;
+    background-color: purple;
+}

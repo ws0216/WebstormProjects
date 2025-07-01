@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    05
+    定时器-间歇函数
+    定时器函数介绍
+    定时器函数基本使用
+
+    五、定时器-间歇函数
+    目标:能够说出定时器函数在开发中的使用场景
+    网页中经常会需要一种功能:每隔一段时间需要自动执行一段代码，不需要我们手动去触发
+    例如:网页中的倒计时
+    要实现这种需求，需要定时器函数
+    定时器函数有两种，今天我先讲间歇函数
+    // 定时器本身就是个函数
+
+    目标:能够使用定时器函数重复执行代码
+    定时器函数可以开启和关闭定时器
+    1.开启定时器
+    setInterval(函数,间隔时间)
+    set:设置
+    Interval:间隔
+    作用:每隔一段时间调用这个函数
+    间隔时间单位是毫秒
+    举例说明
+    function repeat() {
+      console.log('前端程序员，就是头发多咋滴~~')
+    }
+    // 每隔一秒调用repeat函数
+    setInterval(repeat,1000)
+    注意:
+    1. 函数名字不需要加括号
+    2. 定时器返回的是一个id数字(数字型) // 123...  是第几个定时器就返回数字id几
+
+    定时器有一个返回值,是一个id数字,其实就是一个序号,就是页面中有几个定时器在开,它会有一个序号,从12345...开始排号
+    因为页面中可能不只有一个定时器,每个定时器都是独一无二的,都有一个单独的一个编号,为了防止定时器相互干扰
+    每一个定时器的 id数字序号 都是独一无二的,关闭的时候不要关错了
+
+    定时器函数可以开启和关闭定时器
+    2.关闭定时器
+    let 变量名 = setInterval(函数, 间隔时间)
+    clearInterval(变量名)
+    // 变量名的值 就是 id数字序号
+    一般不会刚创建就停止，而是满足一定条件再停止
+    let timer = setInterval(function() {
+      console.log('hi~~')
+    },1000)
+    clearInterval(timer)
+    注意:
+    1. 函数名字不需要加括号
+    2. 定时器返回的是一个id数字
+    如果非要加小括号, 得加引号'' 函数名为fn
+    // setInterval('fn()', 1000)
+
+    总结
+    1.定时器函数有什么作用?
+    可以根据时间自动重复执行某些代码
+    2.定时器函数如何开启?
+    setInterval(函数名，时间)
+    3.定时器函数如何关闭?
+    let 变量名 =setInterval(函数，间隔时间)
+    clearInterval(变量名)
+
+
+    */
+
+    // setInterval(函数, 间隔时间)
+    // 匿名函数 function () { console.log('一秒执行一次') }
+    // setInterval(function () {
+    //   console.log('一秒执行一次')
+    // }, 1000)
+
+    function fn() {
+      console.log('一秒执行一次')
+    }
+    // setInterval(函数名, 间隔时间)  函数名不要加小括号
+    // 为什么用let?
+    // 因为是一个数字型,值可能会有变化,后面可能会有重新赋值的操作 因为定时器可能一会停一会开,如果一开就又重新给我一个新值 所以不能用const
+    let n = setInterval(fn, 1000)
+    // setInterval('fn()', 1000)
+    // 因为上面已经开了一个定时器,虽然隐藏起来了,但是已经执行过一次了  id数字是1
+    console.log(n) // 2
+    // 关闭定时器
+    clearInterval(n)
+
+    // n = setInterval(fn,1000)
+    // 第二次开定时器 有重新赋值
+
+    // let m = setInterval(function () {
+    //   console.log(11)
+    // }, 2000)
+    // console.log(m) // 3
+
+    // const num = 10
+    // num = 10
+    // console.log(num) // 报错
+    let i = 1
+    setInterval(function () {
+      i++
+      document.write(`${i} `)
+    }, 200)
+  </script>
+</body>
+
+</html>

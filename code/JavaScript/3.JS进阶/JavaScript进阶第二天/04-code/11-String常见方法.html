@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.3 String
+    在JavaScript 中的字符串、数值、布尔具有对象的使用特征，如具有属性和方法
+    // 字符串类型
+    // 空格也算一个字符!
+    const str2 = 'hello world!' // 12
+      // 统计字符的长度(字符数量)
+      console.log(str2.length)
+    // 数值类型
+    const price = 12.345
+    //保留两位小数
+    console.log(price.toFixed(2)); // 12.35
+    之所以具有对象特征的原因是字符串、数值、布尔类型数据是JavaScript底层使用Object构造函数“包装”来的，被称为包装类型。
+
+    2.3 String
+    1.常见实例方法
+
+    1.实例属性 length
+    用来获取字符串的度长(重点)
+
+    2.实例方法 split('分隔符')
+    用来将字符串拆分成数组(重点)
+
+    3.实例方法 substring(需要截取的第一个字符的索引号[,结束的索引号])
+    用于字符串截取(重点)
+    str.substring(indexStart[,indexEnd])
+    indexStart
+      需要截取的第一个字符的索引，该索引位置的字符作为返回的字符串的首字母。
+    indexEnd
+     可选。一个0到字符串长度之间的整数，以该数字为索引的字符不包含在截取的字符串内。
+    // 2.1 如果省略 结束的索引号，默认取到最后
+    // 2.2 结束的索引号不包含想要截取的部分
+
+    4.实例方法 startsWith(检测字符串[,检测位置索引号])
+    str.startsWith(searchString[,position])
+    参数
+    searchString
+      要搜索的子字符串。
+    position 可选
+      在 str 中搜索searchString 的开始位置，默认值为0。
+    返回值
+      如果在字符串的开头找到了给定的字符则返回true;否则返回false 。
+    检测是否以某字符开头(重点)
+
+    5.实例方法 includes(搜索的字符串[,检测位置索引号])
+    判断一个字符串是否包含在另一个字符串中，根据情况返回true或false(重点)
+    语法
+    str.includes(searchString[,position])
+    参数
+    searchString
+      要在此字符串中搜索的字符串。
+    position 可选
+      从当前字符串的哪个索引位置开始搜寻子字符串，默认值为0。
+    返回值
+      如果当前字符串包含被搜寻的字符串，就返回true;否则返回false
+    区分大小写
+    includes()方法是区分大小写的。
+    例如，下面的表达式会返回false:
+    'Blue Whale'.includes('blue'); // returns false
+
+    6.实例方法 toUpperCase
+    用于将字母转换成大写
+
+    7.实例方法 toLowerCase
+    用于将就转换成小写
+
+    8.实例方法 index0f
+    检测是否包含某字符
+
+    9.实例方法 endsWith
+    检测是否以某字符结尾
+
+    10.实例方法 replace
+    用于替换字符串，支持正则匹配
+
+    11.实例方法 match
+    用于查找字符串，支持正则匹配
+
+
+
+
+    */
+
+    //1. split 把字符串 转换为 数组  和 join() 相反
+    // const str = 'pink,red'
+    // const arr = str.split(',')
+    // console.log(arr)
+    // const str1 = '2022-4-8'
+    // const arr1 = str1.split('-')
+    // console.log(arr1)
+    // 2. 字符串的截取   substring(开始的索引号[， 结束的索引号])
+    // 2.1 如果省略 结束的索引号，默认取到最后
+    // 2.2 结束的索引号不包含想要截取的部分
+    // const str = '今天又要做核酸了'
+    // console.log(str.substring(5, 7))
+    // 3. startsWith 判断是不是以某个字符开头
+    // const str = 'pink老师上课中'
+    // console.log(str.startsWith('pink'))
+    // 4. includes 判断某个字符是不是包含在一个字符串里面
+    const str = '我是pink老师'
+    console.log(str.includes('pink')) // true
+
+
+    console.log('my-----------')
+    // const str1 = 'pink,red'
+    // console.log(str1.split(','));
+    // const str1 = '2025-1-1'
+    // console.log(str1.split('-'));
+    // const str1 = '今天又要做核酸了'
+    // console.log(str1.substring(0,1)); //今
+    // console.log(str1.substring(0,2)); //今天
+    // const str1 = 'pink老师上课中'
+    // console.log(str1.startsWith('pink')); // true
+    // console.log(str1.startsWith('老师', 4)); // true
+    const str1 = '我是pink老师'
+    console.log(str1.includes('pink')); // true
+    console.log(str1.includes('pink',3)); // false
+
+
+
+
+  </script>
+</body>
+
+</html>

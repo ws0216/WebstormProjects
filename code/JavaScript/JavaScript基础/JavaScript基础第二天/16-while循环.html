@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+  #### while循环
+  while :  在…. 期间， 所以 while循环 就是在满足条件期间，重复执行某些代码。
+  1. while循环的作用是什么?
+  在满足条件期间，重复执行某些代码
+  2. while循环三要素是什么?
+  变量起始值
+  终止条件(没有终止条件，循环会一直执行，造成死循环
+  )
+  变量变化量(用自增或者自减)
+  -->
+  <script>
+    // // 1. 变量的起始值
+    // let i = 1
+    // // 2. 终止条件
+    // while (i <= 3) {
+    //   document.write('我要循环三次 <br>')
+    //   // 3. 变量的变化量
+    //   i++
+    // }
+    // 1. 变量的起始值
+    let end = +prompt('请输入次数:')
+    let i = 1
+    // 2. 终止条件
+    while (i <= end) {
+      document.write(`我要循环${end}次 <br>`)
+      // document.write('我要循环三次 <br>')
+      // 3. 变量的变化量
+      i++
+    }
+
+  </script>
+</body>
+
+</html>

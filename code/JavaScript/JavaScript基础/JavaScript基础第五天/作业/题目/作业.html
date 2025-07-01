@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    // ## 主观题
+    // ### 练习题1：
+    // 点名: 每次刷新网页运行, 在控制台 随机输出一位同学的名字 ["老赵", "老李", "小传", "小黑"]，如果输出了，则数组中删除这个名字
+    // let arr = ["老赵", "老李", "小传", "小黑"]
+    // let randomNum = Math.floor(Math.random() * arr.length)
+    // console.log(arr[randomNum])
+    // arr.splice(randomNum,1)
+    // console.log(arr)
+
+
+    // ### 练习题2：
+    // 声明对象
+    // 目的: 复习对象的声明
+    // 要求:
+    // 1. 声明一个变量per, 类型为对象类型
+    // 2. 该对象的属性为性别,年龄,爱好(3个)
+    // 3. 该对象的方法有 说话, 吃饭(2个)
+    // 4. 在控制台分别调用该对象的属性和方法
+    // let per = {
+    //     gender: '女',
+    //     age: 18,
+    //     hobby: '美食',
+    //     speak: function () {
+    //         console.log('说话hi~~~')
+    //     },
+    //     eat: function () {
+    //         console.log('吃饭')
+    //     }
+    // }
+    // console.log(per.gender)
+    // per.speak()
+    // per.eat()
+    // console.log('----------------')
+    // for (let k in per) {
+    //     console.log(k)
+    //     console.log(per[k])
+    // }
+
+
+    // ### 练习题3：
+    // 调用对象的方法
+    // 目的: 复习对象的使用
+    // 要求:
+    // 1. 对象声明完毕后, 调用对象中的吃饭的方法
+    // 2. 提示: 对象中的方法本质是函数, 调用需要加()
+    // 3. 方法也可以传递参数的
+
+
+    // ### 练习题4：
+    // 猜数字游戏，设定次数，最多猜8次
+    // function random(min, max) {
+    //     return Math.floor(Math.random() * (max - min + 1)) + min
+    // }
+    // let num = random(0,10)
+    // console.log(num)
+    //
+    // let flag = true
+    // for (let i = 1; i <= 8; i++) {
+    //     let userNum = +prompt('')
+    //     if (userNum > num) {
+    //         alert('您猜的数字大了')
+    //     } else if (userNum < num) {
+    //         alert('您猜的数字小了')
+    //     }else if (userNum === num) {
+    //         flag = false
+    //         alert('恭喜猜对了！')
+    //         break
+    //     }
+    // }
+    // if (flag) {
+    //     alert('太笨了，这都猜不到！O(∩_∩)O')
+    // }
+
+
+
+    // ### 练习题5：
+    // 完成课堂随机生成颜色的案例。
+    // ~~~html
+    // 课堂案例，同学你能写出来吗？
+    // ~~~
+    /*
+    生成随机颜色
+    需求：该函数接收一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式。
+    ①：如果参数传递的是true或者无参数，则输出 一个随机十六进制的颜色
+    ②：如果参数传递的是false，则输出 一个随机rgb的颜色
+    ③：格式：
+    function getRandomColor(flag){
+    }
+    console.log(getRandomColor(true)) //#ffffff
+    console.log(getRandomColor(false)) //rgb(255,255,255)
+    分析：
+    提示： 16进制颜色格式为:  ‘#ffffff’   其中f可以是任意 0-f之间的字符
+    提示:   rgb颜色格式为:  ‘rgb(255,255,255) ’  其中255可以是任意0-255之间的数字
+
+    生成随机颜色
+    需求：该函数接收一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式。
+    分析：
+    提示： 16进制颜色格式为:  ‘#ffffff’   其中f可以是任意 0-f之间的字符,需要用到数组，
+      let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    提示:   rgb颜色格式为:  ‘rgb(255,255,255) ’  其中255可以是任意0-255之间的数字
+    步骤：
+    ①：如果参数为true或者无参数，则处理16进制颜色，核心思想是循环6次，生成随机的6个数字（取
+    值范围0~15），根据这个数字去找数组的值，然后和 # 拼接起来，并且返回值。
+    ②：如果参数为false，随机生成一个0~255的数给三个变量，分别作为 r g b 三个颜色，之后拼接字
+    符串rgb(255,255,255)格式
+    */
+    // function getRandomColor(flag = true) {
+    //     if (flag) {
+    //         let str = '#'
+    //         let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    //         let randomIndex = Math.floor(Math.random() * arr.length)
+    //         for (let i = 1; i <= 6; i++) {
+    //             let randomIndex = Math.floor(Math.random() * arr.length)
+    //             str += arr[randomIndex]
+    //         }
+    //         return str
+    //     } else {
+    //         let r = Math.floor(Math.random() * 256)
+    //         let g = Math.floor(Math.random() * 256)
+    //         let b = Math.floor(Math.random() * 256)
+    //         return `rgb(${r},${g},${b})`
+    //     }
+    // }
+    // // 2. 调用函数 getRandomColor(布尔值)
+    // console.log(getRandomColor(false)) //rgb(255,255,255)
+    // console.log(getRandomColor(true)) //#ffffff
+    // console.log(getRandomColor()) //#ffffff
+
+
+
+
+</script>
+
+
+</body>
+</html>

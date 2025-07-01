@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>padding不会影响盒子大小的情况</title>
+    <style>   
+       h1 {
+           /* width: 100%; */
+           height: 200px;
+           background-color: pink;
+           padding: 30px;
+       }
+       div {
+           width: 300px;
+           height: 100px;
+           background-color: purple;
+       }
+       div p {
+           /*div是个大盒子 p是里面的块级元素 占div里面的一行 所以宽相等*/
+           /*因为老师未p给输入内容，块元素高度为内容高度，所以是0，然后padding设置为上下左右30px，宽度不变，那高度就是30+0+30等于60*/
+           padding: 30px;
+           background-color: skyblue;
+       }
+    </style>
+</head>
+<body>
+   <h1></h1>
+   <div>
+       <p></p>
+   </div>
+</body>
+</html>

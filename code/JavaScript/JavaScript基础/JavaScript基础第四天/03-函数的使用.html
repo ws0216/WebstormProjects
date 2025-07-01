@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    1.1为什么需要函数
+    目标:能说出为什么需要函数
+    函数:
+    function，是被设计为执行特定任务的代码块
+    说明:
+    函数可以把具有相同或相似逻辑的代码“包裹”起来，通过函数调用执行这些被“包裹”的代码逻辑，这么做的优势是有利于
+    精简代码方便复用。
+    比如我们前面使用的alert()、prompt()和console.log()
+    都是一些 js 函数，只不过已经封装好了，我们直接使用的
+
+    1.为什么需要函数?
+    可以实现代码复用，提高开发效率
+    2.函数是什么?
+    function执行特定任务的代码块
+
+    1.2函数使用
+    目标:掌握函数语法，把代码封装起来
+    函数的声明语法
+    function 函数名() {
+    函数体
+    }
+    例
+    function sayHi(){
+    document.write('hai~~')
+    }
+
+    函数名命名规范
+    和变量命名基本一致
+    尽量小驼峰式命名法
+    前缀应该为动词
+    命名建议:常用动词约定
+    function getName() {}
+    function addSquares() {}
+
+    can 判断是否可执行某个动作
+    has 判断是否含义某个值
+    is 判断是否为某个值
+    get 获取某个值
+    set 设置某个值
+    load 加载某些数据
+
+    1.2函数使用
+    函数的调用语法 函数名() 必须要加小括号()
+    // 函数调用，这些函数体内的代码逻辑会被执行
+    函数名() // 这样就是调用了1次函数
+    注意:声明(定义)的函数必须调用才会真正被执行，使用()调用函数
+    例
+    // 函数一次声明可以多次调用，每一次函数调用函数体里面的代码会重新执行一次
+    sayHi()
+    sayHi()
+    我们曾经使用的alert()，parseInt()这种名字后面跟小括号的本质都是函数的调用
+    其实后面有小括号()的都是函数
+
+    函数体 在花括号{ }内
+    函数体是函数的构成部分，它负责将相同或相似代码“包裹”起来，直到函数调用时函数体内的代码才会被执行。
+    函数的功能代码都要写在函数体当中。
+
+    1.函数是用那个关键字声明的?
+      function
+    2.函数不调用会执行吗?如何调用函数?
+      函数不调用自己不执行
+      调用方式:函数名()
+    3.函数的复用代码和循环重复代码有什么不同?
+      循环代码写完即执行，不能很方便控制执行位置
+      随时调用，随时执行，可重复调用
+
+
+    */
+
+
+    // let num = 10
+    // console.log(num)
+    // 1. 函数的声明   
+    function sayHi() {
+      console.log('hi~~~')
+    }
+    // 2. 函数调用   函数不调用，自己不执行
+    sayHi()
+    sayHi()
+    sayHi()
+
+    function sayHello() {
+      console.log('Hello~~~');
+    }
+    sayHello()
+    sayHello()
+
+
+
+
+
+  </script>
+</body>
+
+</html>

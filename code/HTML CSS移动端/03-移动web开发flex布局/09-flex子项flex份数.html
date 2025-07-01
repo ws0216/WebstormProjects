@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            /* 给父级添加flex属性 */
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        section div:nth-child(1) {
+            width: 100px;
+            height: 150px;
+            background-color: red;
+        }
+        
+        section div:nth-child(2) {
+            /* flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。 */
+            /* 剩余空间分成一份,全部给该子元素2号盒子 */
+            /* 宽高自适应父亲的大小,缩放时左右两侧固定,中间宽高是自适应大小 */
+            flex: 1;
+            background-color: green;
+        }
+        
+        section div:nth-child(3) {
+            width: 100px;
+            height: 150px;
+            background-color: blue;
+        }
+        
+        p {
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+
+        /* 不给span设置宽度,则剩余空间宽度为整个父盒子的宽度,然后让3个孩子各占一份即占父亲的三分之一就行了 */
+        /* 优点 该方法子盒子宽度大小会随着页面拉伸而改变 适合做移动端 */
+        p span {
+            flex: 1;
+        }
+        
+        p span:nth-child(2) {
+            flex: 1;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <p>
+        <span>1</span>
+        <span>2</span>
+
+        <span>3</span>
+    </p>
+</body>
+
+</html>

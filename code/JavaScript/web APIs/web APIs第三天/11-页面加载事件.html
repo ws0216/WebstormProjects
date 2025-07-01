@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    03其他事件
+    目标:掌握新的事件，做更强交互
+
+    3.1 页面加载事件
+    加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件
+    为什么要学?
+      有些时候需要等页面资源全部处理完了做一些事情
+      老代码喜欢把 script 写在 head 中，这时候直接找 dom 元素找不到 所以此时要用页面加载事件
+
+    事件名:load  加载/等待
+    监听页面所有资源加载完毕:
+      给 window对象 添加 load 事件
+      window: 代表整个窗口 比document还要大
+    // 页面加载事件
+    window.addEventListener('load', function () {
+      // 执行的操作
+    })
+    注意:不光可以监听整个页面资源加载完毕，也可以针对某个资源绑定load事件
+
+    当初始的 HTML文档被完全加载和解析完成之后，DOMContentLoaded事件被触发，而无需等待样式表、图像等完全加载
+
+    事件名:DOMContentLoaded
+    监听页面DOM加载完毕:
+      给 document 添加 DOMContentLoaded 事件
+      跟window没有关系,跟文档document有关,主要是html里面的这些标签有关
+      DOM: document object model 文档对象模型
+    document.addEventListener('DOMContentLoaded', function() {
+      // 执行的操作
+    })
+
+    总结
+    1. 页面加载事件有哪两个?如何添加?
+    load 事件
+      监听整个页面资源 给 window 加
+    DOMContentLoaded 事件
+      给 document 加
+      无需等待样式表、图像等完全加载
+
+
+
+
+    */
+
+    // 等待页面所有资源加载完毕，就回去执行回调函数
+    // window.addEventListener('load', function () {
+    //   const btn = document.querySelector('button')
+    //   btn.addEventListener('click', function () {
+    //     alert(11)
+    //   })
+    // })
+
+    // img.addEventListener('load', function () {
+    //   // 等待图片加载完毕，再去执行里面的代码
+    // })
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        alert(11)
+      })
+    })
+  </script>
+</head>
+
+ <body>
+  <button>点击</button>
+
+</body>
+
+</html>

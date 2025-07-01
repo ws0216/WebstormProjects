@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+  /*
+    比较运算符:
+    >:左边是否大于右边
+    <:左边是否小于右边
+    >=:左边是否大于或等于右边
+    <=:左边是否小于或等于右边
+    ==:左右两边值是否相等
+    ===: 左右两边是否类型和值都相等
+    !=:左右两边值是否不相等
+    !==:左右两边是否不全等
+    比较结果为boolean类型，即只会得到true或false
+
+    对比:
+    = 单等是赋值
+    == 是判断
+    === 是全等
+    开发中判断是否相等，强烈推荐使用===
+
+    如果是 数字 和 "其他值" 的比较则其他值会 自动 转换成 数字 去比较
+    涉及到 "NAN" 都是 false(NaN)
+    如果是"字符串"和"字符串"比较则会比较每一个字符的 ASCII码, 同时是按位进行比较
+    如果是 布尔值 参与比较布尔值会转换成 数字0和1
+    数字只有0是假，其余为真
+    字符只有空字符串”为假，其余为真
+
+    字符串比较，是比较的字符对应的ASCII码
+    从左往右依次比较
+    如果第一位一样再比较第二位，以此类推
+    比较的少，了解即可
+    NaN不等于任何值，包括它本身
+    涉及到 "NaN" 都是 false
+    尽量不要比较小数，因为小数有精度问题
+    不同类型之间比较会发生隐式转换
+    最终把数据隐式转换转成number类型再比较
+    所以开发中，如果进行准确的比较我们更喜欢=== 或者 !==
+
+    1. = 和 == 和 ===怎么区别?
+    >=是赋值
+    >== 是判断只要求值相等，不要求数据类型一样即可返回true
+    === 是全等 要求值和数据类型都一样返回的才是true
+    开发中，请使用
+    ===
+    2.比较运算符返回的结果是什么?
+    结果只有2个，true 或者 false
+    */
+  -->
+  <script>
+    console.log(3 > 5)
+    console.log(3 >= 3)
+    console.log(2 == 2)
+    // 只有数字才能能去进行比较
+    // 比较运算符有隐式转换 把字符型转换为数字型
+    // 把'2' 转换为 2  双等号 只判断值
+    console.log(2 == '2')  // true
+    // console.log(undefined == null) // true
+    // console.log(undefined === null) // false
+    // === 全等 判断 值 和 数据类型都一样才行
+    // 以后判断是否相等 请用 ===  
+    console.log(2 === '2')
+    // 计算出错返回NaN 不是一个数字 那你怎么知道是什么? 所以无法判断
+    console.log(NaN === NaN) // NaN 不等于任何人，包括他自己
+    // !== 不全等
+    console.log(2 !== '2')  // true  
+    console.log(2 != '2') // false 
+    console.log('-------------------------')
+    console.log('a' < 'b') // true
+    console.log('aa' < 'ab') // true
+    console.log('aa' < 'aac') // true
+    console.log('-------------------------')
+  </script>
+</body>
+
+</html>

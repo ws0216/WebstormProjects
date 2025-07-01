@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3新增结构伪类选择器</title>
+    <style>
+        /*第二种方式 父级元素 子级元素:伪类选择器 只选择指定子级元素中指定位置的元素 p:first/last-child 匹配父元素中的第一个/最后一个子元素 <p>且必须是父元素中的第一个/最后一个元素*/
+        /*如果你单独写一个 :first-child,会发现任意元素内的第一个标签都会被选中*/
+        /*只要把:first-child当成是一个普通的类选择器来使用就很容易理解了*/
+
+        /* 1. 选择ul里面的第一个孩子 小li */
+        ul li:first-child {
+            background-color: pink;
+        }
+        /* 2. 选择ul里面的最后一个孩子 小li */
+        ul li:last-child {
+            background-color: pink;
+        }
+         /* 3. 选择ul里面的第2个孩子 小li */
+         ul li:nth-child(2) {
+            background-color: skyblue;
+        }
+        ul li:nth-child(6) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+</body>
+</html>

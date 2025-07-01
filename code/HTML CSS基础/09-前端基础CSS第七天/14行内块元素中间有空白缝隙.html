@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14行内块元素中间有空白缝隙</title>
+    <style>
+        div {
+            height: 100px;
+        }
+        .box1 {
+            background-color: red;
+        }
+        .box2 {
+            background-color: blue;
+        }
+        .box3 {
+            background-color: red;
+        }
+        .box4 {
+            background-color: blue;
+        }
+        .box3,.box4 {
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3">333</div>
+    <div class="box box4">444</div>
+
+</body>
+</html>

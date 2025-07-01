@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 40px;
+      border: 1px solid pink;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const div = document.querySelector('div')
+    // 得到日期对象
+    // 页面在刷新时就显示内容 就不会出现1s时间的空白了
+    const date = new Date()
+    div.innerHTML = date.toLocaleString()  // 2022/4/1 09:41:21
+    setInterval(function () {
+      // 得到最新的时间
+      const date = new Date()
+      div.innerHTML = date.toLocaleString()  // 2022/4/1 09:41:21 得到年月日和时间
+
+    }, 1000)
+    // div.innerHTML = date.toLocaleDateString()  // 2022/4/1 得到年月日
+    // div.innerHTML = date.toLocaleTimeString()  // 09:41:21 得到时间
+  </script>
+</body>
+
+</html>

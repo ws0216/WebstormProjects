@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    /*
+    4.元素尺寸于位置-尺寸
+    获取位置:
+    2. element.getBoundingClientRect()  是个方法
+    方法返回元素的大小及其相对于视口(可视区)的位置
+    得到一个对象DOMRect{} 里面包含宽高,上下左右,xy的值
+
+    属性
+    scrollLeft和scrollTop
+    clientWidth 和clientHeight
+    offsetWidth和offsetHeight
+    offsetLeft和offsetTop
+
+    作用
+    被卷去的头部和左侧
+    获得元素宽度和高度
+    获得元素宽度和高度
+    获取元素距离自己定位父
+    级元素的左、上距离
+
+    说明
+    配合页面滚动来用，可读写
+    不包含border,margin，滚动条用于js
+    获取元素大小，只读属性
+    包含border、padding，滚动条等，只读
+    获取元素位置的时候使用，只读属性
+
+    */
+    const div = document.querySelector('div')
+    console.log(div.getBoundingClientRect())
+  </script>
+</body>
+
+</html>

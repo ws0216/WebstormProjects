@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div data-id="1" data-spm="不知道">1</div>
+  <div data-id="2">2</div>
+  <div data-id="3">3</div>
+  <div data-id="4">4</div>
+  <div data-id="5">5</div>
+  <script>
+    /*
+    4.4 自定义属性
+
+    标准属性:标签天生自带的属性比如class id title等，可以直接使用点语法操作
+
+    自定义属性:
+    在html5中推出来了专门的 data-自定义属性
+    在 标签 上一律以 data- 开头
+    在 DOM对象 上一律以 dataset 对象方式获取
+    <body>
+      <div class="box" data-id="10">盒子</div>
+      <script>
+        const box = document.querySelector('.box')
+        console.log(box.dataset.id)
+      <script>
+    </body>
+
+    const one = document.querySelector('div')
+    console.log(one.dataset.id)  // 1
+    console.log(one.dataset.spm)  // 不知道
+    dataset:是data自定义属性的集合 是一个对象DOMStringMap{id: '1', spm: '不知道'}
+    set: 集合
+
+    // 对象.属性
+    // dataset.id
+
+
+
+    */
+
+    const one = document.querySelector('div')
+    console.log(one.dataset.id)  // 1
+    console.log(one.dataset.spm)  // 不知道
+  </script>
+</body>
+
+</html>

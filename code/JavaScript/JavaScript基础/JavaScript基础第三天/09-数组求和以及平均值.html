@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    // 计算有区别 错误的数学操作
+    // NaN: Not a Number 表未知结果
+    // NaN 代表一个计算错误。它是一个不正确的或者一个未定义的数学操作所得到的结果
+  -->
+  <script>
+    let arr = [2, 6, 1, 7, 4]
+    // 1. 求和的变量 sum
+    let sum = 0
+    // 如果是 只声明 sum 未赋值 则为 undefined
+    // let sum
+    // sum = sum + arr[0] 则sum为NaN
+    // 因为sum(undefined) 和 arr[0]=2(数字型) 进行一个 + 操作 是一个错误的数学运算 所以结果为NaN
+
+    // 2.遍历累加
+    for (let i = 0; i < arr.length; i++) {
+      // console.log(arr[i])
+      // sum = sum + arr[i]
+      sum += arr[i]
+    }
+    console.log(`数组的和的结果是: ${sum}`)
+    // 3. 平均值  和 / arr.length  = 4
+    console.log(`数组的平均值结果是: ${sum / arr.length}`)
+
+
+    // sum = sum + arr[0]
+    // console.log(sum) 
+  </script>
+</body>
+
+</html>

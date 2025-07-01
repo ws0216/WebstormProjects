@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    /*
+    练习
+    请完成以下需求
+    const spec = {size: '40cm*40cm' , color:'黑色'}
+    请将size和color里面的值拼接为字符串之后，写到div标签里面，展示内容如下:
+    40cm*40cm/黑色
+
+    思路:获得所有的属性值，然后拼接字符串就可以了
+    ①:获得所有属性值是:Object.values()返回的是数组
+    ②:拼接数组是join(")这样就可以转换为字符串了
+
+
+    */
+
+    const spec = { size: '40cm*40cm', color: '黑色' }
+    //1. 所有的属性值回去过来  数组
+    // console.log(Object.values(spec))
+    // 2. 转换为字符串   数组join('/') 把数组根据分隔符转换为字符串
+    // console.log(Object.values(spec).join('/'))
+    document.querySelector('div').innerHTML = Object.values(spec).join('/')
+
+    // 获得所有的属性值 且返回的是一个所有属性值为数组元素的数组
+    console.log(Object.values(spec)); //打印数组
+    // 转换为字符串 用数组方法join('')
+    // join('/')  用/作为分隔符拼接各个数组元素成一个字符串
+    console.log(Object.values(spec).join('/'));
+    document.querySelector('div').innerHTML = Object.values(spec).join('/')
+
+
+  </script>
+</body>
+
+</html>

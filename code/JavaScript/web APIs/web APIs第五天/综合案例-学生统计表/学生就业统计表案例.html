@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生就业统计表</title>
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>学生就业统计表</h1>
+  <form class="info" autocomplete="off">
+    <!-- placeholder -->
+    <input type="text" class="uname" name="uname" placeholder="姓名" />
+    <input type="text" class="age" name="age" placeholder="年龄" />
+    <input type="text" class="salary" name="salary" placeholder="薪资" />
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    <select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">
+      <i class="iconfont icon-tianjia"></i>添加
+    </button>
+  </form>
+
+  <div class="title">共有数据<span>0</span>条</div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>录入时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>迪丽热巴</td>
+        <td>23</td>
+        <td>女</td>
+        <td>12000</td>
+        <td>北京</td>
+        <td>2099/9/9 08:08:08</td>
+        <td>
+          <a href="javascript:">
+            <i class="iconfont icon-shanchu"></i>
+            删除
+          </a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    /*
+    案例
+    学生就业信息表
+    需求:录入学生信息，页面刷新数据不丢失
+    模块分析:
+    ①:新增模块，输入学生信息，数据会存储到本地存储中
+    ②:渲染模块，数据会渲染到页面中
+    ③:删除模块，点击删除按钮，会删除对应的数据
+
+    思路分析:
+    ①:因为页面刷新不丢失数据，所以可能存在已有数据，所以第一步，我们先找本地存储里面查找是
+    否有数据，如果有数据先进行渲染页面，如果没有数据，我们放一个空数组，用来存放数据
+    ②:渲染模块，数据会渲染到页面中
+    ③:新增模块，输入学生信息，数据会存储到本地存储中，然后渲染页面
+    ④:删除模块，点击删除按钮，会删除对应的数据，然后渲染页面
+
+    步骤:
+    需求①:读取本地存储数据
+    如果本地存储有数据，则返回JSON.parse()之后的对象
+    如果本地存储没有数据，则声明一个空的数组
+
+    需求②:渲染模块
+    (1)遍历数组，td里面填写对应td数据，并追加给tbody
+    (2)尽量减少dom操作，所以此处我们不在使用创建节点，追加节点方式(后面vue的做法)
+    (3)我们使用map方法遍历数组，直接返回整个tr，里面包含所有修改后的tr标签，里面更换数据
+    (4)但是map方法返回的是一个修改后的数组，怎么办? 数组没办法不能直接追加给tboday
+    所以我们通过join方法把数组转换为字符串
+    (5)把返回的结果，通过innerHTML 赋值给 tbody
+
+    需求③:录入模块
+    (1)事件是提交事件，同样阻止默认提交事件
+    (2)非空判断。
+    -获取所有需要填写的表单，他们共同特点都有name属性
+    - 遍历这些表单，如果有一个值为空，则return 返回提示输入为空中断程序
+    (3)创建新的对象，里面存储表单获取过来的数据，格式如右图
+    - 创建一个空的对象
+    - 给对象追加一个 stuId
+    -利用刚才非空判断的循环，采取对象追加属性=值的方式，顺便把表单值 赋值给相应的对象
+    (4)追加给数组
+    (5)放入本地存储里面，记得一定要把数组利用JSON.stringify()存储为字符串
+    (6)渲染页面
+    (7)重置表单
+
+    需求④: 点击删除模块
+    (1)采用事件委托形式，给tbody 注册点击事件
+    (2)点击链接，要删除的是对应数组里面的这个数据，而不是删除dom节点，如何找到这个数据?
+    (3)前面渲染数据的时候，动态给a链接添加自定义属性 data-id=“0”,这样点击当前对象就知道索引号了
+    (4)根据索引号，利用splice 删除这条数据
+    (5)写入本地存储，记得一定要把数组利用JSON.stringify()存储为字符串
+    (6)重新渲染
+
+    需求⑤: 关于stuId 处理的问题
+    (1)最好的做法:新增加序号应该是最后一条数据的序号+1数组[数组的长度-1].stuId +1
+    (2)但是要判断，如果没有数据则是直接赋值为1，否则就采用上面的做法
+
+
+    案例
+    学生就业统计表
+
+    渲染业务
+    根据持久化数据渲染页面
+    核心步骤:
+    ②:根据数据渲染页面。遍历数组，根据数据生成tr，里面填充数据，最后追加给tbody
+    1.渲染业务要封装成一个函数render 渲染函数
+    2.我们使用map方法遍历数组，里面更换数据，然后会返回有数据的tr数组
+    3.通过join 方法把map返回的数组转换为字符串
+    4.把字符串通过innerHTML 赋值给 tbody
+
+    新增业务
+    点击新增按钮，页面显示新的数据
+    核心步骤:
+    ①: 给form注册提交事件，要阻止默认提交事件(阻止默认行为)
+    事件对象.preventDefault() // 阻止默认行为
+    // 阻止默认行为: 链接跳转/收集表单信息
+    ②:非空判断
+    如果年龄、性别、薪资有一个值为空，则return 返回'输入不能为空'中断程序
+    ③:给arr数组追加对象，里面存储表单获取过来的数据，格式如左图:
+    ④:渲染页面和重置表单(reset()方法)
+    ⑤:把数组数据存储到本地存储里面，利用JSON.stringify()存储为JSON字符串
+
+    删除业务
+    点击删除按钮，可以删除对应的数据
+    核心步骤:
+    ①:采用事件委托形式，给tbody 注册点击事件
+    ②:得到当前点击的索引号。渲染数据的时候，动态给a链接添加自定义属性data-id=“0”
+    ③:根据索引号，利用splice 删除数组这条数据
+    ④:重新渲染页面
+    ⑤:把最新 arr 数组存入本地存储
+
+    关于stuId 的处理
+    核心思路:
+    ①:新增加序号应该是最后一条数据的stuId +1
+    数组[数组的长度-1].stuId +1
+    ②:但是要判断，如果没有数据则是直接赋值为1，否则就采用上面的做法
+
+
+
+
+
+    */
+    // 参考数据
+    const initData = [
+      {
+        stuId: 1,
+        uname: '迪丽热巴',
+        age: 22,
+        salary: '12000',
+        gender: '女',
+        city: '北京',
+        time: '2099/9/9 08:08:08'
+      }
+    ]
+    // 把initData数据存到本地存储里面 意味着我们每次打开页面都会重新存储一下'data'数据到本地存储里面去
+    // 我们每次打开页面不需要重新存储 因为一次存储到本地存储里面之后(已经存到浏览器里面了)除非手动删除 不然不变化
+    // 如果后面的数据发生了变化 每次打开页面重新存储会覆盖掉这些数据 所以这行代码执行完一次之后要注释掉
+    // data 是key键名
+    // localStorage.setItem('data', JSON.stringify(initData))
+
+    // 1. 渲染业务
+    // 1.1 先读取本地存储的数据
+    // (1). 本地存储有数据则记得转换为对象然后存储到变量里面，后期用于渲染页面
+    // (2). 如果没有数据(为空null 逻辑判断时转换为假false)，则用 空数组来代替
+    // 数组本质也是对象
+    const arr = JSON.parse(localStorage.getItem('data')) || []
+    console.log(arr)
+    // 1.2 利用map和join方法来渲染页面
+    const tbody = document.querySelector('tbody')
+    // 渲染函数 render
+    function render() {
+      // (1). 利用map遍历数组，返回对应tr的数组
+      const trArr = arr.map(function (ele, index) {
+        return `
+          <tr>
+            <td>${ele.stuId}</td>
+            <td>${ele.uname}</td>
+            <td>${ele.age}</td>
+            <td>${ele.gender}</td>
+            <td>${ele.salary}</td>
+            <td>${ele.city}</td>
+            <td>${ele.time}</td>
+            <td>
+              <a href="javascript:" data-id="${index}">
+                <i class="iconfont icon-shanchu"></i>
+                删除
+              </a>
+            </td>
+          </tr>
+        `
+      })
+
+      console.log(trArr)
+      // (2). 把数组转换为字符串 join
+      // (3). 把生成的字符串追加给tbody
+      // trArr是一个数组 不能把数组追加给tbody 而是要把数组转换成字符串
+      // 小括号里为空字符串'' 则元素之间没有分隔符 就把多个tr转换成一个字符串
+      tbody.innerHTML = trArr.join('')
+      // 显示共计有几条数据
+      document.querySelector('.title span').innerHTML = arr.length
+    }
+    render()
+
+    // 2. 新增业务
+    const info = document.querySelector('.info')
+    const uname = document.querySelector('.uname')
+    const age = document.querySelector('.age')
+    const salary = document.querySelector('.salary')
+    const gender = document.querySelector('.gender')
+    const city = document.querySelector('.city')
+
+    // 2.1 form表单注册提交事件，阻止默认行为
+    // 提交事件默认会进行链接跳转 或者是收集表单信息 这里我们要阻止它的默认提交行为
+    info.addEventListener('submit', function (e) {
+      // 方法加小括号()
+      e.preventDefault()
+      // 2.2 非空判断
+      if (!uname.value || !age.value || !salary.value) {
+        // return会结束函数 终止程序
+        return alert('输入内容不能为空')
+      }
+      // 2.3 给 arr 数组追加对象，里面存储 表单获取过来的数据
+      arr.push({
+        /*
+        关于stuId 的处理
+        核心思路:
+        ①:新增加序号应该是最后一条数据的stuId +1
+        数组[数组的长度-1].stuId +1
+        ②:但是要判断，如果没有数据则是直接赋值为1，否则就采用上面的做法
+        */
+        // 处理 stuId：数组最后一条数据的stuId + 1
+        // arr.length有长度吗? 有长度就有数据就为真 只要有数据就把最后一条数据获取过来 让它的stuId+1 如果没有数据就为假 就直接赋值为1
+        stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
+        uname: uname.value,
+        age: age.value,
+        salary: salary.value,
+        gender: gender.value,
+        city: city.value,
+        time: new Date().toLocaleString()
+        /*
+        div.innerHTML = date.toLocaleString()  // 2022/4/1 09:41:21 得到年月日和时间
+        div.innerHTML = date.toLocaleDateString()  // 2022/4/1 得到年月日
+        div.innerHTML = date.toLocaleTimeString()  // 09:41:21 得到时间
+        */
+      })
+      // 2.4 渲染页面和重置表单（reset()方法）
+      render()
+      // 点击添加渲染完之后 重置清空表单
+      this.reset() // 重置表单
+
+      // 2.5 把得到的arr数组重新存入本地存储里面，记得转换为JSON字符串存储 从而保证data里面存的是最新的数据
+      // 存储:localStorage.setItem('key', value)
+      // 4. 改  如果原来有这个键，则是改，如果没有这个键是增
+
+      // 此处因为我们已经有data这个数据了 再存一个新的data数据 就把以前的覆盖掉了 相当于实现了替换 从而保证data里面存的是最新的数据
+      localStorage.setItem('data', JSON.stringify(arr))
+    })
+
+    // 3. 删除业务
+    // 3.1 采用事件委托形式，给 tbody 注册点击事件
+    tbody.addEventListener('click', function (e) {
+      // 判断是否点击的是删除按钮  A 链接
+      if (e.target.tagName === 'A') {
+        // alert(11)
+        // 3.2 得到当前点击链接的索引号。渲染数据的时候，动态给a链接添加自定义属性例如 data-id="0"
+        console.log(e.target.dataset.id)
+
+        // 确认框 确认是否要真的删除
+        // confirm会返回两个值 true和false
+        // 用户点击确定: 返回true
+        // 用户点击取消: 返回false
+        if (confirm('您确定要删除这条数据吗？')) {
+          // 3.3 根据索引号，利用 splice 删除数组这条数据
+          // e: 事件对象
+          arr.splice(e.target.dataset.id, 1)
+          // 3.4 重新渲染页面 
+          render()
+          // 3.5 把最新 arr 数组存入本地存储 页面刷新时就
+          localStorage.setItem('data', JSON.stringify(arr))
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

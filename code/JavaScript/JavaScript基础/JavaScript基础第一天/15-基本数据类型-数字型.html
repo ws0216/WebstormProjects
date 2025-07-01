@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JS 数据类型整体分为两大类:
+    基本数据类型
+    引用数据类型
+
+    基本数据类型:
+    number 数字型
+    string 字符串型
+    boolean 布尔型
+    undefined 未定义型
+    null 空类型
+
+    引用数据类型:
+    object 对象
+
+
+    4.1数据类型-数字类型(Number)
+    数字可以有很多操作，比如，乘法*、除法/、加法+、减法-等等，所以经常和算术运算符一起。
+    数学运算符也叫算术运算符，主要包括加、减、乘、除、取余(求模)。
+    +:求和
+    -:求差
+    *:求积
+    /:求商
+    %:取模(取余数)
+      开发中经常作为某个数字是否被整除
+
+    目标:能说出JavaScript算术运算符执行的优先级顺序
+    同时使用多个运算符编写程序时，会按着某种顺序先后执行，我们称为优先级。
+    JavaScript中优先级越高越先被执行，优先级相同时以书从左向右执行。
+    乘、除、取余优先级相同
+    加、减优先级相同
+    乘、除、取余优先级大于加、减
+    使用()可以提升优先级
+    总结:先乘除后加减，有括号先算括号里面的~~~
+
+    NaN: Not a Number 表未知结果
+    NaN 代表一个计算错误。它是一个不正确的或者一个未定义的数学操作所得到的结果
+    console.log('老师’- 2) // NaN
+    NaN 是粘性的。任何对NaN的操作都会返回 NaN
+    console.log(NaN + 2) // NaN
+
+
+    */
+
+    // js 弱数据类型的语言 只有当我们赋值了，才知道是什么数据类型
+    // let num = 'pink'
+    // let num = 10.11
+    // console.log(num)
+    console.log(1 + 1)
+    console.log(1 * 1)
+    console.log(1 / 1)
+    console.log(4 % 2) // 求余数 0
+    console.log(5 % 3) // 求余数  2 
+    console.log(3 % 5) // 求余数  3 
+    // java 强数据类型的语言    int num = 10  必须是整数
+
+    // NaN 表未知结果 计算出来还是NaN
+    console.log('pink老师' - 2)
+    console.log(NaN - 2)
+    console.log(NaN + 2)
+    console.log(NaN / 2)
+    // NaN 是粘性的。任何对NaN的操作都会返回 NaN
+    console.log(NaN === NaN)  //false
+  </script>
+</body>
+
+</html>

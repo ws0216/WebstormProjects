@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <input type="text" value="电脑"> -->
+  <!-- <input type="checkbox" name="" id="" checked>-->
+  <!-- 如果属性和属性值相同,则只写一个简写就行了,checked -->
+  <input type="checkbox" name="" id="">
+  <button>点击</button>
+  <script>
+    /*
+    4.3 操作表单元素属性
+    表单很多情况，也需要修改属性，比如点击眼睛，可以看到密码，本质是把表单类型转换为文本框
+    正常的有属性有取值的跟其他的标签属性没有任何区别
+    获取:DOM对象.属性名
+    设置:DOM对象.属性名=新值
+    表单.value = '用户名'
+    // value 设置文字
+    // placeholder 是默认的
+    // 设置表单类型
+    表单.type = 'password'
+
+    // const uname = document.querySelector('input') // 获取input标签
+    // 获取表单里面的值 用的  表单.value
+    // innerHTML 得不到表单的内容
+    // 3. 设置表单的值
+    // uname.value = '我要买电脑'
+    // 设置表单的类型
+    // uname.type = 'password'
+
+    表单属性中添加就有效果,移除就没有效果,一律使用布尔值表示
+    如果为 true 代表添加了该属性, 如果是 false 代表移除了该属性
+    比如:disabled、checked、selected
+    // 1. 获取
+    const ipt = document.querySelector('input')
+    // console.log(ipt.checked)  // 默认false?  只接受布尔值
+    ipt.checked = true
+    // ipt.checked = 'true'  // 会选中，不提倡  有隐式转换 因为checked只能接受布尔值类型的值 会发生隐式转换的
+    // 字符串只有一种情况会转换成 false 就是空字符串
+    // 除了空字符串 其余全部会隐式转换为 true
+
+    // 1.获取
+    const button = document.querySelector('button')
+    // console.log(button.disabled)  // 默认false 不禁用
+    button.disabled = true   // 禁用按钮
+
+    <!-- <input type="text" value="电脑"> -->
+    <!-- <input type="checkbox" name="" id="" checked>--> 等同于下
+    <!-- <input type="checkbox" name="" id="" checked=checked>-->
+    <!-- 如果属性和属性值相同,则只写一个简写就行了,checked -->
+
+
+    */
+
+    // 1. 获取元素
+    // const uname = document.querySelector('input') // 获取input标签
+    // 2. 获取值  获取表单里面的值 用的  表单.value
+    // console.log(uname.value) // 电脑
+    // console.log(uname.innerHTML)  innertHTML 得不到表单的内容
+    // 3. 设置表单的值
+    // uname.value = '我要买电脑'
+    // console.log(uname.type)
+    // uname.type = 'password'
+
+    // 1. 获取
+    const ipt = document.querySelector('input')
+    // console.log(ipt.checked)  // 默认是false   只接受布尔值
+    ipt.checked = true
+    // ipt.checked = 'true'  // 会选中，不提倡  有隐式转换
+
+    // 1.获取
+    const button = document.querySelector('button')
+    // console.log(button.disabled)  // 默认是false 不禁用
+    button.disabled = true   // 禁用按钮
+
+  </script>
+</body>
+
+</html>

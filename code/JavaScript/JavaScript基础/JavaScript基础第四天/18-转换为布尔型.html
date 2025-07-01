@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    2.转换为Boolean型
+    显示转换:
+    1.Boolean(内容)
+    记忆:''、0、undefined、null、false、NaN 转换为布尔值后都是false,其余则为true
+
+    // if里面的条件判断只能是布尔值,如果不是布尔值会发生隐式转换为布尔型
+
+    console.log(false && 20) // false
+    console.log(5 < 3 && 20) // false
+
+    // 因为 undefined 只是在进行逻辑运算的时候当做假false来看 返回还是返回 undefined
+    console.log(undefined && 20) // undefined
+
+    // 因为 null 只是在进行逻辑运算的时候当做假false来看 返回还是返回 null
+    console.log(null && 20) // null
+
+    console.log(0 && 20) // 0
+    console.log(10 && 20) // 20
+
+    console.log(false || 20) // 20
+    console.log(5 < 3 || 20) // 20
+    console.log(undefined || 20) // 20
+    console.log(null || 20) // 20
+    console.log(0 || 20) // 20
+    console.log(10 || 20) // 10
+
+
+
+    */
+    console.log(Boolean('pink'))
+    console.log(Boolean(''))
+    console.log(Boolean(0))
+    console.log(Boolean(90))
+    console.log(Boolean(-1))
+    console.log(Boolean(undefined))
+    console.log(Boolean(null))
+    console.log(Boolean(NaN))
+
+    console.log('--------------------------')
+    let age
+    // if里面的条件判断只能是布尔值,如果不是布尔值会发生隐式转换为布尔型
+    if (age) {
+      console.log(11)
+    }
+  </script>
+</body>
+
+</html>
