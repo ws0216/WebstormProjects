@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    JavaScript书写位置
+    行内JavaScript
+    内部javaScript
+    外部javaScript
+-->
+
+<!-- var let const 区别: -->
+<!-- var -->
+<script>
+    /*
+    var声明变量的时候存在变量提升
+    var声明变量可以同名 后者会覆盖前者 赋值
+    var声明函数时 也存在变量提升 提升函数名 且值为undefined
+
+    */
+
+    console.log(a); //undefined
+    var a
+    var a = 10
+    console.log(a); //10
+
+    /*
+    函数提升
+    函数在声明之前即可被调用
+
+    会把所有函数声明提升到当前作用域的最前面
+    只提升函数声明，不提升函数调用
+    函数表达式 必须先声明和赋值， 后调用 否则 报错
+    var声明函数时 也存在变量提升 提升函数名 且值为undefined
+
+    var声明的变量没有块级作用域 即在{}里面声明的变量在{}外面可以访问
+
+
+    */
+    var fun = function () {
+        console.log(11)
+    }
+    fun() //11
+
+    test() //test
+    function test() {
+        console.log('test')
+    }
+
+    if(true) {
+        var x = 100
+    }
+    console.log(x); //100
+
+
+</script>
+<!-- let -->
+<script>
+    /*
+    let声明变量在相同作用域内不可以同名 否则会直接报错
+
+    let声明变量不存在变量提升
+
+    let声明的变量存在块级作用域 只在{}内
+
+
+    */
+
+    let a1 = 10
+    // let a = 10
+    console.log(a1); //10
+
+    // console.log(b1); //报错
+    let b1 = 100
+
+    if(true) {
+        let x1 = 100
+    }
+    // console.log(x1); // 报错 x1未定义 因为let声明的变量存在块级作用域
+
+
+</script>
+<!-- const -->
+<script>
+    /*
+    const声明变量必须要有初始值 否则报错
+
+    const在声明基本数据类型(Number,String,Boolean,undefined,null)的时候不能进行重新赋值
+
+    const声明的对象不能进行重新赋值 但是可以通过对象.属性 = ?  改属性值
+
+    */
+
+    // const a2
+    // console.log(a2) //报错 const声明变量必须要有初始值
+
+    // const a3 = 100
+    // a3 = 1000 //报错 const在声明基本数据类型(Number,String,Boolean,undefined,null)的时候不能进行重新赋值
+
+    const obj = {
+        name:'pink',
+        age:20
+    }
+    obj.name = 'ww'
+    console.log(obj)
+    // obj = {
+    // } //报错
+
+</script>
+
+
+
+
+
+</body>
+</html>
