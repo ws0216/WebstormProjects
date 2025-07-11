@@ -90,10 +90,9 @@
     /*
     遍历数组的方法有哪些？
     1）for循环(for i)
-    2）for…in
-    3）for…of
-    4）forEach
-    for in 和 for of 都可以循环数组，for in 输出的是数组的索引，而for of 输出的是数组的每一项的值
+    2）for…in    遍历对象 输出每一个属性
+    3）for…of    遍历对象 输出每一个属性对应的值
+    4）forEach   遍历数组 对每个元素执行一次给定的函数
 
     forEach(callbackFn[,thisArg])
     callbackFn: 为数组中每个元素执行的函数。并会丢弃它的返回值。该函数被调用时将传入以下参数：
@@ -106,7 +105,7 @@
 
     2.map(function (value,index) {})      处理数组  返回新数组
 
-    3.filter(function (value,index) {})   过滤数组  返回新数组 挑选数组中符合条件的并返回符合要求的数组
+    3.filter(function (value,index) {})   过滤数组  返回符合条件的元素组成的新数组
 
     4.reduce(function (prev,current){}, 起始值)   返回累计处理的结果 经常用于求和等
 
@@ -114,7 +113,7 @@
 
     6.some(function (value,index) {})     检测数组中 是否有元素 符合要求 返回布尔值
 
-    7.find(function (value,index) {})     查找数组中符合条件的第一个数组元素并返回 没有则返回undefined
+    7.find(function (value,index) {})     查找数组中符合条件的 第一个数组元素并返回 没有则返回undefined
 
     伪数组转换为真数组: 静态方法Array.from()
 
