@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- js基本数据类型与引用数据类型及区分 -->
+<script>
+    /*
+    基本数据类型存储在栈中
+    引用类型的对象存储于堆中
+
+    基本数据类型: number string boolean undefined null symbol ; (ES6 引入) bigint (ES11 引入)
+    引用数据类型: object
+    object: 对象类型，包括普通对象、数组、函数、RegExp、Date ; array function (都属于object 面试不回答)
+
+    判断方法
+    typeof: 可以判断number string boolean undefined  但不能判断null object array
+    instanceof: 只能正确判断引用数据类型，而不能判断基本数据类型 （返回的是布尔值）
+    Object.prototype.toString.call ( obj ): 使用 Object 对象的原型方法 toString 来判断数据类型 可以判断所有的数据类型
+    includes: 用于字符串判断是否含有指定的字符串
+    Array.isArray(): 用于判断给定的参数是否是数组 返回true或false
+
+
+
+    */
+    console.log(typeof 10)
+    console.log(typeof 'pink')
+    console.log(typeof true)
+    console.log(typeof undefined)
+
+    console.log(typeof null) //object
+    console.log(typeof {}) //object
+    console.log(typeof []) //object
+
+
+    console.log(2 instanceof Number);                    // false
+    console.log([] instanceof Array);                    // true
+    console.log(function(){} instanceof Function);       // true
+    console.log({} instanceof Object);                   // true
+
+
+    let a = Object.prototype.toString;
+    console.log(a.call(2));             // [object Number]
+    console.log(a.call(true));          // [object Boolean]
+    console.log(a.call('str'));         // [object String]
+    console.log(a.call([]))             // [object Array]
+    console.log(a.call(function(){}));  // [object Function]
+    console.log(a.call({}));            // [object Object]
+    console.log(a.call(undefined));     // [object Undefined]
+    console.log(a.call(null));          // [object Null]
+
+    function convertType(str) {
+        if(str.includes('Number')) {
+            return 'Number'
+        }
+        if(str.includes('Boolean')) {
+            return 'Boolean'
+        }
+        if(str.includes('String')) {
+            return 'String'
+        }
+        if(str.includes('Array')) {
+            return 'Array'
+        }
+    }
+    console.log( convertType(a.call(2))) //Number
+
+    let arr = [1,2,3]
+    console.log(Array.isArray(arr)); //true
+
+
+</script>
+
+</body>
+</html>

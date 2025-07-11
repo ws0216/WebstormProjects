@@ -28,7 +28,8 @@
 
     现在有新的方法了~~~~
     // 重点是前两个方法
-    作用:Object.keys 静态方法获取对象中所有属性(键)
+
+    1.Object.keys(obj) 静态方法获取对象中所有属性(键)
     参数是你要操作的对象
     语法:
     const o = { name:'佩奇',age:6 }
@@ -38,16 +39,17 @@
     OR(9LL)
     注意:返回的是一个数组
 
-    作用:Object.values 静态方法获取对象中所有属性值
+    2.Object.values(obj) 静态方法获取对象中所有属性值
     参数是你要操作的对象
     语法:
-    const o ={ name:'佩奇'，age:6}
+    const o = { name:'佩奇'，age:6}
     // 获得对象的所有值，并且返回是一个数组
     const arr = Object.values(o)
     console.log(arr) // ['佩奇'，6]
     注意:返回的是一个数组
 
-    作用:Object.assign静态方法常用于对象拷贝
+    3.Object.assign(obj1,obj2) 静态方法常用于对象拷贝
+    assign: 分配 指派 选派
     两个参数 把后面的拷贝给前面 相当于赋值
     语法:
     // 拷贝对象 把 o 拷贝给 obj

@@ -95,6 +95,7 @@
     Modal.prototype.open = function () {
       if (!document.querySelector('.modal')) {
         // 把刚才创建的盒子 modalBox  渲染到 页面中  父元素.appendChild(子元素)
+        // 构造函数和原型对象里面的this都指向当前的实例对象
         document.body.appendChild(this.modalBox)
         // 获取 x  调用关闭方法
         this.modalBox.querySelector('i').addEventListener('click', () => {

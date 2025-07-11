@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- JavaScript 中如何进行数据类型的转换？ -->
+<script>
+    /*
+    数字型和字符串之间的相互转换
+    数字转字符串: a + '' , String(a) , `${a}`
+    字符串转数字: +b , b*1 , Number(b)
+
+    1. 隐式类型转换: 在某些操作时会自动将不同类型的值转换成适当的类型
+    数字转换: 空字符串""转为0 true转为1 false转为0 undefined转为NaN null转为0 例"123"转为123 (例如数学运算中)
+    NaN也是number类型的数据，代表非数字   NaN = undefined + 任何 //计算错误的未知结果
+
+    字符串转换: 当需要将一个值转换为字符串时: 值 + '' ; +号作为正号解析可以把字符型转换成数字型
+
+    布尔值转换: 将值转换为true或false (条件判断在中)
+
+    被转换为 false: undefined null false 0 NaN 空字符串"" , 其他所有值都会被转换为 true
+
+    2. 显式类型转换: 方法 String()、Number()、Boolean()
+    数字转换 Number() 函数: 空字符串""转为0 true转为1 false转为0 undefined转为NaN null转为0 例"123"转为123 "123abc"转为NaN(无法转换)
+
+    字符串转换 String() 函数:
+
+    布尔值转换 Boolean() 函数:
+    假值（undefined、null、false、0、NaN 和空字符串 ""）会转换为 false  其他都转为true
+
+
+    null 和 undefined 的区别
+    ==在进行比较时会进行类型转换，null和undefined被视为相同的值
+    ===在进行比较时不会进行类型转换，null和undefined被视为不同的值
+    undefined == null   返回 true
+    undefined === null   返回 false
+
+    “ === ”、“ == ” 的区别
+    ===:全等
+    ==:
+    '123'===123 //false
+    '123'==123 //true
+
+
+
+
+
+
+
+
+
+
+    */
+
+    let a = 100
+    console.log(a + '') // '100'
+    console.log(String(a)) // '100'
+    console.log(typeof `${a}`) // '100'
+
+    let b = '123'
+    console.log(+b) // 123
+    console.log(b*1) // 123
+    console.log(Number(b)) // 123
+
+    console.log('1'-1) //0
+    console.log("5" - 1);      // 4，字符串 "5" 转换为数字
+    console.log("5" * 2);      // 10，字符串 "5" 转换为数字
+    console.log(true + 1);     // 2，布尔值 true 转换为数字 1
+    console.log(null + 1);     // 1，null 转换为数字 0
+    console.log(undefined + 1); // NaN，undefined 转换为 NaN
+
+    console.log(123 + "");     // "123"，数字转换为字符串
+    console.log(true + "");    // "true"，布尔值转换为字符串
+    console.log(null + "");    // "null"，null 转换为字符串
+
+    if ("hello") {  // 非空字符串会转换为 true
+        console.log("This is true!");
+    }
+    if (0) {  // 数字 0 会转换为 false
+        console.log("This won't be logged.");
+    }
+
+    console.log(Number(''))          // 0 空字符串转为0
+    console.log(Number("123"));      // 123，字符串转数字
+    console.log(Number("123abc"));   // NaN，无法转换的字符串转为 NaN
+    console.log(Number(true));       // 1，布尔值 true 转换为 1
+    console.log(Number(null));       // 0，null 转换为 0
+    console.log(Number(undefined));  // NaN，undefined 转换为 NaN
+
+    console.log(String(666))      // "666"
+    console.log(String(123));     // "123"，数字转字符串
+    console.log(String(true));    // "true"，布尔值转字符串
+    console.log(String(null));    // "null"，null 转字符串
+    console.log(String(undefined)); // "undefined"，undefined 转字符串
+
+    console.log(Boolean(1));       // true，1 是真值
+    console.log(Boolean(0));       // false，0 是假值
+    console.log(Boolean("hello")); // true，非空字符串是真值
+    console.log(Boolean(""));      // false，空字符串是假值
+    console.log(Boolean(null));    // false，null 是假值
+    console.log(Boolean([]));      // true，空数组是对象，转换为真值
+    console.log(Boolean({}));      // true
+
+    let input = "123";
+    console.log(Number(input));  // 将字符串 "123" 转换为数字 123
+
+    let userInput = "0"; // 字符串 "0" 被认为是 "true"
+    if (Boolean(userInput)) {
+        console.log("This will log.");
+    }
+
+    let price = 19.99;
+    console.log(String(price));  // "19.99"
+
+    console.log(undefined==null) //true
+    console.log(undefined===null) //false
+    console.log(undefined==0) //false
+    console.log(undefined==false) //false
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
